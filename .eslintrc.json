@@ -8,30 +8,12 @@
         "SwitchCase": 1
       }
     ],
-    "linebreak-style": [
-      "error",
-      "windows"
-    ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
-    "arrow-body-style": [
-      "error",
-      "always"
-    ],
-    "spaced-comment": [
-      "error",
-      "always"
-    ],
-    "array-bracket-spacing": [
-      "error",
-      "never"
-    ],
+    "linebreak-style": ["error", "windows"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "arrow-body-style": ["error", "always"],
+    "spaced-comment": ["error", "always"],
+    "array-bracket-spacing": ["error", "never"],
     "comma-dangle": [
       "error",
       {
@@ -49,10 +31,7 @@
         "after": true
       }
     ],
-    "jsx-quotes": [
-      "error",
-      "prefer-single"
-    ],
+    "jsx-quotes": ["error", "prefer-single"],
     "key-spacing": [
       "error",
       {
@@ -73,10 +52,7 @@
         "position": "above"
       }
     ],
-    "space-in-parens": [
-      "error",
-      "never"
-    ],
+    "space-in-parens": ["error", "never"],
     "camelcase": "error",
     "default-case": "error",
     "default-case-last": "error",
