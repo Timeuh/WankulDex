@@ -3,7 +3,7 @@ import type {Config} from 'tailwindcss';
 const config: Config = {
   content: [
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
     extend: {
@@ -17,10 +17,10 @@ const config: Config = {
         'dark-purple': '#301934',
         'dark-silver': '#ECECEC',
         bronze: '#E5A770',
-        gold: '#FFD231',
-      },
-    },
+        gold: '#FFD231'
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 };
 export default config;
