@@ -15,14 +15,7 @@
     "spaced-comment": ["error", "always"],
     "array-bracket-spacing": ["error", "never"],
     "comma-dangle": [
-      "error",
-      {
-        "arrays": "always",
-        "objects": "always",
-        "imports": "never",
-        "exports": "never",
-        "functions": "never"
-      }
+      "error", "never"
     ],
     "comma-spacing": [
       "error",
