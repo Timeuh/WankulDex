@@ -7,7 +7,7 @@ const nunito = Nunito({subsets: ['latin']});
 
 export const metadata: Metadata = {
   title: 'WankulDex',
-  description: 'Un site pour consulter vos cartes Wankul',
+  description: 'Un site pour consulter vos cartes Wankul'
 };
 
 export default function RootLayout({children}: {children: ReactNode}) {
