@@ -34,7 +34,7 @@
     ],
     "comma-dangle": [
       "error",
-      "never"
+      "always"
     ],
     "comma-spacing": [
       "error",
@@ -91,6 +91,6 @@
     "brace-style": "error",
     "no-whitespace-before-property": "error",
     "switch-colon-spacing": "error",
-    "no-case-declarations": "off"
+    "no-case-declarations": "off",
   }
 }
