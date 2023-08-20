@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import LightContainer from '@components/LightContainer';
 import Link from 'next/link';
+import Filter from '@components/(home)/Filter';
+import SearchBar from '@components/(home)/SearchBar';
 
 export default function Home() {
   return (
-    <main>
+    <main className={'overflow-hidden'}>
       <section
         id={'landing'}
         className={
@@ -46,6 +48,33 @@ export default function Home() {
           </LightContainer>
         </div>
         <Image src={'/img/home/down-light.png'} alt={'go down'} width={125} height={400} className={'pt-8 xl:pt-0'} />
+      </section>
+      <section
+        id={'cards-display'}
+        className={
+          'flex h-screen w-full flex-col items-center space-y-8 bg-gradient-to-b from-light-blue to-light-purple'
+        }
+      >
+        <div className={'flex w-5/6 flex-row items-center justify-between'}>
+          <Filter />
+          <SearchBar />
+        </div>
+        <section id={'field cards'} className={'w-[83%]'}>
+          <LightContainer height={'h-12'} width={'w-full'} hover={false}>
+            <div className={'flex h-full w-full flex-row items-center justify-center space-x-2'}>
+              <Image src={'/img/home/type-dark.png'} alt={'terrain'} width={28} height={28} />
+              <h1 className={'text-3xl text-dark'}>Terrains</h1>
+            </div>
+          </LightContainer>
+        </section>
+        <section id={'character cards'} className={'w-[83%]'}>
+          <LightContainer height={'h-12'} width={'w-full'} hover={false}>
+            <div className={'flex h-full w-full flex-row items-center justify-center space-x-2'}>
+              <Image src={'/img/home/wankul-dark.png'} alt={'terrain'} width={28} height={28} />
+              <h1 className={'text-3xl text-dark'}>Personnages</h1>
+            </div>
+          </LightContainer>
+        </section>
       </section>
     </main>
   );
