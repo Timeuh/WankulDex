@@ -39,8 +39,10 @@ export default function Home() {
           <h2 className={'absolute top-0 w-full bg-dark py-2 font-bold text-yellow-400'}>⚠️ ATTENTION !</h2>
           <p>Ce site n&apos;est en aucun cas affilié aux cartes Wankul !</p>
           <p>Pour consulter le site officiel :</p>
-          <LightContainer width={'w-1/2'} height={'h-12'}>
-            <Link href={'https://wankul.fr/'}>Wankul.fr</Link>
+          <LightContainer width={'w-1/2'} height={'h-12'} hover={true}>
+            <Link href={'https://wankul.fr/'} className={'h-full w-full py-1'}>
+              Wankul.fr
+            </Link>
           </LightContainer>
         </div>
         <Image src={'/img/home/down-light.png'} alt={'go down'} width={125} height={400} className={'pt-8 xl:pt-0'} />
