@@ -4,3 +4,19 @@
 
 @layer components {
 }
+
+.container-background {
+    --x: 0;
+    --rx: 0;
+    --y: 0;
+    background:
+            conic-gradient(
+                    from calc(var(--rx, 0) * 180deg) at
+                    calc(var(--x, 0) * 100%) calc(var(--y, 0) * 100%),
+                    hsl(10 90% 70%),
+                    hsl(140 80% 70%),
+                    hsl(320 80% 70%),
+                    hsl(210 80% 70%),
+                    hsl(10 80% 70%)
+            );
+}
