@@ -29,8 +29,8 @@ export default function LightContainer({children, width, height, hover}: Props) 
   return (
     <button
       className={`${
-        hover ? 'container-background hover:border-opacity-30' : 'cursor-default'
-      } rounded-lg border-2 border-[#CCCCCCFF] ${width} ${height} group flex flex-col items-center justify-center`}
+        hover ? 'container-background hover:border-light hover:border-opacity-50' : 'cursor-default'
+      } rounded-lg border-2 border-[#CCCCCCFF] ${width} ${height} group box-border flex flex-col items-center justify-center`}
       onMouseMove={handleMove}
       ref={containerRef}
     >
