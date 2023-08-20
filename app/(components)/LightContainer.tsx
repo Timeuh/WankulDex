@@ -7,9 +7,10 @@ type Props = {
   width: string;
   height: string;
   hover: boolean;
+  onClick?: () => void;
 };
 
-export default function LightContainer({children, width, height, hover}: Props) {
+export default function LightContainer({children, width, height, hover, onClick}: Props) {
   const containerRef = useRef<HTMLButtonElement>(null);
 
   const handleMove = (event: {clientX: number; clientY: number}) => {
@@ -33,6 +34,7 @@ export default function LightContainer({children, width, height, hover}: Props) 
       } rounded-lg border-2 border-[#CCCCCCFF] ${width} ${height} group box-border flex flex-col items-center justify-center`}
       onMouseMove={handleMove}
       ref={containerRef}
+      onClick={onClick}
     >
       <div
         className={`flex h-full w-full flex-col items-center justify-center rounded-md bg-light transition
