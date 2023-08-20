@@ -29,8 +29,8 @@ export default function LightContainer({children, width, height}: Props) {
       ref={containerRef}
     >
       <div
-        className={`flex h-full w-full flex-col items-center justify-center rounded-md bg-light group-hover:bg-opacity-80
-           group-hover:backdrop-blur-sm`}
+        className={`flex h-full w-full flex-col items-center justify-center rounded-md bg-light transition
+           group-hover:bg-opacity-80 group-hover:backdrop-blur-lg`}
       >
         {children}
       </div>
