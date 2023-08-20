@@ -6,11 +6,11 @@ import SearchBar from '@components/(home)/SearchBar';
 
 export default function Home() {
   return (
-    <main className={'overflow-hidden'}>
+    <main>
       <section
         id={'landing'}
         className={
-          'flex h-screen w-full flex-col items-center space-y-4 bg-gradient-to-b from-light-purple to-light-blue xl:space-y-8'
+          'flex h-screen w-full flex-col items-center space-y-4 overflow-hidden bg-gradient-to-b from-light-purple to-light-blue xl:space-y-8'
         }
       >
         <Image
@@ -52,23 +52,23 @@ export default function Home() {
       <section
         id={'cards-display'}
         className={
-          'flex h-screen w-full flex-col items-center space-y-8 bg-gradient-to-b from-light-blue to-light-purple'
+          'flex h-screen w-full flex-col items-center space-y-8 overflow-hidden bg-gradient-to-b from-light-blue to-light-purple'
         }
       >
-        <div className={'flex w-5/6 flex-row items-center justify-between'}>
+        <div className={'flex w-5/6 flex-row items-center justify-between xl:w-1/2'}>
           <Filter />
           <SearchBar />
         </div>
-        <section id={'field cards'} className={'w-[83%]'}>
-          <LightContainer height={'h-12'} width={'w-full'} hover={false}>
+        <section id={'field cards'} className={'flex w-[83%] flex-col items-center xl:w-full'}>
+          <LightContainer height={'h-12'} width={'w-full xl:w-1/3'} hover={false}>
             <div className={'flex h-full w-full flex-row items-center justify-center space-x-2'}>
               <Image src={'/img/home/type-dark.png'} alt={'terrain'} width={28} height={28} />
               <h1 className={'text-3xl text-dark'}>Terrains</h1>
             </div>
           </LightContainer>
         </section>
-        <section id={'character cards'} className={'w-[83%]'}>
-          <LightContainer height={'h-12'} width={'w-full'} hover={false}>
+        <section id={'character cards'} className={'flex w-[83%] flex-col items-center xl:w-full'}>
+          <LightContainer height={'h-12'} width={'w-full xl:w-1/3'} hover={false}>
             <div className={'flex h-full w-full flex-row items-center justify-center space-x-2'}>
               <Image src={'/img/home/wankul-dark.png'} alt={'terrain'} width={28} height={28} />
               <h1 className={'text-3xl text-dark'}>Personnages</h1>

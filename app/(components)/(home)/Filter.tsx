@@ -17,7 +17,7 @@ export default function Filter() {
         <Image src={'/img/home/filter-light.png'} alt={'filter'} width={24} height={24} />
       </LightContainer>
       <div
-        className={`absolute top-16 z-10 w-[83vw] transform duration-300 ${
+        className={`absolute top-16 z-10 w-[83vw] transform duration-300 xl:w-[49.5vw] ${
           isActive ? 'h-[50vh] opacity-100' : 'h-0 opacity-0'
         }`}
       >
