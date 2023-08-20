@@ -6,12 +6,17 @@ type Props = {
   children: ReactNode;
   width: string;
   height: string;
+  hover: boolean;
 };
 
-export default function LightContainer({children, width, height}: Props) {
+export default function LightContainer({children, width, height, hover}: Props) {
   const containerRef = useRef<HTMLButtonElement>(null);
 
   const handleMove = (event: {clientX: number; clientY: number}) => {
+    if (!hover) {
+      return;
+    }
+
     const mouseX = event.clientX;
     const mouseY = event.clientY;
     const bounds = containerRef.current!.getBoundingClientRect();
@@ -23,14 +28,15 @@ export default function LightContainer({children, width, height}: Props) {
 
   return (
     <button
-      className={`container-background rounded-lg border-2 border-[#CCCCCCFF] ${width} ${height} group flex flex-col 
-      items-center justify-center hover:border-opacity-30`}
+      className={`${
+        hover ? 'container-background hover:border-opacity-30' : 'cursor-default'
+      } rounded-lg border-2 border-[#CCCCCCFF] ${width} ${height} group flex flex-col items-center justify-center`}
       onMouseMove={handleMove}
       ref={containerRef}
     >
       <div
         className={`flex h-full w-full flex-col items-center justify-center rounded-md bg-light transition
-           group-hover:bg-opacity-80 group-hover:backdrop-blur-lg`}
+           ${hover ? 'group-hover:bg-opacity-80 group-hover:backdrop-blur-lg' : ''}`}
       >
         {children}
       </div>
