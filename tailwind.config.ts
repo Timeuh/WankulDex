@@ -1,10 +1,7 @@
 import type {Config} from 'tailwindcss';
 
 const config: Config = {
-  content: [
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}'
-  ],
+  content: ['./components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       colors: {
@@ -17,7 +14,9 @@ const config: Config = {
         'dark-purple': '#301934',
         'dark-silver': '#ECECEC',
         bronze: '#E5A770',
-        gold: '#FFD231'
+        gold: '#FFD231',
+        'wankil-purple': '#51337B',
+        'wankil-blue': '#1C5E8E'
       }
     }
   },
