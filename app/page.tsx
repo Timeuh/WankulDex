@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import LightContainer from '@components/LightContainer';
 import Link from 'next/link';
-import Filter from '@components/(home)/Filter';
-import SearchBar from '@components/(home)/SearchBar';
+import Filter from '@components/home/Filter';
+import SearchBar from '@components/home/SearchBar';
 
 export default function Home() {
   return (
