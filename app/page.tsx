@@ -6,17 +6,18 @@ import Link from 'next/link';
 import Filter from '@components/home/Filter';
 import SearchBar from '@components/home/SearchBar';
 import useCards from '@/app/_hooks/useCards';
+import useCardsTypes from '@/app/_hooks/useCardsTypes';
 
 export default function Home() {
   const {cards, setCards} = useCards();
+  const {fieldCards, characterCards} = useCardsTypes(cards);
 
   return (
     <main>
       <section
         id={'landing'}
-        className={
-          'flex h-screen w-full flex-col items-center space-y-4 overflow-hidden bg-gradient-to-b from-light-purple to-light-blue xl:space-y-8'
-        }
+        className={`flex h-screen w-full flex-col items-center space-y-4 overflow-hidden bg-gradient-to-b
+         from-light-purple to-light-blue xl:space-y-8`}
       >
         <Image
           src='/img/home/wankul-logo-light.png'
