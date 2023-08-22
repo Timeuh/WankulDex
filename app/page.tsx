@@ -1,10 +1,15 @@
+'use client';
+
 import Image from 'next/image';
 import LightContainer from '@components/LightContainer';
 import Link from 'next/link';
 import Filter from '@components/home/Filter';
 import SearchBar from '@components/home/SearchBar';
+import useCards from '@/app/_hooks/useCards';
 
 export default function Home() {
+  const {cards, setCards} = useCards();
+
   return (
     <main>
       <section
