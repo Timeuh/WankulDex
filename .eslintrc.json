@@ -46,7 +46,6 @@
       }
     ],
     "space-in-parens": ["error", "never"],
-    "camelcase": "error",
     "default-case": "error",
     "default-case-last": "error",
     "eqeqeq": "error",
