@@ -38,6 +38,6 @@ export type Card = {
 
 export type Cards = {
   cards: Array<Card>;
-  length: number,
-  type: string
+  length: number;
+  type: string;
 };
