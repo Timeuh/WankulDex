@@ -6,8 +6,8 @@ export default z.object({
     name: z.string(),
   }),
   links: z.object({
-    all: z.string(),
-    image: z.string(),
     self: z.string(),
+    all: z.string(),
+    cards: z.string(),
   }),
 });
