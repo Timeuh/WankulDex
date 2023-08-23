@@ -59,7 +59,7 @@ export default function Home() {
       <section
         id={'cards-display'}
         className={
-          'flex h-screen w-full flex-col items-center space-y-8 overflow-hidden bg-gradient-to-b from-light-blue to-light-purple'
+          'flex h-full w-full flex-col items-center space-y-8 overflow-hidden bg-gradient-to-b from-light-blue to-light-purple'
         }
       >
         <div className={'flex w-5/6 flex-row items-center justify-between xl:w-1/2'}>
@@ -73,11 +73,13 @@ export default function Home() {
               <h1 className={'text-3xl text-dark'}>Terrains</h1>
             </div>
           </LightContainer>
-          {cards.map((card: Card) => {
-            if (card.card.type.name === CARD_TYPE_FIELD) {
-              return <FieldCard key={card.card.id} card={card} />;
-            }
-          })}
+          <div className={'flex grid-cols-3 flex-col items-center xl:grid xl:gap-6'}>
+            {cards.map((card: Card) => {
+              if (card.card.type.name === CARD_TYPE_FIELD) {
+                return <FieldCard key={card.card.id} card={card} />;
+              }
+            })}
+          </div>
         </section>
         <section id={'character cards'} className={'flex w-[83%] flex-col items-center xl:w-full'}>
           <LightContainer height={'h-12'} width={'w-full xl:w-1/3'} hover={false}>
