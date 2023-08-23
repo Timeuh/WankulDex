@@ -41,3 +41,75 @@ export type Cards = {
   length: number;
   type: string;
 };
+
+export type Artist = {
+  artist: {
+    id: number;
+    name: string;
+  };
+  links: {
+    self: string;
+    all: string;
+    cards: string;
+  };
+};
+
+export type Artists = {
+  artists: Array<Artist>;
+  length: number;
+  type: string;
+};
+
+export type Character = {
+  character: {
+    id: number;
+    name: string;
+  };
+  links: {
+    self: string;
+    all: string;
+    cards: string;
+  };
+};
+
+export type Characters = {
+  characters: Array<Character>;
+  length: number;
+  type: string;
+};
+
+export type Rarity = {
+  rarity: {
+    id: number;
+    name: string;
+  };
+  links: {
+    self: string;
+    all: string;
+    cards: string;
+  };
+};
+
+export type Rarities = {
+  rarities: Array<Rarity>;
+  length: number;
+  type: string;
+};
+
+export type Type = {
+  type: {
+    id: number;
+    name: string;
+  };
+  links: {
+    self: string;
+    all: string;
+    cards: string;
+  };
+};
+
+export type Types = {
+  types: Array<Type>;
+  length: number;
+  type: string;
+};
