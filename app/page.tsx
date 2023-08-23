@@ -9,6 +9,7 @@ import useCards from '@/app/_hooks/useCards';
 import {Card} from '@/app/_utils/appTypes';
 import FieldCard from '@components/FieldCard';
 import {CARD_TYPE_FIELD} from '@/app/_utils/appConsts';
+import CharacterCard from '@components/CharacterCard';
 
 export default function Home() {
   const {cards, setCards} = useCards();
@@ -88,6 +89,13 @@ export default function Home() {
               <h1 className={'text-3xl text-dark'}>Personnages</h1>
             </div>
           </LightContainer>
+          <div className={'flex grid-cols-4 flex-col items-center xl:grid xl:gap-8'}>
+            {cards.map((card: Card) => {
+              if (card.card.type.name !== CARD_TYPE_FIELD) {
+                return <CharacterCard key={card.card.id} card={card} />;
+              }
+            })}
+          </div>
         </section>
       </section>
     </main>
