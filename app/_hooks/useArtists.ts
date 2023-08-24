@@ -23,5 +23,5 @@ export default function useArtists() {
       });
   }, []);
 
-  return {artists, setArtists};
+  return {artists};
 }
