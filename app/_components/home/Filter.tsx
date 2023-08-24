@@ -4,15 +4,17 @@ import LightContainer from '@components/LightContainer';
 import Image from 'next/image';
 import {useState} from 'react';
 import useArtists from '@/app/_hooks/useArtists';
-import {Artist, Character, Type} from '@/app/_utils/appTypes';
+import {Artist, Character, Rarity, Type} from '@/app/_utils/appTypes';
 import useTypes from '@/app/_hooks/useTypes';
 import useCharacters from '@/app/_hooks/useCharacters';
+import useRarities from '@/app/_hooks/useRarities';
 
 export default function Filter() {
   const [isActive, setActive] = useState<boolean>(false);
   const {artists} = useArtists();
   const {types} = useTypes();
   const {characters} = useCharacters();
+  const {rarities} = useRarities();
 
   const toggleActive = () => {
     setActive(!isActive);
@@ -24,8 +26,8 @@ export default function Filter() {
         <Image src={'/img/home/filter-light.png'} alt={'filter'} width={24} height={24} />
       </LightContainer>
       <div
-        className={`absolute top-16 z-10 w-[83vw] transform duration-300 xl:w-[49.5vw] ${
-          isActive ? 'h-fit opacity-100' : 'h-0 opacity-0'
+        className={`absolute top-16 z-10 w-[83vw] transition-all duration-500 xl:w-[49.5vw] ${
+          isActive ? 'h-auto opacity-100' : 'opacity-0'
         }`}
       >
         <LightContainer height={'h-full'} width={'w-full'} hover={false}>
@@ -106,6 +108,20 @@ export default function Filter() {
                 </div>
                 <h1 className={'text-xl text-wankil-blue xl:text-3xl'}>Raretés</h1>
               </div>
+              {rarities.map((rarity: Rarity) => {
+                return (
+                  <div key={rarity.rarity.id} className={'flex flex-row-reverse items-center justify-between py-1'}>
+                    <label htmlFor={rarity.rarity.name} className={'xl:text-xl'}>
+                      {rarity.rarity.name}
+                    </label>
+                    <input
+                      type='checkbox'
+                      value={rarity.rarity.name}
+                      className={'h-4 w-4 rounded-md accent-dark xl:h-6 xl:w-6'}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </LightContainer>
