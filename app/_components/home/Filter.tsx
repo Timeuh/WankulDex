@@ -4,13 +4,15 @@ import LightContainer from '@components/LightContainer';
 import Image from 'next/image';
 import {useState} from 'react';
 import useArtists from '@/app/_hooks/useArtists';
-import {Artist, Type} from '@/app/_utils/appTypes';
+import {Artist, Character, Type} from '@/app/_utils/appTypes';
 import useTypes from '@/app/_hooks/useTypes';
+import useCharacters from '@/app/_hooks/useCharacters';
 
 export default function Filter() {
   const [isActive, setActive] = useState<boolean>(false);
   const {artists} = useArtists();
   const {types} = useTypes();
+  const {characters} = useCharacters();
 
   const toggleActive = () => {
     setActive(!isActive);
@@ -57,6 +59,23 @@ export default function Filter() {
                 </div>
                 <h1 className={'text-xl text-wankil-blue xl:text-3xl'}>Personnages</h1>
               </div>
+              {characters.map((character: Character) => {
+                return (
+                  <div
+                    key={character.character.id}
+                    className={'flex flex-row-reverse items-center justify-between py-1'}
+                  >
+                    <label htmlFor={character.character.name} className={'xl:text-xl'}>
+                      {character.character.name}
+                    </label>
+                    <input
+                      type='checkbox'
+                      value={character.character.name}
+                      className={'h-4 w-4 rounded-md accent-dark xl:h-6 xl:w-6'}
+                    />
+                  </div>
+                );
+              })}
             </div>
             <div className={'m-2 flex h-fit w-5/6 flex-col overflow-hidden border-b-2 border-[#CCCCCCFF] p-2'}>
               <div className={'flex flex-row items-center space-x-4 pb-2'}>
