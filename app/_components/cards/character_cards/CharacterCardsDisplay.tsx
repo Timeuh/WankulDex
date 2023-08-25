@@ -39,6 +39,7 @@ export default function CharacterCardsDisplay({cards}: Props) {
                   componentPreview={<CharacterCard card={card} />}
                   isActive={isActive}
                   handleActivation={handleActivation}
+                  isCharacter={true}
                 />
               );
             }

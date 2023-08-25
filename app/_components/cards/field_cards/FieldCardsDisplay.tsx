@@ -39,6 +39,7 @@ export default function FieldCardsDisplay({cards}: Props) {
                   componentPreview={<FieldCard card={card} />}
                   isActive={isActive}
                   handleActivation={handleActivation}
+                  isCharacter={false}
                 />
               );
             }

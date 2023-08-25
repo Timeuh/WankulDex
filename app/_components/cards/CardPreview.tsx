@@ -7,9 +7,10 @@ type Props = {
   componentPreview: ReactNode;
   isActive: boolean;
   handleActivation: () => void;
+  isCharacter: boolean;
 };
 
-export default function CardPreview({componentBase, componentPreview, isActive, handleActivation}: Props) {
+export default function CardPreview({componentBase, componentPreview, isActive, handleActivation, isCharacter}: Props) {
   return (
     <div>
       {componentBase}
@@ -18,7 +19,12 @@ export default function CardPreview({componentBase, componentPreview, isActive, 
           isActive ? 'block' : 'hidden'
         } left-0 top-0 z-20 flex h-screen w-full flex-col items-center justify-center`}
       >
-        <div className={'absolute right-10 top-32'} onClick={handleActivation}>
+        <div
+          className={`${
+            isCharacter ? 'self-end pe-9 pt-12 xl:self-center xl:pe-0 xl:ps-[21rem]' : 'absolute'
+          } right-10 top-32 z-10 xl:right-1/3`}
+          onClick={handleActivation}
+        >
           <LightContainer height={'h-14'} width={'w-14'} hover={true}>
             <div className={'relative h-full w-full'}>
               <Image src={'/img/cards/close-light.png'} alt={'close'} fill={true} />
