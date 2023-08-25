@@ -12,8 +12,15 @@ export default function FieldCardsLoading() {
         return (
           <div
             key={index}
-            className={'my-6 flex h-[32vh] w-[82vw] flex-col items-center bg-dark xl:h-[40vh] xl:w-[25vw]'}
-          ></div>
+            className={
+              'my-6 flex h-[32vh] w-[82vw] flex-col items-center rounded-lg bg-light p-1 xl:h-[40vh] xl:w-[25vw]'
+            }
+          >
+            <div className={'flex h-full w-full animate-pulse flex-col items-center space-y-4 p-2'}>
+              <div className={'h-3/4 w-full rounded-lg bg-gray-300 py-2'}></div>
+              <div className={'h-1/4 w-full rounded-lg bg-gray-300 py-2'}></div>
+            </div>
+          </div>
         );
       })}
     </div>
