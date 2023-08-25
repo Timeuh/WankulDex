@@ -1,16 +1,19 @@
 import Image from 'next/image';
 import {Card} from '@/app/_utils/appTypes';
 import {API_DOMAIN} from '@/app/_utils/appConsts';
+import {useState} from 'react';
 
 type Props = {
   card: Card;
+  handleActivation?: () => void;
 };
 
-export default function FieldCard({card}: Props) {
+export default function FieldCard({card, handleActivation}: Props) {
   return (
     <div
       id={`field_${card.card.id}`}
-      className={'my-6 flex h-[32vh] w-[82vw] flex-col items-center xl:h-[40vh] xl:w-[25vw]'}
+      className={'relative z-10 my-6 flex h-[32vh] w-[82vw] flex-col items-center xl:h-[40vh] xl:w-[25vw]'}
+      onClick={handleActivation}
     >
       <div className={'relative h-[50vh] w-[82vw] rounded-t-lg border-2 border-b-0 border-dark xl:w-[25vw]'}>
         <Image src={`${API_DOMAIN}${card.links.image}`} alt={card.card.name} className={'rounded-t-lg'} fill={true} />
