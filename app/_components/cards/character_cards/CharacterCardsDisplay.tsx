@@ -35,8 +35,8 @@ export default function CharacterCardsDisplay({cards}: Props) {
               return (
                 <CardPreview
                   key={card.card.id}
-                  componentBase={<CharacterCard card={card} handleActivation={handleActivation} />}
-                  componentPreview={<CharacterCard card={card} />}
+                  componentBase={<CharacterCard card={card} handleActivation={handleActivation} shouldPoint={true} />}
+                  componentPreview={<CharacterCard card={card} shouldPoint={false} />}
                   isActive={isActive}
                   handleActivation={handleActivation}
                   isCharacter={true}

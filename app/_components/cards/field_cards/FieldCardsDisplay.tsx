@@ -35,8 +35,8 @@ export default function FieldCardsDisplay({cards}: Props) {
               return (
                 <CardPreview
                   key={card.card.id}
-                  componentBase={<FieldCard card={card} handleActivation={handleActivation} />}
-                  componentPreview={<FieldCard card={card} />}
+                  componentBase={<FieldCard card={card} handleActivation={handleActivation} shouldPoint={true} />}
+                  componentPreview={<FieldCard card={card} shouldPoint={false} />}
                   isActive={isActive}
                   handleActivation={handleActivation}
                   isCharacter={false}
