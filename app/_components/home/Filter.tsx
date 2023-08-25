@@ -26,8 +26,8 @@ export default function Filter() {
         <Image src={'/img/home/filter-light.png'} alt={'filter'} width={24} height={24} />
       </LightContainer>
       <div
-        className={`absolute top-16 z-10 w-[83vw] transition-all duration-500 xl:w-[49.5vw] ${
-          isActive ? 'h-auto opacity-100' : 'opacity-0'
+        className={`absolute top-16 z-20 w-[83vw] transition-all duration-500 xl:w-[49.5vw] ${
+          isActive ? 'h-auto opacity-100' : 'pointer-events-none opacity-0'
         }`}
       >
         <LightContainer height={'h-full'} width={'w-full'} hover={false}>
