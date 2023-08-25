@@ -2,8 +2,8 @@ import LightContainer from '@components/LightContainer';
 import Image from 'next/image';
 import {Card} from '@/app/_utils/appTypes';
 import {CARD_TYPE_FIELD} from '@/app/_utils/appConsts';
-import CharacterCard from '@components/character_cards/CharacterCard';
-import CharacterCardsLoading from '@components/character_cards/CharacterCardsLoading';
+import CharacterCard from '@components/cards/character_cards/CharacterCard';
+import CharacterCardsLoading from '@components/cards/character_cards/CharacterCardsLoading';
 
 type Props = {
   cards: Array<Card>;

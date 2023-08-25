@@ -2,9 +2,9 @@ import LightContainer from '@components/LightContainer';
 import Image from 'next/image';
 import {Card} from '@/app/_utils/appTypes';
 import {CARD_TYPE_FIELD} from '@/app/_utils/appConsts';
-import FieldCard from '@components/field_cards/FieldCard';
-import FieldCardsLoading from '@components/field_cards/FieldCardsLoading';
-import CardPreview from '@components/field_cards/CardPreview';
+import FieldCard from '@components/cards/field_cards/FieldCard';
+import FieldCardsLoading from '@components/cards/field_cards/FieldCardsLoading';
+import CardPreview from '@components/cards/CardPreview';
 import {useState} from 'react';
 
 type Props = {

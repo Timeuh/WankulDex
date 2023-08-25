@@ -6,8 +6,8 @@ import Link from 'next/link';
 import Filter from '@components/home/Filter';
 import SearchBar from '@components/home/SearchBar';
 import useCards from '@/app/_hooks/useCards';
-import FieldCardsDisplay from '@components/field_cards/FieldCardsDisplay';
-import CharacterCardsDisplay from '@components/character_cards/CharacterCardsDisplay';
+import FieldCardsDisplay from '@components/cards/field_cards/FieldCardsDisplay';
+import CharacterCardsDisplay from '@components/cards/character_cards/CharacterCardsDisplay';
 
 export default function Home() {
   const {cards} = useCards();
