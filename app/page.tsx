@@ -6,13 +6,11 @@ import Link from 'next/link';
 import Filter from '@components/home/Filter';
 import SearchBar from '@components/home/SearchBar';
 import useCards from '@/app/_hooks/useCards';
-import {Card} from '@/app/_utils/appTypes';
-import FieldCard from '@components/FieldCard';
-import {CARD_TYPE_FIELD} from '@/app/_utils/appConsts';
-import CharacterCard from '@components/CharacterCard';
+import FieldCardsDisplay from '@components/field_cards/FieldCardsDisplay';
+import CharacterCardsDisplay from '@components/character_cards/CharacterCardsDisplay';
 
 export default function Home() {
-  const {cards, setCards} = useCards();
+  const {cards} = useCards();
 
   return (
     <main>
@@ -67,36 +65,8 @@ export default function Home() {
           <Filter />
           <SearchBar />
         </div>
-        <section id={'field cards'} className={'flex w-[83%] flex-col items-center xl:w-full'}>
-          <LightContainer height={'h-12'} width={'w-full xl:w-1/3'} hover={false}>
-            <div className={'flex h-full w-full flex-row items-center justify-center space-x-2'}>
-              <Image src={'/img/home/type-dark.png'} alt={'terrain'} width={28} height={28} />
-              <h1 className={'text-3xl text-dark'}>Terrains</h1>
-            </div>
-          </LightContainer>
-          <div className={'flex grid-cols-3 flex-col items-center xl:grid xl:gap-6'}>
-            {cards.map((card: Card) => {
-              if (card.card.type.name === CARD_TYPE_FIELD) {
-                return <FieldCard key={card.card.id} card={card} />;
-              }
-            })}
-          </div>
-        </section>
-        <section id={'character cards'} className={'flex w-[83%] flex-col items-center xl:w-full'}>
-          <LightContainer height={'h-12'} width={'w-full xl:w-1/3'} hover={false}>
-            <div className={'flex h-full w-full flex-row items-center justify-center space-x-2'}>
-              <Image src={'/img/home/wankul-dark.png'} alt={'terrain'} width={28} height={28} />
-              <h1 className={'text-3xl text-dark'}>Personnages</h1>
-            </div>
-          </LightContainer>
-          <div className={'flex grid-cols-4 flex-col items-center xl:grid xl:gap-8'}>
-            {cards.map((card: Card) => {
-              if (card.card.type.name !== CARD_TYPE_FIELD) {
-                return <CharacterCard key={card.card.id} card={card} />;
-              }
-            })}
-          </div>
-        </section>
+        <FieldCardsDisplay cards={cards} />
+        <CharacterCardsDisplay cards={cards} />
       </section>
     </main>
   );
