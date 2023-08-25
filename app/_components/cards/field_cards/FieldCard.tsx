@@ -6,13 +6,16 @@ import {useState} from 'react';
 type Props = {
   card: Card;
   handleActivation?: () => void;
+  shouldPoint: boolean;
 };
 
-export default function FieldCard({card, handleActivation}: Props) {
+export default function FieldCard({card, handleActivation, shouldPoint}: Props) {
   return (
     <div
       id={`field_${card.card.id}`}
-      className={'relative z-10 my-6 flex h-[32vh] w-[82vw] flex-col items-center xl:h-[40vh] xl:w-[25vw]'}
+      className={`relative z-10 my-6 flex h-[32vh] w-[82vw] ${
+        shouldPoint ? 'cursor-pointer' : ''
+      } flex-col items-center xl:h-[40vh] xl:w-[25vw]`}
       onClick={handleActivation}
     >
       <div className={'relative h-[50vh] w-[82vw] rounded-t-lg border-2 border-b-0 border-dark xl:w-[25vw]'}>

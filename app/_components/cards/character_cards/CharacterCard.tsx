@@ -5,13 +5,16 @@ import {API_DOMAIN} from '@/app/_utils/appConsts';
 type Props = {
   card: Card;
   handleActivation?: () => void;
+  shouldPoint: boolean;
 };
 
-export default function CharacterCard({card, handleActivation}: Props) {
+export default function CharacterCard({card, handleActivation, shouldPoint}: Props) {
   return (
     <div
       id={`field_${card.card.id}`}
-      className={'my-6 flex h-[65vh] w-[82vw] flex-col items-center xl:h-[60vh] xl:w-[20vw]'}
+      className={`${
+        shouldPoint ? 'cursor-pointer' : ''
+      } my-6 flex h-[65vh] w-[82vw] flex-col items-center xl:h-[60vh] xl:w-[20vw]`}
       onClick={handleActivation}
     >
       <div className={'relative h-[65vh] w-[82vw] rounded-t-lg border-2 border-b-0 border-dark xl:w-[20vw]'}>
