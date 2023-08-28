@@ -52,7 +52,7 @@ export default function LoginForm() {
           <input
             type='text'
             name={'email'}
-            placeholder={emailError ? "Renseignez l'email" : 'Email'}
+            placeholder={emailError ? 'Renseignez un email' : 'Email'}
             required
             className={`h-full w-full bg-transparent ps-2 text-dark outline-none ${
               emailError ? 'placeholder-red-600' : 'placeholder-dark-purple'
@@ -74,7 +74,7 @@ export default function LoginForm() {
           <input
             type='password'
             name={'password'}
-            placeholder={passwordError ? 'Renseignez le mot de passe' : 'Mot de passe'}
+            placeholder={passwordError ? 'Renseignez un mot de passe' : 'Mot de passe'}
             required
             className={`h-full w-full bg-transparent ps-2 text-dark outline-none ${
               passwordError ? 'placeholder-red-600' : 'placeholder-dark-blue'
