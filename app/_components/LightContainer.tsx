@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function LightContainer({children, width, height, hover, onClick}: Props) {
-  const containerRef = useRef<HTMLButtonElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMove = (event: {clientX: number; clientY: number}) => {
     if (!hover) {
@@ -28,7 +28,7 @@ export default function LightContainer({children, width, height, hover, onClick}
   };
 
   return (
-    <button
+    <div
       className={`${
         hover ? 'container-background hover:border-light hover:border-opacity-50' : 'cursor-default'
       } rounded-lg border-2 border-[#CCCCCCFF] ${width} ${height} group box-border flex flex-col items-center justify-center`}
@@ -42,6 +42,6 @@ export default function LightContainer({children, width, height, hover, onClick}
       >
         {children}
       </div>
-    </button>
+    </div>
   );
 }
