@@ -16,10 +16,10 @@ const config: Config = {
         bronze: '#E5A770',
         gold: '#FFD231',
         'wankil-purple': '#51337B',
-        'wankil-blue': '#1C5E8E'
-      }
-    }
+        'wankil-blue': '#1C5E8E',
+      },
+    },
   },
-  plugins: []
+  plugins: [],
 };
 export default config;
