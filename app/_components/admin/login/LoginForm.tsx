@@ -2,11 +2,39 @@
 
 import Image from 'next/image';
 import LightContainer from '@components/LightContainer';
-import {MouseEvent} from 'react';
+import {MouseEvent, useRef, useState} from 'react';
 
 export default function LoginForm() {
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+
+  const [emailError, setEmailError] = useState<boolean>(false);
+  const [passwordError, setPasswordError] = useState<boolean>(false);
+
+  const checkInputs = () => {
+    if (!emailRef.current || !passwordRef.current) {
+      return;
+    }
+
+    if (emailRef.current.value === '') {
+      setEmailError(true);
+    } else {
+      setEmailError(false);
+    }
+
+    if (passwordRef.current.value === '') {
+      setPasswordError(true);
+    } else {
+      setPasswordError(false);
+    }
+
+    console.log(`email ${emailRef.current.value}`);
+    console.log(`password ${passwordRef.current.value}`);
+  };
+
   const submitForm = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    checkInputs();
   };
 
   return (
@@ -24,9 +52,12 @@ export default function LoginForm() {
           <input
             type='text'
             name={'email'}
-            placeholder={'Email'}
+            placeholder={emailError ? "Renseignez l'email" : 'Email'}
             required
-            className={'h-full w-full bg-transparent ps-2 text-dark placeholder-dark-purple outline-none'}
+            className={`h-full w-full bg-transparent ps-2 text-dark outline-none ${
+              emailError ? 'placeholder-red-600' : 'placeholder-dark-purple'
+            }`}
+            ref={emailRef}
           />
         </LightContainer>
       </div>
@@ -43,9 +74,12 @@ export default function LoginForm() {
           <input
             type='password'
             name={'password'}
-            placeholder={'Mot de passe'}
+            placeholder={passwordError ? 'Renseignez le mot de passe' : 'Mot de passe'}
             required
-            className={'h-full w-full bg-transparent ps-2 text-dark placeholder-dark-blue outline-none'}
+            className={`h-full w-full bg-transparent ps-2 text-dark outline-none ${
+              passwordError ? 'placeholder-red-600' : 'placeholder-dark-blue'
+            }`}
+            ref={passwordRef}
           />
         </LightContainer>
       </div>
