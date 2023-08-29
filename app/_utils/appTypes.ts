@@ -113,3 +113,9 @@ export type Types = {
   length: number;
   type: string;
 };
+
+export type LoginResponse = {
+  code: number;
+  token?: string;
+  error?: string;
+};
