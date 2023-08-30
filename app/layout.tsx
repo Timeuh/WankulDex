@@ -2,7 +2,7 @@ import './globals.css';
 import type {Metadata} from 'next';
 import {Nunito} from 'next/font/google';
 import {ReactNode} from 'react';
-import Navbar from '@components/Navbar';
+import Navbar from '@components/navbar/Navbar';
 
 const nunito = Nunito({subsets: ['latin']});
 
