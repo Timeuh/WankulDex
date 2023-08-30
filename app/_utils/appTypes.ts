@@ -119,3 +119,8 @@ export type LoginResponse = {
   token?: string;
   error?: string;
 };
+
+export type AuthMessage = {
+  code: number;
+  message: string;
+};
