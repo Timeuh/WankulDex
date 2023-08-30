@@ -22,7 +22,7 @@ export default function FieldCardsDisplay({cards}: Props) {
     <section id={'field cards'} className={'flex w-[83%] flex-col items-center xl:w-full'}>
       <LightContainer height={'h-12'} width={'w-full xl:w-1/3'} hover={false}>
         <div className={'flex h-full w-full flex-row items-center justify-center space-x-2'}>
-          <Image src={'/img/home/type-dark.png'} alt={'terrain'} width={28} height={28} />
+          <Image src={'/img/home/type-light.png'} alt={'terrain'} width={28} height={28} />
           <h1 className={'text-3xl text-dark'}>Terrains</h1>
         </div>
       </LightContainer>
