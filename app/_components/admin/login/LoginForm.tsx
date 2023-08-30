@@ -5,10 +5,13 @@ import LightContainer from '@components/LightContainer';
 import {MouseEvent, useRef, useState} from 'react';
 import adminlogin from '@/app/_utils/adminlogin';
 import {LoginResponse} from '@/app/_utils/appTypes';
+import storeToken from '@/app/_utils/storeToken';
+import {useRouter} from 'next/navigation';
 
 export default function LoginForm() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
 
   const [emailError, setEmailError] = useState<boolean>(false);
   const [passwordError, setPasswordError] = useState<boolean>(false);
@@ -51,6 +54,12 @@ export default function LoginForm() {
 
         if (loginResponse.code === 404) {
           setError('Vous devez fournir un email administrateur');
+        }
+
+        if (loginResponse.code === 200) {
+          storeToken(loginResponse.token!).then(() => {
+            router.push('/admin/create/card');
+          });
         }
       });
     }
