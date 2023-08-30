@@ -124,3 +124,9 @@ export type AuthMessage = {
   code: number;
   message: string;
 };
+
+export type NavbarLink = {
+  image: string;
+  name: string;
+  link: string;
+};
