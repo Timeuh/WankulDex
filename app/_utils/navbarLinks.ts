@@ -32,3 +32,16 @@ export const links: Array<NavbarLink> = [
     link: '/admin/login',
   },
 ];
+
+export const adminLinks: Array<NavbarLink> = [
+  {
+    image: '/img/navbar/alternate-add-light.png',
+    name: 'Artiste',
+    link: '/admin/create/artist',
+  },
+  {
+    image: '/img/navbar/alternate-add-light.png',
+    name: 'Carte',
+    link: '/admin/create/card',
+  },
+];
