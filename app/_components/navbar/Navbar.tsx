@@ -7,9 +7,11 @@ import {useState} from 'react';
 
 export default function Navbar() {
   const [isActive, setActive] = useState<boolean>(false);
+  const [refresh, setRefresh] = useState<boolean>(false);
 
   const handleActivation = () => {
     setActive(!isActive);
+    setRefresh(!refresh);
   };
 
   return (
@@ -36,7 +38,7 @@ export default function Navbar() {
           />
         </LightContainer>
       </div>
-      <NavbarMenu isActive={isActive} onClick={handleActivation} />
+      <NavbarMenu isActive={isActive} onClick={handleActivation} refresh={refresh} />
     </div>
   );
 }
