@@ -23,9 +23,9 @@ export default function Home() {
           src='/img/home/wankul-logo-light.png'
           alt='wankul logo'
           className={'h-auto w-3/4 pt-20 xl:w-1/4'}
-          width={300}
+          width={0}
           height={0}
-          priority={true}
+          sizes={'100vw'}
         />
         <div
           id={'wankul-infos'}
@@ -53,7 +53,14 @@ export default function Home() {
             </Link>
           </LightContainer>
         </div>
-        <Image src={'/img/home/down-light.png'} alt={'go down'} width={125} height={400} className={'pt-8 xl:pt-0'} />
+        <Image
+          src={'/img/home/down-light.png'}
+          alt={'descendre'}
+          width={0}
+          height={0}
+          sizes={'100vw'}
+          className={'h-auto w-[30vw] pt-8 xl:w-32 xl:pt-0'}
+        />
       </section>
       <section
         id={'cards-display'}

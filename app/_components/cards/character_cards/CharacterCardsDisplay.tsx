@@ -22,7 +22,14 @@ export default function CharacterCardsDisplay({cards}: Props) {
     <section id={'character cards'} className={'flex w-[83%] flex-col items-center xl:w-full'}>
       <LightContainer height={'h-12'} width={'w-full xl:w-1/3'} hover={false}>
         <div className={'flex h-full w-full flex-row items-center justify-center space-x-2'}>
-          <Image src={'/img/home/wankul-light.png'} alt={'terrain'} width={28} height={28} />
+          <Image
+            src={'/img/home/wankul-light.png'}
+            alt={'personnages'}
+            width={0}
+            height={0}
+            sizes={'100vw'}
+            className={'h-auto w-8'}
+          />
           <h1 className={'text-3xl text-dark'}>Personnages</h1>
         </div>
       </LightContainer>
