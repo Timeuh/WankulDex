@@ -1,7 +1,5 @@
 import {Metadata} from 'next';
-import LightContainer from '@components/LightContainer';
 import Image from 'next/image';
-import Link from 'next/link';
 import LoginForm from '@components/admin/login/LoginForm';
 import BackButton from '@components/BackButton';
 
