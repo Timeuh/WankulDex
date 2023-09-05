@@ -16,16 +16,16 @@ export default function CreateCard() {
       }
     >
       <BackButton />
-      <div className={'flex flex-col items-center space-y-2'}>
+      <div className={'flex flex-col items-center space-y-2 xl:py-10'}>
         <Image
           src={'/img/cards-light.png'}
           alt={'carte'}
           width={0}
           height={0}
           sizes={'100vw'}
-          className={'h-auto w-14'}
+          className={'h-auto w-14 xl:w-20'}
         />
-        <h1 className={'text-3xl text-dark'}>Nouvelle Carte</h1>
+        <h1 className={'text-3xl text-dark xl:text-5xl'}>Nouvelle Carte</h1>
       </div>
       <CardForm />
     </main>

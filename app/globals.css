@@ -22,5 +22,5 @@
 }
 
 .form-input {
-    @apply h-10 w-full bg-transparent ps-2 text-dark outline-none
+    @apply h-10 w-full bg-transparent ps-2 text-dark outline-none xl:h-12
 }

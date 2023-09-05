@@ -2,7 +2,7 @@ import FormInput from '@components/form/FormInput';
 
 export default function FieldFormInputs() {
   return (
-    <div className={'flex w-full flex-col items-center space-y-6'}>
+    <div className={'flex w-full flex-col items-center space-y-6 xl:space-y-16'}>
       <FormInput image={'/img/admin/create/cards/first-light.png'} name={'Effet Gagnant'}>
         <textarea
           name='winner_effect'
