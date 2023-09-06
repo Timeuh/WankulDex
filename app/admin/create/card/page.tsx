@@ -1,7 +1,6 @@
 import {Metadata} from 'next';
 import Image from 'next/image';
 import BackButton from '@components/BackButton';
-import FormInput from '@components/form/FormInput';
 import CardForm from '@components/admin/create/cards/CardForm';
 
 export const metadata: Metadata = {
