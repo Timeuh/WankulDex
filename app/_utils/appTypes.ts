@@ -132,3 +132,35 @@ export type NavbarLink = {
 };
 
 export type CardType = 'Terrain' | 'Personnage';
+
+export type TextCardInputs = {
+  id: number;
+  name: string;
+  collection: string;
+  image: string;
+};
+
+export type TextCardInputsKey = 'ID' | 'Name' | 'Collection' | 'Image';
+
+export type SelectCardInputs = {
+  artist: number;
+  character: number;
+  rarity: number;
+};
+
+export type SelectCardInputsKey = 'Artist' | 'Character' | 'Rarity';
+
+export type FieldCardInputs = {
+  winner_effect: string;
+  looser_effect: string;
+  special: string;
+};
+
+export type FieldCardInputsKey = 'Winner' | 'Looser' | 'Special';
+
+export type CharacterCardInputs = {
+  effect: string;
+  citation: string;
+};
+
+export type CharacterCardInputsKey = 'Effect' | 'Citation';
