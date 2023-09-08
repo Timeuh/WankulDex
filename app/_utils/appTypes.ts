@@ -164,3 +164,24 @@ export type CharacterCardInputs = {
 };
 
 export type CharacterCardInputsKey = 'Effect' | 'Citation';
+
+export type DescriptionResponse = {
+  code: number;
+  error?: string;
+  data?: {
+    character_id: number;
+    citation: string;
+    effect: string;
+    id: number;
+    looser_effect: string;
+    rarity_id: number;
+    special: string;
+    winner_effect: string;
+  };
+};
+
+export enum FormState {
+  LOADING = 'LOADING',
+  ERROR = 'ERROR',
+  WAITING = 'WAITING',
+}
