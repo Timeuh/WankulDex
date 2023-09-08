@@ -48,9 +48,24 @@ export default function CardForm() {
     };
   };
 
+  const checkNotEmpty = () => {
+    for (const key in textCardInputs) {
+      if (textCardInputs.hasOwnProperty(key) && textCardInputs[key] === '') {
+        return false;
+      }
+    }
+    return true;
+  };
+
   const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setStatus(FormState.LOADING);
+
+    if (!checkNotEmpty()) {
+      setStatus(FormState.EMPTY);
+      return;
+    }
+
     const convertedData = convertCardInputsForDescription();
     createCardDescription(convertedData).then((responseData: DescriptionResponse) => {
       if (responseData.error) {
@@ -86,6 +101,13 @@ export default function CardForm() {
           }`}
         >
           Erreur lors de la création de la carte, veuillez réessayer
+        </h1>
+        <h1
+          className={`py-6 text-center text-2xl text-red-500 xl:py-12 xl:text-4xl ${
+            status === FormState.EMPTY ? 'block' : 'hidden'
+          }`}
+        >
+          Veuillez remplir les nom, collection et nom de l&apos;image
         </h1>
         <div className={'grid-cols-3 gap-6 space-y-6 xl:grid xl:h-full xl:w-5/6 xl:space-y-0'}>
           <div className={'space-y-6'}>
