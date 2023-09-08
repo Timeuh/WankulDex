@@ -134,6 +134,7 @@ export type NavbarLink = {
 export type CardType = 'Terrain' | 'Personnage';
 
 export type TextCardInputs = {
+  [key: string]: string | number | undefined;
   id: number;
   name: string;
   collection: string;
@@ -184,6 +185,7 @@ export enum FormState {
   LOADING = 'LOADING',
   ERROR = 'ERROR',
   WAITING = 'WAITING',
+  EMPTY = 'EMPTY',
 }
 
 export type CardResponse = {
