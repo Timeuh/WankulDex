@@ -143,9 +143,9 @@ export type TextCardInputs = {
 export type TextCardInputsKey = 'ID' | 'Name' | 'Collection' | 'Image';
 
 export type SelectCardInputs = {
-  artist: number;
-  character: number;
-  rarity: number;
+  artist_id: number;
+  character_id: number;
+  rarity_id: number;
 };
 
 export type SelectCardInputsKey = 'Artist' | 'Character' | 'Rarity';
