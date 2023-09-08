@@ -3,28 +3,28 @@ import {SelectCardInputs, SelectCardInputsKey} from '@/app/_utils/appTypes';
 
 export default function useSelectCardInputs() {
   const [selectCardInputs, setSelectCardInputs] = useState<SelectCardInputs>({
-    artist: 1,
-    character: 1,
-    rarity: 1,
+    artist_id: 1,
+    character_id: 1,
+    rarity_id: 1,
   });
 
   const handleSelectInputsChange = (event: ChangeEvent<HTMLSelectElement>, key: SelectCardInputsKey) => {
     switch (key) {
       case 'Artist':
         setSelectCardInputs((prevState) => {
-          return {...prevState, artist: parseInt(event.target.value)};
+          return {...prevState, artist_id: parseInt(event.target.value)};
         });
         break;
 
       case 'Character':
         setSelectCardInputs((prevState) => {
-          return {...prevState, character: parseInt(event.target.value)};
+          return {...prevState, character_id: parseInt(event.target.value)};
         });
         break;
 
       case 'Rarity':
         setSelectCardInputs((prevState) => {
-          return {...prevState, rarity: parseInt(event.target.value)};
+          return {...prevState, rarity_id: parseInt(event.target.value)};
         });
         break;
 
