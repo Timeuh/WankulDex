@@ -47,8 +47,6 @@ export default function LoginForm() {
     if (checkInputs()) {
       setIsLoading(true);
       adminlogin(emailRef.current!.value, passwordRef.current!.value).then((loginResponse: LoginResponse) => {
-        setIsLoading(false);
-
         if (loginResponse.code === 400) {
           setError('Le mot de passe fourni ne correspond pas');
         }
@@ -60,6 +58,7 @@ export default function LoginForm() {
         if (loginResponse.code === 200) {
           storeToken(loginResponse.token!).then(() => {
             router.push('/admin/create/card');
+            setIsLoading(false);
           });
         }
       });
