@@ -2,7 +2,7 @@
 
 import FormInput from '@components/form/FormInput';
 import useArtists from '@/app/_hooks/useArtists';
-import {Artist, Character, DescriptionResponse, FormState, Rarity} from '@/app/_utils/appTypes';
+import {Artist, CardResponse, Character, DescriptionResponse, FormState, Rarity} from '@/app/_utils/appTypes';
 import useCharacters from '@/app/_hooks/useCharacters';
 import useRarities from '@/app/_hooks/useRarities';
 import TypeSwitch from '@components/admin/create/cards/TypeSwitch';
@@ -17,6 +17,7 @@ import useCharacterCardInputs from '@/app/_hooks/creation/card/useCharacterCardI
 import useFieldCardInputs from '@/app/_hooks/creation/card/useFieldCardInputs';
 import createCardDescription from '@/app/_utils/createCardDescription';
 import LoadingAnimation from '@components/LoadingAnimation';
+import createCard from '@/app/_utils/createCard';
 
 export default function CardForm() {
   const {artists} = useArtists();
@@ -38,18 +39,35 @@ export default function CardForm() {
     return {...selectCardInputs, ...characterCardInputs, ...fieldCardInputs, id: textCardInputs.id};
   };
 
+  const convertCardInputsForCard = () => {
+    return {
+      ...textCardInputs,
+      artist_id: selectCardInputs.artist_id,
+      description_id: textCardInputs.id,
+      type_id: isCharacter ? 2 : 1,
+    };
+  };
+
   const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setStatus(FormState.LOADING);
     const convertedData = convertCardInputsForDescription();
     createCardDescription(convertedData).then((responseData: DescriptionResponse) => {
-      setStatus(FormState.WAITING);
       if (responseData.error) {
-        console.log(responseData.error);
         setStatus(FormState.ERROR);
-      } else {
-        console.log(responseData.data);
+        return;
       }
+
+      const cardCreationData = convertCardInputsForCard();
+      createCard(cardCreationData).then((responseData: CardResponse) => {
+        if (responseData.error) {
+          setStatus(FormState.ERROR);
+          return;
+        }
+        console.log('card created');
+        // TODO redirect to card page details
+        setStatus(FormState.WAITING);
+      });
     });
   };
 
