@@ -185,3 +185,17 @@ export enum FormState {
   ERROR = 'ERROR',
   WAITING = 'WAITING',
 }
+
+export type CardResponse = {
+  code: number;
+  error?: string;
+  data?: {
+    artist_id: number;
+    collection: string;
+    description_id: number;
+    id: number;
+    image: string;
+    name: string;
+    type_id: number;
+  };
+};
