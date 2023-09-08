@@ -1,14 +1,15 @@
 type Props = {
   isLoading: boolean;
+  type?: 'Login' | 'Creation';
 };
 
-export default function LoadingAnimation({isLoading}: Props) {
+export default function LoadingAnimation({isLoading, type = 'Login'}: Props) {
   return (
     <div
       id={'loading-modal'}
-      className={`${
-        isLoading ? 'opacity-100' : 'pointer-events-none opacity-0'
-      } absolute -top-10 flex h-3/5 w-3/5 flex-col items-center justify-center space-y-4`}
+      className={`${isLoading ? 'opacity-100' : 'pointer-events-none opacity-0'} absolute ${
+        type === 'Login' ? '-top-10' : ''
+      } flex h-3/5 w-3/5 flex-col items-center justify-center space-y-4`}
     >
       <svg
         aria-hidden='true'
