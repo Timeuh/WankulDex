@@ -7,6 +7,7 @@ const nextConfig = {
         hostname: 'wankul-api.vercel.app',
       },
     ],
+    domains: ['wankul-api.vercel.app'],
   },
   experimental: {
     serverActions: true,
