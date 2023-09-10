@@ -2,7 +2,7 @@ import './globals.css';
 import type {Metadata} from 'next';
 import {Nunito} from 'next/font/google';
 import {ReactNode} from 'react';
-import {CookiesProvider} from 'react-cookie';
+import Cookies from '@components/Cookies';
 
 const nunito = Nunito({subsets: ['latin']});
 
@@ -11,11 +11,17 @@ export const metadata: Metadata = {
   description: 'Un site pour consulter vos cartes Wankul',
 };
 
-export default function RootLayout({children}: {children: ReactNode}) {
+type Props = {
+  children: ReactNode;
+};
+
+export default function RootLayout({children}: Props) {
   return (
     <html lang='fr'>
       <body className={nunito.className}>
-        <CookiesProvider>{children}</CookiesProvider>
+        <main>
+          <Cookies>{children}</Cookies>
+        </main>
       </body>
     </html>
   );
