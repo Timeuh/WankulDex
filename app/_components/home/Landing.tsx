@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import BaseContainer from '@components/BaseContainer';
 
 export default function Landing() {
   return (
@@ -41,7 +42,9 @@ export default function Landing() {
         <h2 className={'w-4/5'}>
           Pour voir le <span className={'font-bold'}>site officiel</span> :
         </h2>
-        <button className={'my-2 h-14 w-1/2 rounded-lg bg-light'}>Wankul.fr</button>
+        <BaseContainer margin={'small'} interaction={'hover'}>
+          <button className={'h-12 w-[50vw] bg-transparent'}>Wankul.fr</button>
+        </BaseContainer>
       </div>
       <Image
         src={'/img/home/down-light.png'}
