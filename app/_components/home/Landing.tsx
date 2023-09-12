@@ -15,7 +15,7 @@ export default function Landing() {
         width={0}
         height={0}
         sizes={'100vw'}
-        className={'h-auto w-4/5 pt-24 xl:w-1/4 xl:pt-14'}
+        className={'h-auto w-4/5 pt-24 xl:w-1/4 xl:pt-20'}
         priority
       />
       <div
@@ -55,7 +55,7 @@ export default function Landing() {
         width={0}
         height={0}
         sizes={'100vw'}
-        className={'h-auto w-1/4 pt-6 xl:w-44 xl:pt-4'}
+        className={'h-auto w-1/4 pt-6 xl:w-44 xl:pt-0'}
       />
     </section>
   );
