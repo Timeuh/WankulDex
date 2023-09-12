@@ -3,6 +3,7 @@ import type {Metadata} from 'next';
 import {Nunito} from 'next/font/google';
 import {ReactNode} from 'react';
 import Cookies from '@components/Cookies';
+import Navbar from '@components/navbar/Navbar';
 
 const nunito = Nunito({subsets: ['latin']});
 
@@ -19,6 +20,7 @@ export default function RootLayout({children}: Props) {
   return (
     <html lang='fr'>
       <body className={nunito.className}>
+        <Navbar />
         <main>
           <Cookies>{children}</Cookies>
         </main>
