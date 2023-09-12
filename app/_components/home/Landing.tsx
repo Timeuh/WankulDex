@@ -15,11 +15,14 @@ export default function Landing() {
         width={0}
         height={0}
         sizes={'100vw'}
-        className={'h-auto w-4/5 pt-24'}
+        className={'h-auto w-4/5 pt-24 xl:w-1/4 xl:pt-14'}
         priority
       />
-      <div id={'wankuldex-description'} className={'w-4/5 rounded-lg border-2 border-dark-purple py-6 text-center'}>
-        <p className={'text-xl text-dark-blue'}>
+      <div
+        id={'wankuldex-description'}
+        className={'w-4/5 rounded-lg border-2 border-dark-purple py-6 text-center xl:w-1/3'}
+      >
+        <p className={'p-2 text-xl text-dark-blue xl:text-2xl'}>
           Le <span className={'font-bold text-dark-purple'}>WankulDex</span>, c&apos;est le site qui te permet
           d&apos;admirer les magnifiques cartes <span className={'font-bold text-dark-purple'}>Wankul </span>
           avec de jolis effets !
@@ -28,12 +31,12 @@ export default function Landing() {
       <div
         id={'wankul-link'}
         className={
-          'flex h-fit w-4/5 flex-col items-center rounded-lg border-2 border-dark bg-[#FFD231] text-center text-xl text-dark'
+          'flex h-fit w-4/5 flex-col items-center rounded-lg border-2 border-dark bg-[#FFD231] text-center text-xl text-dark xl:w-1/3 xl:text-2xl'
         }
       >
         <div
           className={
-            'flex h-16 w-full flex-col items-center justify-center rounded-b-lg bg-dark text-2xl font-bold text-[#FFD231]'
+            'flex h-16 w-full flex-col items-center justify-center rounded-b-lg bg-dark text-2xl font-bold text-[#FFD231] xl:text-3xl'
           }
         >
           <h1>⚠️ ATTENTION !</h1>
@@ -43,7 +46,7 @@ export default function Landing() {
           Pour voir le <span className={'font-bold'}>site officiel</span> :
         </h2>
         <BaseContainer margin={'small'} interaction={'hover'}>
-          <button className={'h-12 w-[50vw] bg-transparent'}>Wankul.fr</button>
+          <button className={'h-12 w-[50vw] bg-transparent xl:w-[20vw]'}>Wankul.fr</button>
         </BaseContainer>
       </div>
       <Image
@@ -52,7 +55,7 @@ export default function Landing() {
         width={0}
         height={0}
         sizes={'100vw'}
-        className={'h-auto w-1/4 pt-6'}
+        className={'h-auto w-1/4 pt-6 xl:w-44 xl:pt-4'}
       />
     </section>
   );
