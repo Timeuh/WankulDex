@@ -5,7 +5,7 @@ export default function FieldCards() {
   return (
     <section id={'field-cards'}>
       <BaseContainer>
-        <div className={'flex h-12 w-[83vw] flex-row items-center justify-center space-x-4'}>
+        <div className={'flex h-12 w-[83vw] flex-row items-center justify-center space-x-4 xl:w-[30vw]'}>
           <Image
             src={'/img/home/type-light.png'}
             alt={'logo terrains'}
