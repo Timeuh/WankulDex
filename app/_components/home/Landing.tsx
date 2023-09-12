@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import BaseContainer from '@components/BaseContainer';
+import Link from 'next/link';
 
 export default function Landing() {
   return (
@@ -46,7 +47,9 @@ export default function Landing() {
           Pour voir le <span className={'font-bold'}>site officiel</span> :
         </h2>
         <BaseContainer margin={'small'} interaction={'hover'}>
-          <button className={'h-12 w-[50vw] bg-transparent xl:w-[20vw]'}>Wankul.fr</button>
+          <Link href={'https://wankul.fr/'} className={'h-12 w-[50vw] bg-transparent pt-3 xl:w-[20vw] xl:pt-2'}>
+            Wankul.fr
+          </Link>
         </BaseContainer>
       </div>
       <Image
