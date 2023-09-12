@@ -5,7 +5,6 @@ import {cva, VariantProps} from 'class-variance-authority';
 
 type Props = {
   children: ReactNode;
-  onClick?: () => void;
 } & VariantProps<typeof variants>;
 
 const baseClasses: string =
@@ -36,7 +35,7 @@ const variants = cva(baseClasses, {
   },
 });
 
-export default function BaseContainer({children, onClick, theme, margin, padding, interaction}: Props) {
+export default function BaseContainer({children, theme, margin, padding, interaction}: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMove = (event: {clientX: number; clientY: number}) => {
@@ -54,12 +53,7 @@ export default function BaseContainer({children, onClick, theme, margin, padding
   };
 
   return (
-    <div
-      className={variants({theme, margin, padding, interaction})}
-      onMouseMove={handleMove}
-      ref={containerRef}
-      onClick={onClick}
-    >
+    <div className={variants({theme, margin, padding, interaction})} onMouseMove={handleMove} ref={containerRef}>
       <div
         className={`flex h-full w-full flex-col items-center justify-center bg-light transition ${
           interaction ? 'group-hover:bg-opacity-70 group-hover:backdrop-blur-lg' : ''
