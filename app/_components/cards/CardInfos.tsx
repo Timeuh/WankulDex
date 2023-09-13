@@ -19,11 +19,15 @@ export default function CardInfos({card}: Props) {
           width={0}
           height={0}
           sizes={'100vw'}
-          className={'h-auto w-10'}
+          className={'h-auto w-10 xl:w-12'}
         />
-        <h2 className={'text-xl font-bold'}>{card.card.name.toUpperCase()}</h2>
+        <h2 className={'text-xl font-bold xl:text-2xl'}>{card.card.name.toUpperCase()}</h2>
       </div>
-      <span className={'h-10 w-10 rounded-full border-2 border-dark pt-1 text-center text-lg font-bold'}>
+      <span
+        className={
+          'h-10 w-10 rounded-full border-2 border-dark pt-1 text-center text-lg font-bold xl:h-12 xl:w-12 xl:pt-[10px] xl:text-xl'
+        }
+      >
         {card.card.id}
       </span>
     </div>
