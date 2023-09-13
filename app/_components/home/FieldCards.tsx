@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import BaseContainer from '@components/BaseContainer';
+import DisplayFieldCards from '@components/cards/DisplayFieldCards';
 
 export default function FieldCards() {
   return (
@@ -17,6 +18,7 @@ export default function FieldCards() {
           <h1 className={'text-3xl text-dark'}>Terrains</h1>
         </div>
       </BaseContainer>
+      <DisplayFieldCards />
     </section>
   );
 }
