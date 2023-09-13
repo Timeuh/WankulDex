@@ -2,7 +2,7 @@ import './globals.css';
 import type {Metadata} from 'next';
 import {Nunito} from 'next/font/google';
 import {ReactNode} from 'react';
-import Cookies from '@components/Cookies';
+import Providers from '@components/Providers';
 import Navbar from '@components/navbar/Navbar';
 
 const nunito = Nunito({subsets: ['latin']});
@@ -22,7 +22,7 @@ export default function RootLayout({children}: Props) {
       <body className={nunito.className}>
         <Navbar />
         <main>
-          <Cookies>{children}</Cookies>
+          <Providers>{children}</Providers>
         </main>
       </body>
     </html>
