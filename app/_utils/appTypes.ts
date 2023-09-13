@@ -41,3 +41,5 @@ export type Cards = {
   length: number;
   type: string;
 };
+
+export type CardType = 'Terrain' | 'Personnage' | 'None';
