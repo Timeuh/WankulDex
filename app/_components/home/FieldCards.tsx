@@ -4,7 +4,7 @@ import DisplayFieldCards from '@components/cards/DisplayFieldCards';
 
 export default function FieldCards() {
   return (
-    <section id={'field-cards'}>
+    <section id={'field-cards'} className={'flex flex-col items-center space-y-6'}>
       <BaseContainer>
         <div className={'flex h-12 w-[83vw] flex-row items-center justify-center space-x-4 xl:w-[30vw]'}>
           <Image
