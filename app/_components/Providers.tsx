@@ -9,7 +9,13 @@ type Props = {
 };
 
 export default function Providers({children}: Props) {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
 
   return (
     <CookiesProvider>
