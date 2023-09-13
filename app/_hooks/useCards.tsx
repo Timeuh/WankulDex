@@ -1,9 +1,9 @@
 import {useQuery} from 'react-query';
 import {API_BASE_URL} from '@/app/_utils/appGlobals';
 import cardSchema from '@/app/_zod/CardSchema';
-import {Card, Cards} from '@/app/_utils/appTypes';
+import {Card, Cards, CardType} from '@/app/_utils/appTypes';
 
-const getCards = async () => {
+const getCards = async (type: CardType) => {
   return await fetch(`${API_BASE_URL}/card`)
     .then((response) => {
       return response.json();
@@ -13,7 +13,9 @@ const getCards = async () => {
 
       cards.cards.forEach((card: Card) => {
         if (cardSchema.safeParse(card).success) {
-          allCards.push(card);
+          if (type === 'None' || card.card.type.name === type) {
+            allCards.push(card);
+          }
         }
       });
 
@@ -21,6 +23,8 @@ const getCards = async () => {
     });
 };
 
-export default function useCards() {
-  return useQuery('cards', getCards);
+export default function useCards(type: CardType = 'None') {
+  return useQuery('cards', () => {
+    return getCards(type);
+  });
 }
