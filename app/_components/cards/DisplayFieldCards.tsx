@@ -17,7 +17,7 @@ export default function DisplayFieldCards() {
   return (
     <section
       id={'field-cards-display'}
-      className={'grid h-full w-full grid-cols-1 gap-12 space-y-6 xl:grid-cols-3 xl:space-y-0'}
+      className={'grid h-full w-full grid-cols-1 gap-2 space-y-6 xl:grid-cols-3 xl:gap-10 xl:space-y-0'}
     >
       {isFetching
         ? loadingCards.map((id: number) => {
