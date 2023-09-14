@@ -8,7 +8,7 @@ import CharacterCardLoading from '@components/cards/character/CharacterCardLoadi
 export default function DisplayCharacterCards() {
   const {data, error, isFetching} = useCards('Personnage');
   const loadingCards: Array<number> = [];
-  const placeholderCardsNumber = 6;
+  const placeholderCardsNumber = 8;
 
   for (let i = 0; i < placeholderCardsNumber; i++) {
     loadingCards.push(i);
