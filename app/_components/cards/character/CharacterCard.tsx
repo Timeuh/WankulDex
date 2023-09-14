@@ -24,6 +24,7 @@ export default function CharacterCard({card}: Props) {
         cardName={'character'}
         textColor={card.card.description.rarity.name as CardRarity}
         borderColor={card.card.description.rarity.name as CardRarity}
+        image={card.card.description.rarity.name as CardRarity}
       />
     </div>
   );
