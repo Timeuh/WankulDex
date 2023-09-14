@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import BaseContainer from '@components/BaseContainer';
+import DisplayCharacterCards from '@components/cards/DisplayCharacterCards';
 
 export default function CharacterCards() {
   return (
-    <section id={'character-cards'}>
+    <section id={'character-cards'} className={'flex flex-col items-center space-y-6 pb-6'}>
       <BaseContainer>
         <div className={'flex h-12 w-[83vw] flex-row items-center justify-center space-x-4 xl:w-[30vw]'}>
           <Image
@@ -17,6 +18,7 @@ export default function CharacterCards() {
           <h1 className={'text-3xl text-dark'}>Personnages</h1>
         </div>
       </BaseContainer>
+      <DisplayCharacterCards />
     </section>
   );
 }
