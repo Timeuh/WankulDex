@@ -18,7 +18,7 @@ export default function CharacterCard({card}: Props) {
         sizes={'100vw'}
         className={'h-auto w-3/4 rounded-t-lg border-2 border-dark'}
       />
-      <CardInfos card={card} size={'character'} />
+      <CardInfos card={card} size={'character'} cardName={'character'} />
     </div>
   );
 }
