@@ -2,8 +2,8 @@
 
 import useCards from '@/app/_hooks/useCards';
 import {Card} from '@/app/_utils/appTypes';
-import CharacterCard from '@components/cards/CharacterCard';
-import CharacterCardLoading from '@components/cards/CharacterCardLoading';
+import CharacterCard from '@components/cards/character/CharacterCard';
+import CharacterCardLoading from '@components/cards/character/CharacterCardLoading';
 
 export default function DisplayCharacterCards() {
   const {data, error, isFetching} = useCards('Personnage');

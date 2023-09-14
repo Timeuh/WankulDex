@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import BaseContainer from '@components/BaseContainer';
-import DisplayCharacterCards from '@components/cards/DisplayCharacterCards';
+import DisplayCharacterCards from '@components/cards/character/DisplayCharacterCards';
 
 export default function CharacterCards() {
   return (

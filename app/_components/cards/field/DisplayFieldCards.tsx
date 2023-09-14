@@ -2,8 +2,8 @@
 
 import useCards from '@/app/_hooks/useCards';
 import {Card} from '@/app/_utils/appTypes';
-import FieldCard from '@components/cards/FieldCard';
-import FieldCardLoading from '@components/cards/FieldCardLoading';
+import FieldCard from '@components/cards/field/FieldCard';
+import FieldCardLoading from '@components/cards/field/FieldCardLoading';
 
 export default function DisplayFieldCards() {
   const {data, error, isFetching} = useCards('Terrain');

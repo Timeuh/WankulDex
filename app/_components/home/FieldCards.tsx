@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import BaseContainer from '@components/BaseContainer';
-import DisplayFieldCards from '@components/cards/DisplayFieldCards';
+import DisplayFieldCards from '@components/cards/field/DisplayFieldCards';
 
 export default function FieldCards() {
   return (
