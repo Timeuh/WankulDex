@@ -16,7 +16,7 @@ export default function CharacterCard({card}: Props) {
         width={0}
         height={0}
         sizes={'100vw'}
-        className={'h-auto w-3/4 rounded-t-lg border-2 border-dark'}
+        className={'h-auto w-5/6 rounded-t-lg border-2 border-dark'}
       />
       <CardInfos card={card} size={'character'} cardName={'character'} />
     </div>
