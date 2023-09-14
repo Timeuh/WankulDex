@@ -6,8 +6,7 @@ type Props = {
   card: Card;
 } & VariantProps<typeof variants>;
 
-const baseClasses: string = 'flex flex-row items-center justify-between rounded-b-lg border-2 border-t-0 p-1';
-const variants = cva(baseClasses, {
+const variants = cva('', {
   variants: {
     theme: {
       light: 'border-dark bg-light',
@@ -16,16 +15,26 @@ const variants = cva(baseClasses, {
       field: 'w-5/6',
       character: 'w-3/4',
     },
+    cardName: {
+      field: 'text-xl xl:text-2xl',
+      character: 'text-lg xl:text-xl',
+    },
   },
   defaultVariants: {
     theme: 'light',
     size: 'field',
+    cardName: 'field',
   },
 });
 
-export default function CardInfos({card, theme, size}: Props) {
+export default function CardInfos({card, theme, size, cardName}: Props) {
   return (
-    <div className={variants({theme, size})}>
+    <div
+      className={`${variants({
+        theme,
+        size,
+      })} flex flex-row items-center justify-between rounded-b-lg border-2 border-t-0 p-1`}
+    >
       <div className={'flex flex-row items-center space-x-2'}>
         <Image
           src={'/img/cards-light.png'}
@@ -35,7 +44,7 @@ export default function CardInfos({card, theme, size}: Props) {
           sizes={'100vw'}
           className={'h-auto w-10 xl:w-12'}
         />
-        <h2 className={'text-xl font-bold xl:text-2xl'}>{card.card.name.toUpperCase()}</h2>
+        <h2 className={`${variants({cardName})} font-bold`}>{card.card.name.toUpperCase()}</h2>
       </div>
       <span
         className={
