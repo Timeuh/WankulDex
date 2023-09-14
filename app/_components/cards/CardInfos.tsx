@@ -1,17 +1,31 @@
 import Image from 'next/image';
 import {Card} from '@/app/_utils/appTypes';
+import {cva, VariantProps} from 'class-variance-authority';
 
 type Props = {
   card: Card;
-};
+} & VariantProps<typeof variants>;
 
-export default function CardInfos({card}: Props) {
+const baseClasses: string = 'flex flex-row items-center justify-between rounded-b-lg border-2 border-t-0 p-1';
+const variants = cva(baseClasses, {
+  variants: {
+    theme: {
+      light: 'border-dark bg-light',
+    },
+    size: {
+      field: 'w-5/6',
+      character: 'w-3/4',
+    },
+  },
+  defaultVariants: {
+    theme: 'light',
+    size: 'field',
+  },
+});
+
+export default function CardInfos({card, theme, size}: Props) {
   return (
-    <div
-      className={
-        'flex w-5/6 flex-row items-center justify-between rounded-b-lg border-2 border-t-0 border-dark bg-light p-1'
-      }
-    >
+    <div className={variants({theme, size})}>
       <div className={'flex flex-row items-center space-x-2'}>
         <Image
           src={'/img/cards-light.png'}
