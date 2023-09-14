@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import {Card} from '@/app/_utils/appTypes';
+import {Card, CardRarity} from '@/app/_utils/appTypes';
 import {API_DOMAIN} from '@/app/_utils/appGlobals';
 import CardInfos from '@components/cards/CardInfos';
 
@@ -18,7 +18,13 @@ export default function CharacterCard({card}: Props) {
         sizes={'100vw'}
         className={'h-auto w-5/6 rounded-t-lg border-2 border-dark'}
       />
-      <CardInfos card={card} size={'character'} cardName={'character'} />
+      <CardInfos
+        card={card}
+        size={'character'}
+        cardName={'character'}
+        textColor={card.card.description.rarity.name as CardRarity}
+        borderColor={card.card.description.rarity.name as CardRarity}
+      />
     </div>
   );
 }
