@@ -43,3 +43,13 @@ export type Cards = {
 };
 
 export type CardType = 'Terrain' | 'Personnage' | 'None';
+
+export type CardRarity =
+  | 'Ultra Rare Holo 1'
+  | 'Ultra Rare Holo 2'
+  | 'Légendaire Bronze'
+  | 'Légendaire Argent'
+  | 'Légendaire Or'
+  | 'default'
+  | null
+  | undefined;
