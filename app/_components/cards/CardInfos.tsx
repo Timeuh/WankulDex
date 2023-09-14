@@ -19,15 +19,33 @@ const variants = cva('', {
       field: 'text-xl xl:text-2xl',
       character: 'text-lg xl:text-xl',
     },
+    textColor: {
+      'Ultra Rare Holo 1': 'text-wankil-purple',
+      'Ultra Rare Holo 2': 'text-wankil-purple',
+      'Légendaire Bronze': 'text-bronze',
+      'Légendaire Argent': 'text-light-silver',
+      'Légendaire Or': 'text-gold',
+      default: 'text-dark',
+    },
+    borderColor: {
+      'Ultra Rare Holo 1': 'border-wankil-purple',
+      'Ultra Rare Holo 2': 'border-wankil-purple',
+      'Légendaire Bronze': 'border-bronze',
+      'Légendaire Argent': 'border-light-silver',
+      'Légendaire Or': 'border-gold',
+      default: 'border-dark',
+    },
   },
   defaultVariants: {
     theme: 'light',
     size: 'field',
     cardName: 'field',
+    textColor: 'default',
+    borderColor: 'default',
   },
 });
 
-export default function CardInfos({card, theme, size, cardName}: Props) {
+export default function CardInfos({card, theme, size, cardName, textColor, borderColor}: Props) {
   return (
     <div
       className={`${variants({
@@ -44,12 +62,13 @@ export default function CardInfos({card, theme, size, cardName}: Props) {
           sizes={'100vw'}
           className={'h-auto w-10 xl:w-12'}
         />
-        <h2 className={`${variants({cardName})} font-bold`}>{card.card.name.toUpperCase()}</h2>
+        <h2 className={`${variants({cardName, textColor})} font-bold`}>{card.card.name.toUpperCase()}</h2>
       </div>
       <span
-        className={
-          'h-10 w-10 rounded-full border-2 border-dark pt-1 text-center text-lg font-bold xl:h-12 xl:w-12 xl:pt-[10px] xl:text-xl'
-        }
+        className={`${variants({
+          borderColor,
+          textColor,
+        })} h-10 w-10 rounded-full border-2 pt-1 text-center text-lg font-bold xl:h-12 xl:w-12 xl:pt-[10px] xl:text-xl`}
       >
         {card.card.id}
       </span>
