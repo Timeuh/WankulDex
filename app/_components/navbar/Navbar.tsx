@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import BaseContainer from '@components/BaseContainer';
+import NavbarMenu from '@components/navbar/NavbarMenu';
 
 export default function Navbar() {
   return (
@@ -17,18 +18,7 @@ export default function Navbar() {
             />
           </button>
         </BaseContainer>
-        <BaseContainer interaction={'hover'}>
-          <button className={'h-auto w-12 p-1'}>
-            <Image
-              src={'/img/navbar/menu-light.png'}
-              alt={'menu'}
-              width={0}
-              height={0}
-              sizes={'100vw'}
-              className={'h-full w-full'}
-            />
-          </button>
-        </BaseContainer>
+        <NavbarMenu />
       </div>
     </nav>
   );
