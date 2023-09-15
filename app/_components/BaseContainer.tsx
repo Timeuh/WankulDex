@@ -27,15 +27,20 @@ const variants = cva(baseClasses, {
     interaction: {
       hover: 'container-background',
     },
+    border: {
+      base: 'border-2',
+      none: 'border-0',
+    },
   },
   defaultVariants: {
     theme: 'light',
     margin: 'none',
     padding: 'none',
+    border: 'base',
   },
 });
 
-export default function BaseContainer({children, theme, margin, padding, interaction}: Props) {
+export default function BaseContainer({children, theme, margin, padding, interaction, border}: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMove = (event: {clientX: number; clientY: number}) => {
@@ -53,7 +58,11 @@ export default function BaseContainer({children, theme, margin, padding, interac
   };
 
   return (
-    <div className={variants({theme, margin, padding, interaction})} onMouseMove={handleMove} ref={containerRef}>
+    <div
+      className={variants({theme, margin, padding, interaction, border})}
+      onMouseMove={handleMove}
+      ref={containerRef}
+    >
       <div
         className={`flex h-full w-full flex-col items-center justify-center bg-light transition ${
           interaction ? 'group-hover:bg-opacity-70 group-hover:backdrop-blur-lg' : ''
