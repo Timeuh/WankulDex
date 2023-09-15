@@ -53,3 +53,9 @@ export type CardRarity =
   | 'default'
   | null
   | undefined;
+
+export type NavbarLink = {
+  image: string;
+  name: string;
+  link: string;
+};
