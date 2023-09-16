@@ -7,9 +7,9 @@ export default function setAuthCookie(
   },
   value: string,
 ) {
-  if (!process.env.API_COOKIE) {
+  if (!process.env.NEXT_PUBLIC_API_COOKIE) {
     return;
   }
 
-  setCookie(process.env.API_COOKIE, value);
+  setCookie(process.env.NEXT_PUBLIC_API_COOKIE, value);
 }
