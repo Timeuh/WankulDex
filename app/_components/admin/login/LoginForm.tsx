@@ -3,20 +3,20 @@
 import {ChangeEvent, MouseEvent, useState} from 'react';
 import BaseContainer from '@components/BaseContainer';
 import FormInput from '@components/FormInput';
-import useLogin from '@/app/_hooks/useLogin';
 import Loading from '@/app/Loading';
 import {LoginResult} from '@/app/_utils/appTypes';
 import {useCookies} from 'react-cookie';
 import {useRouter} from 'next/navigation';
 import setAuthCookie from '@/app/_utils/setAuthCookie';
+import login from '@/app/_utils/login';
 
 export default function LoginForm() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [emailError, setEmailError] = useState<string>('');
   const [passwordError, setPasswordError] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const {refetch, isFetching} = useLogin(email, password);
   const [cookies, setCookie, removeCookie] = useCookies();
   const router = useRouter();
 
@@ -50,51 +50,56 @@ export default function LoginForm() {
 
   const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    setIsLoading(true);
 
-    refetch().then((refetchResult) => {
-      const error = handleError(refetchResult.data);
-      if (error) return;
+    login(email, password).then((loginResult: LoginResult) => {
+      const error = handleError(loginResult);
 
-      setAuthCookie(setCookie, refetchResult.data.token);
+      if (error || !loginResult.token) {
+        setIsLoading(false);
+        return;
+      }
+
+      setAuthCookie(setCookie, loginResult.token);
       router.push('/admin/create/card');
     });
   };
 
   return (
     <>
-      <Loading isFetching={isFetching} text={'Connexion'} />
-      <form
-        action='noredirect'
-        className={`flex h-full w-full flex-col items-center px-8 ${isFetching ? 'hidden' : 'block'}`}
-      >
-        <div className={'flex w-[80vw] flex-col space-y-12 xl:w-[30vw]'}>
-          <FormInput
-            image={'/img/admin/login/mail-light.png'}
-            text={'Email'}
-            type={'email'}
-            value={email}
-            valueType={'email'}
-            changeValue={changeValue}
-            error={emailError}
-          />
-          <FormInput
-            image={'/img/admin/login/password-light.png'}
-            text={'Mot de passe'}
-            type={'password'}
-            value={password}
-            valueType={'password'}
-            changeValue={changeValue}
-            error={passwordError}
-          />
-        </div>
-        <div className={'absolute bottom-6'}>
-          <BaseContainer interaction={'hover'}>
-            <button className={'h-12 w-[80vw] text-2xl xl:h-14 xl:w-[30vw] xl:text-3xl'} onClick={handleSubmit}>
-              Connexion
-            </button>
-          </BaseContainer>
-        </div>
-      </form>
+      {isLoading ? (
+        <Loading text={'Connexion'} />
+      ) : (
+        <form action='noredirect' className={'flex h-full w-full flex-col items-center px-8'}>
+          <div className={'flex w-[80vw] flex-col space-y-12 xl:w-[30vw]'}>
+            <FormInput
+              image={'/img/admin/login/mail-light.png'}
+              text={'Email'}
+              type={'email'}
+              value={email}
+              valueType={'email'}
+              changeValue={changeValue}
+              error={emailError}
+            />
+            <FormInput
+              image={'/img/admin/login/password-light.png'}
+              text={'Mot de passe'}
+              type={'password'}
+              value={password}
+              valueType={'password'}
+              changeValue={changeValue}
+              error={passwordError}
+            />
+          </div>
+          <div className={'absolute bottom-6'}>
+            <BaseContainer interaction={'hover'}>
+              <button className={'h-12 w-[80vw] text-2xl xl:h-14 xl:w-[30vw] xl:text-3xl'} onClick={handleSubmit}>
+                Connexion
+              </button>
+            </BaseContainer>
+          </div>
+        </form>
+      )}
     </>
   );
 }
