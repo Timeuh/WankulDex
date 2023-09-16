@@ -8,7 +8,7 @@ type Props = {
 } & VariantProps<typeof variants>;
 
 const baseClasses: string =
-  'flex flex-col items-center justify-center border-2 rounded-lg group box-border overflow-hidden h-fit w-fit';
+  'flex flex-col items-center justify-center rounded-lg group box-border overflow-hidden h-fit w-fit';
 const variants = cva(baseClasses, {
   variants: {
     theme: {
