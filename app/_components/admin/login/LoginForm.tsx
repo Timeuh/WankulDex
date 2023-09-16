@@ -6,13 +6,19 @@ import FormInput from '@components/FormInput';
 import useLogin from '@/app/_hooks/useLogin';
 import Loading from '@/app/Loading';
 import {LoginResult} from '@/app/_utils/appTypes';
+import {useCookies} from 'react-cookie';
+import {useRouter} from 'next/navigation';
+import setAuthCookie from '@/app/_utils/setAuthCookie';
 
 export default function LoginForm() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [emailError, setEmailError] = useState<string>('');
   const [passwordError, setPasswordError] = useState<string>('');
+
   const {refetch, isFetching} = useLogin(email, password);
+  const [cookies, setCookie, removeCookie] = useCookies();
+  const router = useRouter();
 
   const changeValue = (event: ChangeEvent<HTMLInputElement>, valueType: string) => {
     if (valueType === 'email') {
@@ -48,7 +54,9 @@ export default function LoginForm() {
     refetch().then((refetchResult) => {
       const error = handleError(refetchResult.data);
       if (error) return;
-      console.log(refetchResult.data);
+
+      setAuthCookie(setCookie, refetchResult.data.token);
+      router.push('/admin/create/card');
     });
   };
 
