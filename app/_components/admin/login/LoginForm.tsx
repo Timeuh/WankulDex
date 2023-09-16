@@ -1,10 +1,22 @@
 'use client';
 
-import {MouseEvent} from 'react';
+import {ChangeEvent, MouseEvent, useState} from 'react';
 import BaseContainer from '@components/BaseContainer';
 import FormInput from '@components/FormInput';
 
 export default function LoginForm() {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const changeValue = (event: ChangeEvent<HTMLInputElement>, valueType: string) => {
+    if (valueType === 'email') {
+      setEmail(event.target.value);
+      return;
+    }
+
+    setPassword(event.target.value);
+  };
+
   const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
@@ -12,8 +24,22 @@ export default function LoginForm() {
   return (
     <form action='noredirect' className={'flex h-full w-full flex-col items-center px-8'}>
       <div className={'flex w-[80vw] flex-col space-y-12 xl:w-[30vw]'}>
-        <FormInput image={'/img/admin/login/mail-light.png'} text={'Email'} type={'email'} />
-        <FormInput image={'/img/admin/login/password-light.png'} text={'Mot de passe'} type={'password'} />
+        <FormInput
+          image={'/img/admin/login/mail-light.png'}
+          text={'Email'}
+          type={'email'}
+          value={email}
+          valueType={'email'}
+          changeValue={changeValue}
+        />
+        <FormInput
+          image={'/img/admin/login/password-light.png'}
+          text={'Mot de passe'}
+          type={'password'}
+          value={password}
+          valueType={'password'}
+          changeValue={changeValue}
+        />
       </div>
       <div className={'absolute bottom-6'}>
         <BaseContainer interaction={'hover'}>
