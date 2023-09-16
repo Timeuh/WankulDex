@@ -14,7 +14,7 @@ export default function Login() {
             width={0}
             height={0}
             sizes={'100vw'}
-            className={'h-auto w-16'}
+            className={'h-auto w-16 xl:w-20'}
           />
           <h1 className={'text-5xl'}>Administrateur</h1>
         </div>

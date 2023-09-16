@@ -11,13 +11,13 @@ export default function LoginForm() {
 
   return (
     <form action='noredirect' className={'flex h-full w-full flex-col items-center px-8'}>
-      <div className={'flex w-[80vw] flex-col space-y-12'}>
+      <div className={'flex w-[80vw] flex-col space-y-12 xl:w-[30vw]'}>
         <FormInput image={'/img/admin/login/mail-light.png'} text={'Email'} type={'email'} />
         <FormInput image={'/img/admin/login/password-light.png'} text={'Mot de passe'} type={'password'} />
       </div>
       <div className={'absolute bottom-6'}>
         <BaseContainer interaction={'hover'}>
-          <button className={'h-12 w-[80vw] text-2xl'} onClick={handleSubmit}>
+          <button className={'h-12 w-[80vw] text-2xl xl:h-14 xl:w-[30vw] xl:text-3xl'} onClick={handleSubmit}>
             Connexion
           </button>
         </BaseContainer>
