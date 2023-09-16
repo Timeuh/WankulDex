@@ -12,7 +12,7 @@ const baseClasses: string =
 const variants = cva(baseClasses, {
   variants: {
     theme: {
-      light: 'bg-light border-[#CCCCCCFF]',
+      light: 'bg-light',
     },
     margin: {
       none: 'm-0',
@@ -31,16 +31,21 @@ const variants = cva(baseClasses, {
       base: 'border-2',
       none: 'border-0',
     },
+    borderColor: {
+      light: 'border-[#CCCCCCFF]',
+      error: 'border-red-500',
+    },
   },
   defaultVariants: {
     theme: 'light',
     margin: 'none',
     padding: 'none',
     border: 'base',
+    borderColor: 'light',
   },
 });
 
-export default function BaseContainer({children, theme, margin, padding, interaction, border}: Props) {
+export default function BaseContainer({children, theme, margin, padding, interaction, border, borderColor}: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMove = (event: {clientX: number; clientY: number}) => {
@@ -59,7 +64,7 @@ export default function BaseContainer({children, theme, margin, padding, interac
 
   return (
     <div
-      className={variants({theme, margin, padding, interaction, border})}
+      className={variants({theme, margin, padding, interaction, border, borderColor})}
       onMouseMove={handleMove}
       ref={containerRef}
     >
