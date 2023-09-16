@@ -7,6 +7,8 @@ import FormInput from '@components/FormInput';
 export default function LoginForm() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [emailError, setEmailError] = useState<string>('');
+  const [passwordError, setPasswordError] = useState<string>('');
 
   const changeValue = (event: ChangeEvent<HTMLInputElement>, valueType: string) => {
     if (valueType === 'email') {
@@ -19,6 +21,8 @@ export default function LoginForm() {
 
   const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    setEmailError('test erreur email');
+    setPasswordError('test erreur password');
   };
 
   return (
@@ -31,6 +35,7 @@ export default function LoginForm() {
           value={email}
           valueType={'email'}
           changeValue={changeValue}
+          error={emailError}
         />
         <FormInput
           image={'/img/admin/login/password-light.png'}
@@ -39,6 +44,7 @@ export default function LoginForm() {
           value={password}
           valueType={'password'}
           changeValue={changeValue}
+          error={passwordError}
         />
       </div>
       <div className={'absolute bottom-6'}>
