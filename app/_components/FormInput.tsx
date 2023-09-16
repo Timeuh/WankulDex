@@ -19,7 +19,7 @@ export default function FormInput({image, text, type, value, changeValue, valueT
         <Image src={image} alt={''} height={0} width={0} sizes={'100vw'} className={'h-auto w-12 xl:w-16'} />
         <h2 className={'pt-2 text-3xl xl:text-4xl'}>{text}</h2>
       </div>
-      <BaseContainer interaction={'hover'} borderColor={error !== '' ? 'error' : null}>
+      <BaseContainer interaction={'hover'} borderColor={error !== '' ? 'error' : undefined}>
         <input
           type={type}
           className={
