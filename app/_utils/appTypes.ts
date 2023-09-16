@@ -59,3 +59,9 @@ export type NavbarLink = {
   name: string;
   link: string;
 };
+
+export type LoginResult = {
+  code: number;
+  error?: string;
+  token?: string;
+};
