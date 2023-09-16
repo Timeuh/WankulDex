@@ -1,15 +1,12 @@
 type Props = {
-  isFetching: boolean;
   text: string;
 };
 
-export default function Loading({isFetching, text}: Props) {
+export default function Loading({text}: Props) {
   return (
     <div
       id={'loading-animation'}
-      className={`${
-        isFetching ? 'opacity-100' : 'pointer-events-none opacity-0'
-      } absolute flex h-3/5 w-3/5 flex-col items-center justify-center space-y-4 pt-24 xl:pt-36`}
+      className={'absolute flex h-3/5 w-3/5 flex-col items-center justify-center space-y-4 pt-24 xl:pt-36'}
     >
       <svg
         aria-hidden='true'
