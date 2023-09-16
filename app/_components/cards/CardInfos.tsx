@@ -37,16 +37,17 @@ const variants = cva('', {
       default: 'border-dark',
     },
   },
-  defaultVariants: {
-    theme: 'light',
-    size: 'field',
-    cardName: 'field',
-    textColor: 'default',
-    borderColor: 'default',
-  },
 });
 
-export default function CardInfos({card, theme, size, cardName, textColor, borderColor, image}: Props) {
+export default function CardInfos({
+  card,
+  theme = 'light',
+  size = 'field',
+  cardName = 'field',
+  textColor = 'default',
+  borderColor = 'default',
+  image,
+}: Props) {
   let imageSrc: string;
 
   switch (image) {
