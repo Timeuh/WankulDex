@@ -34,7 +34,6 @@ const variants = cva('', {
       'Légendaire Bronze': 'border-bronze',
       'Légendaire Argent': 'border-light-silver',
       'Légendaire Or': 'border-gold',
-      default: 'border-dark',
     },
   },
 });
@@ -45,7 +44,7 @@ export default function CardInfos({
   size = 'field',
   cardName = 'field',
   textColor = 'default',
-  borderColor = 'default',
+  borderColor,
   image,
 }: Props) {
   let imageSrc: string;
@@ -85,7 +84,7 @@ export default function CardInfos({
         <h2 className={`${variants({cardName, textColor})} font-bold`}>{card.card.name.toUpperCase()}</h2>
       </div>
       <span
-        className={`${variants({
+        className={`border-dark ${variants({
           borderColor,
           textColor,
         })} h-10 w-10 rounded-full border-2 pt-1 text-center text-lg font-bold xl:h-12 xl:w-12 xl:pt-[10px] xl:text-xl`}
