@@ -65,3 +65,12 @@ export type LoginResult = {
   error?: string;
   token?: string;
 };
+
+export type DecodedToken = {
+  time: Date;
+  user: string;
+  name: string;
+  lastname: string;
+  iat: number;
+  exp: number;
+};
