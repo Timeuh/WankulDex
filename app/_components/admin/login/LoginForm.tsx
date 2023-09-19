@@ -70,7 +70,7 @@ export default function LoginForm() {
       {isLoading ? (
         <Loading text={'Connexion'} />
       ) : (
-        <form action='noredirect' className={'flex h-full w-full flex-col items-center px-8'}>
+        <form action='noredirect' className={'flex w-full flex-col items-center px-8'}>
           <div className={'flex w-[80vw] flex-col space-y-12 xl:w-[30vw]'}>
             <FormInput
               image={'/img/admin/login/mail-light.png'}
