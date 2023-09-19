@@ -26,7 +26,6 @@ const variants = cva('', {
       'Légendaire Bronze': 'text-bronze',
       'Légendaire Argent': 'text-light-silver',
       'Légendaire Or': 'text-gold',
-      default: 'text-dark',
     },
     borderColor: {
       'Ultra Rare Holo 1': 'border-wankil-purple',
@@ -43,7 +42,7 @@ export default function CardInfos({
   theme = 'light',
   size = 'field',
   cardName = 'field',
-  textColor = 'default',
+  textColor,
   borderColor,
   image,
 }: Props) {
