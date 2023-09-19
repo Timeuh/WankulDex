@@ -1,11 +1,9 @@
 import {NextRequest, NextResponse} from 'next/server';
-import jwtDecode from 'jwt-decode';
-import {DecodedToken} from '@/app/_utils/appTypes';
+import isTokenValid from '@/app/_utils/isTokenValid';
 
 export function middleware(request: NextRequest) {
-  const authHeader = process.env.NEXT_PUBLIC_API_AUTH_HEADER;
   const authTokenKey = process.env.NEXT_PUBLIC_API_COOKIE;
-  if (!authTokenKey || !authHeader) {
+  if (!authTokenKey) {
     return NextResponse.redirect(new URL('/admin/login', request.url));
   }
 
@@ -14,8 +12,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/admin/login', request.url));
   }
 
-  const decodedToken: DecodedToken = jwtDecode(authToken.value);
-  if (decodedToken.exp <= new Date('now').getTime()) {
+  if (!isTokenValid(authToken.value)) {
     return NextResponse.redirect(new URL('/admin/login', request.url));
   }
 }
