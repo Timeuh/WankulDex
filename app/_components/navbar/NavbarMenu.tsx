@@ -100,7 +100,7 @@ export default function NavbarMenu() {
           onClick={handleActivation}
         >
           {links.map((link: NavbarLink, index: number) => {
-            return <NavbarLinkItem key={index} link={link} isLast={index === links.length - 1} />;
+            return <NavbarLinkItem key={index} link={link} isLast={isAdmin ? false : index === links.length - 1} />;
           })}
           {isAdmin
             ? adminLinks.map((link: NavbarLink, index: number) => {
