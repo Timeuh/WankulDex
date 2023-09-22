@@ -4,10 +4,25 @@ import Image from 'next/image';
 import BaseContainer from '@components/BaseContainer';
 import {NavbarLink} from '@/app/_utils/appTypes';
 import NavbarLinkItem from '@components/navbar/NavbarLinkItem';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+import isAdminLogged from '@/app/_utils/isAdminLogged';
 
 export default function NavbarMenu() {
   const [isActive, setActive] = useState<boolean>(false);
+  const [isAdmin, setAdmin] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkAdminStatus = () => {
+      setAdmin(isAdminLogged());
+    };
+
+    checkAdminStatus();
+
+    const intervalId = setInterval(checkAdminStatus, 1000);
+    return () => {
+      return clearInterval(intervalId);
+    };
+  }, []);
 
   const links: Array<NavbarLink> = [
     {
@@ -39,6 +54,19 @@ export default function NavbarMenu() {
       name: 'Admin',
       image: '/img/navbar/admin-light.png',
       link: '/admin/login/',
+    },
+  ];
+
+  const adminLinks: Array<NavbarLink> = [
+    {
+      name: 'Carte',
+      image: '/img/navbar/alternate-add-light.png',
+      link: '/admin/create/card',
+    },
+    {
+      name: 'Artiste',
+      image: '/img/navbar/alternate-add-light.png',
+      link: '/admin/create/artist',
     },
   ];
 
@@ -74,6 +102,11 @@ export default function NavbarMenu() {
           {links.map((link: NavbarLink, index: number) => {
             return <NavbarLinkItem key={index} link={link} isLast={index === links.length - 1} />;
           })}
+          {isAdmin
+            ? adminLinks.map((link: NavbarLink, index: number) => {
+                return <NavbarLinkItem key={index} link={link} isLast={index === adminLinks.length - 1} />;
+              })
+            : null}
         </nav>
       </div>
     </section>
