@@ -1,11 +1,8 @@
 import {NextRequest, NextResponse} from 'next/server';
-import isTokenValid from '@/app/_utils/isTokenValid';
+import isAdminLogged from '@/app/_utils/isAdminLogged';
 
 export function middleware(request: NextRequest) {
-  const authTokenKey = process.env.NEXT_PUBLIC_API_COOKIE;
-  const authToken = authTokenKey ? request.cookies.get(authTokenKey) : null;
-
-  if (!authToken || !isTokenValid(authToken.value)) {
+  if (!isAdminLogged(request.cookies)) {
     return NextResponse.redirect(new URL('/admin/login', request.url));
   }
 }
