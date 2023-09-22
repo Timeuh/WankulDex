@@ -5,7 +5,6 @@ import BaseContainer from '@components/BaseContainer';
 import FormInput from '@components/FormInput';
 import Loading from '@/app/Loading';
 import {LoginResult} from '@/app/_utils/appTypes';
-import {useCookies} from 'react-cookie';
 import {useRouter} from 'next/navigation';
 import setAuthCookie from '@/app/_utils/setAuthCookie';
 import login from '@/app/_utils/login';
@@ -17,7 +16,6 @@ export default function LoginForm() {
   const [passwordError, setPasswordError] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const [cookies, setCookie, removeCookie] = useCookies();
   const router = useRouter();
 
   const changeValue = (event: ChangeEvent<HTMLInputElement>, valueType: string) => {
@@ -60,7 +58,7 @@ export default function LoginForm() {
         return;
       }
 
-      setAuthCookie(setCookie, loginResult.token);
+      setAuthCookie(loginResult.token);
       router.push('/admin/create/card');
     });
   };
