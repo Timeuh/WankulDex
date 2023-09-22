@@ -7,7 +7,7 @@ export default function BackButton() {
     <BaseContainer interaction={'hover'}>
       <Link
         href={'/'}
-        className={'flex h-12 w-[30vw] flex-row items-center justify-center space-x-2 xl:h-20 xl:w-[15vw] xl:space-x-4'}
+        className={'flex h-12 w-[30vw] flex-row items-center justify-center space-x-2 xl:h-16 xl:w-[15vw] xl:space-x-4'}
       >
         <Image
           src={'/img/back-light.png'}
