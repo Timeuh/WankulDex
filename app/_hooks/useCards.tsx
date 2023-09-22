@@ -1,5 +1,5 @@
 import {useQuery} from 'react-query';
-import {API_BASE_URL} from '@/app/_utils/appGlobals';
+import {API_BASE_URL, QUERY_STALE_TIME} from '@/app/_utils/appGlobals';
 import cardSchema from '@/app/_zod/CardSchema';
 import {Card, Cards, CardType} from '@/app/_utils/appTypes';
 
@@ -24,7 +24,13 @@ const getCards = async (type: CardType) => {
 };
 
 export default function useCards(type: CardType = 'None') {
-  return useQuery(['cards', type], () => {
-    return getCards(type);
-  });
+  return useQuery(
+    ['cards', type],
+    () => {
+      return getCards(type);
+    },
+    {
+      staleTime: QUERY_STALE_TIME,
+    },
+  );
 }
