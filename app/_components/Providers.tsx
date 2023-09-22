@@ -1,7 +1,6 @@
 'use client';
 
 import {ReactNode} from 'react';
-import {CookiesProvider} from 'react-cookie';
 import {QueryClient, QueryClientProvider} from 'react-query';
 
 type Props = {
@@ -17,9 +16,5 @@ export default function Providers({children}: Props) {
     },
   });
 
-  return (
-    <CookiesProvider>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-    </CookiesProvider>
-  );
+  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 }
