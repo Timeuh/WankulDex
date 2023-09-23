@@ -74,3 +74,10 @@ export type DecodedToken = {
   iat: number;
   exp: number;
 };
+
+export type inputField = {
+  value: string | number;
+  error: string;
+};
+
+export type CardFirstRowNames = 'ID' | 'Name' | 'Collection' | 'ImageName';
