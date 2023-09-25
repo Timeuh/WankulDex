@@ -50,7 +50,6 @@ export type CardRarity =
   | 'Légendaire Bronze'
   | 'Légendaire Argent'
   | 'Légendaire Or'
-  | 'default'
   | null
   | undefined;
 
