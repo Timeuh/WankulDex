@@ -121,3 +121,21 @@ export type Characters = {
   length: number;
   type: string;
 };
+
+export type Rarity = {
+  rarity: {
+    name: string;
+    id: number;
+  };
+  links: {
+    self: string;
+    all: string;
+    cards: string;
+  };
+};
+
+export type Rarities = {
+  rarities: Array<Rarity>;
+  length: number;
+  type: string;
+};
