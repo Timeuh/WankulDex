@@ -86,3 +86,21 @@ export type SelectOption = {
   name: string;
   id: number;
 };
+
+export type Artist = {
+  artist: {
+    name: string;
+    id: number;
+  };
+  links: {
+    self: string;
+    all: string;
+    cards: string;
+  };
+};
+
+export type Artists = {
+  artists: Array<Artist>;
+  length: number;
+  type: string;
+};
