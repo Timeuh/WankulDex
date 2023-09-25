@@ -18,7 +18,7 @@ export default function FieldCard({card}: Props) {
         sizes={'100vw'}
         className={'h-auto w-5/6 rounded-t-lg border-2 border-dark'}
       />
-      <CardInfos card={card} />
+      <CardInfos card={card} image={undefined} />
     </div>
   );
 }
