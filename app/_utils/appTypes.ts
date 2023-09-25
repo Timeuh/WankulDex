@@ -103,3 +103,21 @@ export type Artists = {
   length: number;
   type: string;
 };
+
+export type Character = {
+  character: {
+    name: string;
+    id: number;
+  };
+  links: {
+    self: string;
+    all: string;
+    cards: string;
+  };
+};
+
+export type Characters = {
+  characters: Array<Character>;
+  length: number;
+  type: string;
+};
