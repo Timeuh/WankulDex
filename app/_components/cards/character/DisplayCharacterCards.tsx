@@ -1,9 +1,9 @@
 'use client';
 
-import useCards from '@/app/_hooks/useCards';
 import {Card} from '@/app/_utils/appTypes';
 import CharacterCard from '@components/cards/character/CharacterCard';
 import CharacterCardLoading from '@components/cards/character/CharacterCardLoading';
+import useCards from '@hooks/useCards';
 
 export default function DisplayCharacterCards() {
   const {data, error, isFetching} = useCards('Personnage');
