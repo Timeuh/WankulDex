@@ -22,13 +22,7 @@ const getCharacters = async () => {
 };
 
 export default function useCharacters() {
-  return useQuery(
-    ['characters'],
-    () => {
-      return getCharacters();
-    },
-    {
-      staleTime: QUERY_STALE_TIME,
-    },
-  );
+  return useQuery(['characters'], () => {
+    return getCharacters();
+  });
 }

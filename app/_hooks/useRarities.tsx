@@ -22,13 +22,7 @@ const getRarities = async () => {
 };
 
 export default function useRarities() {
-  return useQuery(
-    ['rarities'],
-    () => {
-      return getRarities();
-    },
-    {
-      staleTime: QUERY_STALE_TIME,
-    },
-  );
+  return useQuery(['rarities'], () => {
+    return getRarities();
+  });
 }

@@ -22,13 +22,7 @@ const getArtists = async () => {
 };
 
 export default function useArtists() {
-  return useQuery(
-    ['artists'],
-    () => {
-      return getArtists();
-    },
-    {
-      staleTime: QUERY_STALE_TIME,
-    },
-  );
+  return useQuery(['artists'], () => {
+    return getArtists();
+  });
 }
