@@ -81,3 +81,8 @@ export type inputField = {
 };
 
 export type CardFirstRowNames = 'ID' | 'Name' | 'Collection' | 'ImageName';
+
+export type SelectOption = {
+  name: string;
+  id: number;
+};
