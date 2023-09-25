@@ -3,7 +3,7 @@ import {Character, SelectOption} from '@/app/_utils/appTypes';
 import useCharacters from '@hooks/useCharacters';
 
 export default function useCharacterSelect() {
-  const {data, isFetching} = useCharacters();
+  const {data} = useCharacters();
   const [characterSelectOptions, setCharacterSelectOptions] = useState<Array<SelectOption>>([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function useCharacterSelect() {
     };
 
     convertCharacterToOptions();
-  }, [data, isFetching]);
+  }, [data]);
 
   return {characterSelectOptions};
 }
