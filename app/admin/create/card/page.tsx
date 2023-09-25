@@ -4,7 +4,7 @@ import CardForm from '@components/admin/creation/card/CardForm';
 
 export default function CreateCard() {
   return (
-    <section id={'create-card'} className={'h-screen w-full bg-gradient-to-b from-light-purple to-light-blue'}>
+    <section id={'create-card'} className={'h-full w-full bg-gradient-to-b from-light-purple to-light-blue'}>
       <div className={'flex h-full w-full flex-col items-center space-y-12 pt-24'}>
         <BackButton />
         <div className={'flex flex-col items-center'}>
