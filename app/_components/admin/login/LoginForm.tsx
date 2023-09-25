@@ -2,7 +2,7 @@
 
 import {ChangeEvent, MouseEvent, useState} from 'react';
 import BaseContainer from '@components/BaseContainer';
-import FormInput from '@components/FormInput';
+import FormInput from '@components/form/FormInput';
 import Loading from '@/app/Loading';
 import {LoginResult} from '@/app/_utils/appTypes';
 import {useRouter} from 'next/navigation';
