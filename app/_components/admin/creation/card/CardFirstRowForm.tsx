@@ -1,3 +1,5 @@
+'use client';
+
 import {ChangeEvent, useState} from 'react';
 import {CardFirstRowNames, inputField} from '@/app/_utils/appTypes';
 import FormInput from '@components/form/FormInput';

@@ -1,5 +1,3 @@
-'use client';
-
 import CardFirstRowForm from '@components/admin/creation/card/CardFirstRowForm';
 import CardSecondRowForm from '@components/admin/creation/card/CardSecondRowForm';
 
