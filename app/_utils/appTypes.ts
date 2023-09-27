@@ -158,7 +158,7 @@ export type CardDescriptionContextType = {
   updateDescription: (
     event: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>,
     field: CardDescriptionKey,
-    error: string,
+    error?: string,
   ) => void;
 };
 
