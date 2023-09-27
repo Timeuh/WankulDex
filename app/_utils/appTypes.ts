@@ -1,3 +1,5 @@
+import {ChangeEvent, Dispatch, SetStateAction} from 'react';
+
 export type Card = {
   card: {
     artist: {
@@ -139,3 +141,25 @@ export type Rarities = {
   length: number;
   type: string;
 };
+
+export type CardDescription = {
+  id: InputField;
+  winner_effect: InputField;
+  looser_effect: InputField;
+  special: InputField;
+  character_id: InputField;
+  effect: InputField;
+  citation: InputField;
+  rarity_id: InputField;
+};
+
+export type CardDescriptionContextType = {
+  cardDescription: CardDescription;
+  updateDescription: (
+    event: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>,
+    field: CardDescriptionKey,
+    error: string,
+  ) => void;
+};
+
+export type CardDescriptionKey = keyof CardDescription;
