@@ -27,7 +27,7 @@ export default function CardFirstRowForm() {
 
     switch (valueType) {
       case 'ID':
-        if (event.target.value === '-') {
+        if (isNaN(parseInt(newValue))) {
           return;
         }
 
