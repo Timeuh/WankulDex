@@ -1,23 +1,23 @@
 'use client';
 
 import {ChangeEvent, useState} from 'react';
-import {CardFirstRowNames, inputField} from '@/app/_utils/appTypes';
+import {CardFirstRowNames, InputField} from '@/app/_utils/appTypes';
 import FormInput from '@components/form/FormInput';
 
 export default function CardFirstRowForm() {
-  const [id, setId] = useState<inputField>({
+  const [id, setId] = useState<InputField>({
     value: 1,
     error: '',
   });
-  const [name, setName] = useState<inputField>({
+  const [name, setName] = useState<InputField>({
     value: '',
     error: '',
   });
-  const [collection, setCollection] = useState<inputField>({
+  const [collection, setCollection] = useState<InputField>({
     value: '',
     error: '',
   });
-  const [imageName, setImageName] = useState<inputField>({
+  const [imageName, setImageName] = useState<InputField>({
     value: '',
     error: '',
   });

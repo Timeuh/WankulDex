@@ -74,7 +74,7 @@ export type DecodedToken = {
   exp: number;
 };
 
-export type inputField = {
+export type InputField = {
   value: string | number;
   error: string;
 };
