@@ -5,22 +5,19 @@ import useArtistSelect from '@hooks/admin/create/cards/useArtistSelect';
 import {ChangeEvent, useState} from 'react';
 import useCharacterSelect from '@hooks/admin/create/cards/useCharacterSelect';
 import useRaritySelect from '@hooks/admin/create/cards/useRaritySelect';
+import {useCardDescriptionContext} from '@providers/admin/creation/card/CardDescriptionContextProvider';
 
 export default function CardSecondRowForm() {
   const {artistSelectOptions} = useArtistSelect();
   const {characterSelectOptions} = useCharacterSelect();
   const {raritySelectOptions} = useRaritySelect();
+  const {cardDescription, updateDescription} = useCardDescriptionContext();
 
   const [currentArtist, setCurrentArtist] = useState<number>(1);
-  const [currentCharacter, setCurrentCharacter] = useState<number>(1);
   const [currentRarity, setCurrentRarity] = useState<number>(1);
 
   const changeArtist = (event: ChangeEvent<HTMLSelectElement>) => {
     setCurrentArtist(parseInt(event.target.value));
-  };
-
-  const changeCharacter = (event: ChangeEvent<HTMLSelectElement>) => {
-    setCurrentCharacter(parseInt(event.target.value));
   };
 
   const changeRarity = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -40,8 +37,10 @@ export default function CardSecondRowForm() {
         image={'/img/admin/create/cards/wankul-light.png'}
         text={'Personnage'}
         options={characterSelectOptions}
-        value={currentCharacter}
-        changeValue={changeCharacter}
+        value={cardDescription.character_id.value as number}
+        changeValue={(event) => {
+          updateDescription(event, 'character_id');
+        }}
       />
       <FormSelect
         image={'/img/admin/create/cards/rarity-light.png'}
