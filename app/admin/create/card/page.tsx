@@ -1,6 +1,6 @@
 import BackButton from '@components/BackButton';
 import Image from 'next/image';
-import CardForm from '@components/admin/creation/card/CardForm';
+import CardFormProviders from '@components/admin/creation/card/CardFormProviders';
 
 export default function CreateCard() {
   return (
@@ -18,7 +18,7 @@ export default function CreateCard() {
           />
           <h1 className={'text-5xl'}>Nouvelle Carte</h1>
         </div>
-        <CardForm />
+        <CardFormProviders />
       </div>
     </section>
   );
