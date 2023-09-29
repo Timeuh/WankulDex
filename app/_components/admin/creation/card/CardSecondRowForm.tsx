@@ -1,5 +1,3 @@
-'use client';
-
 import FormSelect from '@components/form/FormSelect';
 import useArtistSelect from '@hooks/admin/create/cards/useArtistSelect';
 import useCharacterSelect from '@hooks/admin/create/cards/useCharacterSelect';

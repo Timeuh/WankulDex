@@ -1,5 +1,3 @@
-'use client';
-
 import FormInput from '@components/form/FormInput';
 import {useCardContext} from '@providers/admin/creation/card/CardContextProvider';
 
