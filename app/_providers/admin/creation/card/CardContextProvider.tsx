@@ -40,12 +40,6 @@ export default function CardContextProvider({children}: Props) {
   });
 
   const updateCard = (value: string, field: CardContextKey, error: string = '') => {
-    if (error !== '') {
-      setCardContext((prevState) => {
-        return {...prevState, [field]: {...prevState[field], error: error}};
-      });
-    }
-
     setCardContext((prevState) => {
       if (field === 'id' || field === 'description_id' || field === 'type_id' || field === 'artist_id') {
         const newValue = parseInt(value);
@@ -53,10 +47,10 @@ export default function CardContextProvider({children}: Props) {
           return prevState;
         }
 
-        return {...prevState, [field]: {...prevState[field], value: newValue}};
+        return {...prevState, [field]: {...prevState[field], value: newValue, error: error}};
       }
 
-      return {...prevState, [field]: {...prevState[field], value: value}};
+      return {...prevState, [field]: {...prevState[field], value: value, error: error}};
     });
   };
 
