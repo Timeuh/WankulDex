@@ -15,7 +15,7 @@ export default function FormSelect({image, text, options, value, changeValue}: P
   return (
     <div className={'flex h-fit w-full flex-col space-y-2'}>
       <div className={'flex flex-row items-center space-x-4'}>
-        <Image src={image} alt={''} height={0} width={0} sizes={'100vw'} className={'h-auto w-12 xl:w-16'} />
+        <Image src={image} alt={text} height={0} width={0} sizes={'100vw'} className={'h-auto w-12 xl:w-16'} />
         <h2 className={'pt-2 text-3xl xl:text-4xl'}>{text}</h2>
       </div>
       <BaseContainer interaction={'hover'}>
