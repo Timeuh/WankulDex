@@ -163,3 +163,24 @@ export type CardDescriptionContextType = {
 };
 
 export type CardDescriptionKey = keyof CardDescription;
+
+export type CardContext = {
+  id: InputField;
+  name: InputField;
+  collection: InputField;
+  description_id: InputField;
+  type_id: InputField;
+  artist_id: InputField;
+  image: InputField;
+};
+
+export type CardContextType = {
+  cardContext: CardContext;
+  updateCard: (
+    event: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>,
+    field: CardContextKey,
+    error?: string,
+  ) => void;
+};
+
+export type CardContextKey = keyof CardContext;
