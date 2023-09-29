@@ -50,7 +50,7 @@ export default function CardContextProvider({children}: Props) {
     setCardContext((prevState) => {
       if (field === 'id' || field === 'description_id' || field === 'type_id' || field === 'artist_id') {
         const newValue = parseInt(value);
-        if (isNaN(newValue)) {
+        if (isNaN(newValue) || newValue <= 0) {
           return prevState;
         }
 
