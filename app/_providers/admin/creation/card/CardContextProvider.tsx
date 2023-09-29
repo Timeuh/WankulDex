@@ -39,11 +39,7 @@ export default function CardContextProvider({children}: Props) {
     },
   });
 
-  const updateCard = (
-    event: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>,
-    field: CardContextKey,
-    error: string = '',
-  ) => {
+  const updateCard = (value: string, field: CardContextKey, error: string = '') => {
     if (error !== '') {
       setCardContext((prevState) => {
         return {...prevState, [field]: {...prevState[field], error: error}};
@@ -53,7 +49,7 @@ export default function CardContextProvider({children}: Props) {
 
     setCardContext((prevState) => {
       if (field === 'id' || field === 'description_id' || field === 'type_id' || field === 'artist_id') {
-        const newValue = parseInt(event.target.value);
+        const newValue = parseInt(value);
         if (isNaN(newValue)) {
           return prevState;
         }
@@ -61,7 +57,7 @@ export default function CardContextProvider({children}: Props) {
         return {...prevState, [field]: {...prevState[field], value: newValue}};
       }
 
-      return {...prevState, [field]: {...prevState[field], value: event.target.value}};
+      return {...prevState, [field]: {...prevState[field], value: value}};
     });
   };
 

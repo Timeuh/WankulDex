@@ -43,11 +43,7 @@ export default function CardDescriptionContextProvider({children}: Props) {
     },
   });
 
-  const updateDescription = (
-    event: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>,
-    field: CardDescriptionKey,
-    error: string = '',
-  ) => {
+  const updateDescription = (value: string, field: CardDescriptionKey, error: string = '') => {
     if (error !== '') {
       setCardDescription((prevState) => {
         return {...prevState, [field]: {...prevState[field], error: error}};
@@ -57,10 +53,10 @@ export default function CardDescriptionContextProvider({children}: Props) {
 
     setCardDescription((prevState) => {
       if (field === 'id' || field === 'rarity_id' || field === 'character_id') {
-        return {...prevState, [field]: {...prevState[field], value: parseInt(event.target.value)}};
+        return {...prevState, [field]: {...prevState[field], value: parseInt(value)}};
       }
 
-      return {...prevState, [field]: {...prevState[field], value: event.target.value}};
+      return {...prevState, [field]: {...prevState[field], value: value}};
     });
   };
 
