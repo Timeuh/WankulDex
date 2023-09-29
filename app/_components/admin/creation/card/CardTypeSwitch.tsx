@@ -21,7 +21,7 @@ export default function CardTypeSwitch() {
     >
       <div
         className={`${
-          isField ? 'translate-x-0' : 'translate-x-[10.6rem] xl:translate-x-[15.5rem]'
+          isField ? 'translate-x-0' : 'translate-x-[10.6rem] xl:translate-x-[16.5rem]'
         } transition-transform duration-300`}
       >
         <BaseContainer interaction={'hover'}>
