@@ -5,7 +5,7 @@ export default function FieldRowInputs() {
   const {cardDescription, updateDescription} = useCardDescriptionContext();
 
   return (
-    <section id={'field-textareas'} className={'space-y-6'}>
+    <section id={'field-textareas'} className={'space-y-6 xl:space-y-12'}>
       <FormTextArea
         text={'Effet Gagnant'}
         value={cardDescription.winner_effect.value as string}

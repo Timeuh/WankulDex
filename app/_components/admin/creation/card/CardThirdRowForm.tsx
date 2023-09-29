@@ -11,5 +11,5 @@ export default function CardThirdRowForm() {
     setField(cardContext.type_id.value === 1);
   }, [cardContext.type_id.value]);
 
-  return <div className={'space-y-6'}>{isField ? <FieldRowInputs /> : <CharacterRowInputs />}</div>;
+  return <div className={'space-y-6 xl:space-y-12'}>{isField ? <FieldRowInputs /> : <CharacterRowInputs />}</div>;
 }

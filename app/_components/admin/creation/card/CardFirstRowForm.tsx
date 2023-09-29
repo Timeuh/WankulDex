@@ -5,7 +5,7 @@ export default function CardFirstRowForm() {
   const {cardContext, updateCard} = useCardContext();
 
   return (
-    <div className={'space-y-6'}>
+    <div className={'space-y-6 xl:space-y-12'}>
       <FormInput
         text={'ID'}
         error={''}

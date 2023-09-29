@@ -14,7 +14,7 @@ export default function CardSecondRowForm() {
   const {cardContext, updateCard} = useCardContext();
 
   return (
-    <div className={'space-y-6'}>
+    <div className={'space-y-6 xl:space-y-12'}>
       <FormSelect
         image={'/img/admin/create/cards/pen-light.png'}
         text={'Artiste'}

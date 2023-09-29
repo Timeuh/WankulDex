@@ -5,7 +5,7 @@ export default function CharacterRowInputs() {
   const {cardDescription, updateDescription} = useCardDescriptionContext();
 
   return (
-    <section id={'character-textareas'} className={'space-y-6'}>
+    <section id={'character-textareas'} className={'space-y-6 xl:space-y-12'}>
       <FormTextArea
         text={'Effet'}
         value={cardDescription.effect.value as string}
