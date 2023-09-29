@@ -4,6 +4,7 @@ import CardFirstRowForm from '@components/admin/creation/card/CardFirstRowForm';
 import CardSecondRowForm from '@components/admin/creation/card/CardSecondRowForm';
 import CardDescriptionContextProvider from '@providers/admin/creation/card/CardDescriptionContextProvider';
 import CardContextProvider from '@providers/admin/creation/card/CardContextProvider';
+import CardThirdRowForm from '@components/admin/creation/card/CardThirdRowForm';
 
 export default function CardForm() {
   return (
@@ -12,6 +13,7 @@ export default function CardForm() {
         <CardContextProvider>
           <CardFirstRowForm />
           <CardSecondRowForm />
+          <CardThirdRowForm />
         </CardContextProvider>
       </CardDescriptionContextProvider>
     </form>
