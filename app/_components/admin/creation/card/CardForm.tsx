@@ -21,22 +21,24 @@ export default function CardForm() {
           <CardFirstRowForm />
           <CardSecondRowForm />
           <CardThirdRowForm />
-          <BaseContainer interaction={'hover'}>
-            <button
-              className={'flex h-10 w-[80vw] flex-row items-center justify-center space-x-2 xl:h-14 xl:w-[30vw]'}
-              onClick={handleSubmit}
-            >
-              <Image
-                src={'/img/admin/create/cards/add-light.png'}
-                alt={'créer une carte'}
-                width={0}
-                height={0}
-                sizes={'100vw'}
-                className={'h-auto w-8 xl:w-10'}
-              />
-              <h2 className={'text-xl xl:text-2xl'}>Créer</h2>
-            </button>
-          </BaseContainer>
+          <div className={'col-span-3 place-self-center py-6'}>
+            <BaseContainer interaction={'hover'}>
+              <button
+                className={'flex h-10 w-[80vw] flex-row items-center justify-center space-x-2 xl:h-14 xl:w-[30vw]'}
+                onClick={handleSubmit}
+              >
+                <Image
+                  src={'/img/admin/create/cards/add-light.png'}
+                  alt={'créer une carte'}
+                  width={0}
+                  height={0}
+                  sizes={'100vw'}
+                  className={'h-auto w-8 xl:w-10'}
+                />
+                <h2 className={'text-xl xl:text-2xl'}>Créer</h2>
+              </button>
+            </BaseContainer>
+          </div>
         </CardContextProvider>
       </CardDescriptionContextProvider>
     </form>
