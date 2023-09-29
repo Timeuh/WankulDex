@@ -20,7 +20,7 @@ export default function FormTextArea({image, text, error, value, changeValue}: P
       <BaseContainer interaction={'hover'} borderColor={error !== '' ? 'error' : undefined}>
         <textarea
           className={
-            'h-10 w-[80vw] border-none bg-transparent p-2 placeholder-red-500 outline-none xl:h-14 xl:w-[30vw] xl:text-xl'
+            'h-40 w-[80vw] border-none bg-transparent p-2 text-xl placeholder-red-500 outline-none xl:h-14 xl:w-[30vw]'
           }
           value={value}
           onChange={(event) => {
