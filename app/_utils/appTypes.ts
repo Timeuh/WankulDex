@@ -174,5 +174,3 @@ export type CardContextType = {
 };
 
 export type CardContextKey = keyof CardContext;
-
-export type ErrorUpdateType = 'display' | 'reset';
