@@ -153,11 +153,7 @@ export type CardDescription = {
 
 export type CardDescriptionContextType = {
   cardDescription: CardDescription;
-  updateDescription: (
-    event: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>,
-    field: CardDescriptionKey,
-    error?: string,
-  ) => void;
+  updateDescription: (value: string, field: CardDescriptionKey, error?: string) => void;
 };
 
 export type CardDescriptionKey = keyof CardDescription;
@@ -174,11 +170,7 @@ export type CardContext = {
 
 export type CardContextType = {
   cardContext: CardContext;
-  updateCard: (
-    event: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>,
-    field: CardContextKey,
-    error?: string,
-  ) => void;
+  updateCard: (value: string, field: CardContextKey, error?: string) => void;
 };
 
 export type CardContextKey = keyof CardContext;
