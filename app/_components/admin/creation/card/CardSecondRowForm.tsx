@@ -44,6 +44,7 @@ export default function CardSecondRowForm() {
           updateDescription(event.target.value, 'rarity_id');
         }}
       />
+      <CardTypeSwitch />
     </div>
   );
 }
