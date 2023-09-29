@@ -23,6 +23,7 @@ export default function CardSecondRowForm() {
         changeValue={(event) => {
           updateCard(event.target.value, 'artist_id');
         }}
+        size={'card'}
       />
       <FormSelect
         image={'/img/admin/create/cards/wankul-light.png'}
@@ -32,6 +33,7 @@ export default function CardSecondRowForm() {
         changeValue={(event) => {
           updateDescription(event.target.value, 'character_id');
         }}
+        size={'card'}
       />
       <FormSelect
         image={'/img/admin/create/cards/rarity-light.png'}
@@ -41,6 +43,7 @@ export default function CardSecondRowForm() {
         changeValue={(event) => {
           updateDescription(event.target.value, 'rarity_id');
         }}
+        size={'card'}
       />
       <CardTypeSwitch />
     </div>

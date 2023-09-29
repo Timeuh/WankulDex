@@ -14,6 +14,7 @@ export default function FieldRowInputs() {
         changeValue={(event) => {
           updateDescription(event.target.value, 'winner_effect');
         }}
+        size={'card'}
       />
       <FormTextArea
         text={'Effet Perdant'}
@@ -23,6 +24,7 @@ export default function FieldRowInputs() {
         changeValue={(event) => {
           updateDescription(event.target.value, 'looser_effect');
         }}
+        size={'card'}
       />
       <FormTextArea
         text={'Special'}
@@ -32,6 +34,7 @@ export default function FieldRowInputs() {
         changeValue={(event) => {
           updateDescription(event.target.value, 'special');
         }}
+        size={'card'}
       />
     </section>
   );

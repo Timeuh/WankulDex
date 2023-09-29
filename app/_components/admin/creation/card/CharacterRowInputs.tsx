@@ -14,6 +14,7 @@ export default function CharacterRowInputs() {
         changeValue={(event) => {
           updateDescription(event.target.value, 'effect');
         }}
+        size={'card'}
       />
       <FormTextArea
         text={'Citation'}
@@ -23,6 +24,7 @@ export default function CharacterRowInputs() {
         changeValue={(event) => {
           updateDescription(event.target.value, 'citation');
         }}
+        size={'card'}
       />
     </section>
   );

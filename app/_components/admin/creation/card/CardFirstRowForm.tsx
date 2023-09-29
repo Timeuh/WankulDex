@@ -16,6 +16,7 @@ export default function CardFirstRowForm() {
         changeValue={(event) => {
           updateCard(event.target.value, 'id');
         }}
+        size={'card'}
       />
       <FormInput
         text={'Nom'}
@@ -27,6 +28,7 @@ export default function CardFirstRowForm() {
         changeValue={(event) => {
           updateCard(event.target.value, 'name');
         }}
+        size={'card'}
       />
       <FormInput
         text={'Collection'}
@@ -38,6 +40,7 @@ export default function CardFirstRowForm() {
         changeValue={(event) => {
           updateCard(event.target.value, 'collection');
         }}
+        size={'card'}
       />
       <FormInput
         text={'Nom de l’image'}
@@ -49,6 +52,7 @@ export default function CardFirstRowForm() {
         changeValue={(event) => {
           updateCard(event.target.value, 'image');
         }}
+        size={'card'}
       />
     </div>
   );
