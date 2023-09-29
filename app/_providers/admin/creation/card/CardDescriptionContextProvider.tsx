@@ -5,7 +5,7 @@ type Props = {
   children: ReactNode;
 };
 
-export const CardDescriptionContext = createContext<CardDescriptionContextType | null>(null);
+const CardDescriptionContext = createContext<CardDescriptionContextType | null>(null);
 
 export default function CardDescriptionContextProvider({children}: Props) {
   const [cardDescription, setCardDescription] = useState<CardDescription>({
@@ -74,7 +74,7 @@ export default function CardDescriptionContextProvider({children}: Props) {
 export function useCardDescriptionContext() {
   const context = useContext(CardDescriptionContext);
   if (!context) {
-    throw new Error('useCardDescriptionContext must be used inside a CardDescriptionContextProvider');
+    throw new Error('useCardDescriptionContext must be used within a CardDescriptionContextProvider');
   }
   return context;
 }
