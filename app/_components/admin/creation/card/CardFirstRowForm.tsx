@@ -1,8 +1,10 @@
 import FormInput from '@components/form/FormInput';
 import {useCardContext} from '@providers/admin/creation/card/CardContextProvider';
+import {useCardDescriptionContext} from '@providers/admin/creation/card/CardDescriptionContextProvider';
 
 export default function CardFirstRowForm() {
   const {cardContext, updateCard} = useCardContext();
+  const {updateDescription} = useCardDescriptionContext();
 
   return (
     <div className={'space-y-6 xl:space-y-12'}>
@@ -15,6 +17,7 @@ export default function CardFirstRowForm() {
         valueType={'number'}
         changeValue={(event) => {
           updateCard(event.target.value, 'id');
+          updateDescription(event.target.value, 'id');
         }}
         size={'card'}
       />
