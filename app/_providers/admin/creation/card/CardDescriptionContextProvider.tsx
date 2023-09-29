@@ -53,7 +53,12 @@ export default function CardDescriptionContextProvider({children}: Props) {
 
     setCardDescription((prevState) => {
       if (field === 'id' || field === 'rarity_id' || field === 'character_id') {
-        return {...prevState, [field]: {...prevState[field], value: parseInt(value)}};
+        const newValue = parseInt(value);
+        if (isNaN(newValue) || newValue <= 0) {
+          return prevState;
+        }
+
+        return {...prevState, [field]: {...prevState[field], value: newValue}};
       }
 
       return {...prevState, [field]: {...prevState[field], value: value}};
