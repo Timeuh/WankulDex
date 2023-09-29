@@ -2,6 +2,7 @@ import Image from 'next/image';
 import BaseContainer from '@components/BaseContainer';
 import {SelectOption} from '@/app/_utils/appTypes';
 import {ChangeEvent} from 'react';
+import {cva, VariantProps} from 'class-variance-authority';
 
 type Props = {
   image: string;
@@ -9,9 +10,21 @@ type Props = {
   options: Array<SelectOption>;
   value: number;
   changeValue: (event: ChangeEvent<HTMLSelectElement>) => void;
-};
+} & VariantProps<typeof variants>;
 
-export default function FormSelect({image, text, options, value, changeValue}: Props) {
+const variants = cva('', {
+  variants: {
+    size: {
+      login: 'xl:w-[30vw]',
+      card: 'xl:w-[25vw]',
+    },
+  },
+  defaultVariants: {
+    size: 'login',
+  },
+});
+
+export default function FormSelect({image, text, options, value, changeValue, size}: Props) {
   return (
     <div className={'flex h-fit w-full flex-col space-y-2'}>
       <div className={'flex flex-row items-center space-x-4'}>
@@ -20,9 +33,9 @@ export default function FormSelect({image, text, options, value, changeValue}: P
       </div>
       <BaseContainer interaction={'hover'}>
         <select
-          className={
-            'h-10 w-[80vw] border-none bg-transparent p-2 text-xl placeholder-red-500 outline-none xl:h-14 xl:w-[30vw]'
-          }
+          className={`${variants({
+            size,
+          })} h-10 w-[80vw] border-none bg-transparent p-2 text-xl placeholder-red-500 outline-none xl:h-14 xl:text-2xl`}
           value={value}
           onChange={(event) => {
             changeValue(event);
