@@ -11,8 +11,30 @@ export default function CardForm() {
   const {cardContext, updateCard} = useCardContext();
   const {cardDescription, updateDescription} = useCardDescriptionContext();
 
+  const updateErrors = () => {
+    updateCard(
+      `${cardContext.name.value === '' ? '' : cardContext.name.value}`,
+      'name',
+      `${cardContext.name.value === '' ? 'Vous devez remplir ce champ' : ''}`,
+    );
+
+    updateCard(
+      `${cardContext.collection.value === '' ? '' : cardContext.collection.value}`,
+      'collection',
+      `${cardContext.collection.value === '' ? 'Vous devez remplir ce champ' : ''}`,
+    );
+
+    updateCard(
+      `${cardContext.image.value === '' ? '' : cardContext.image.value}`,
+      'image',
+      `${cardContext.image.value === '' ? 'Vous devez remplir ce champ' : ''}`,
+    );
+  };
+
   const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    updateErrors();
+
     console.log(cardContext);
     console.log(cardDescription);
   };
