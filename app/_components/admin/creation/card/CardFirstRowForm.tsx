@@ -10,7 +10,7 @@ export default function CardFirstRowForm() {
     <div className={'space-y-6 xl:space-y-12'}>
       <FormInput
         text={'ID'}
-        error={''}
+        error={cardContext.id.error}
         value={cardContext.id.value}
         type={'number'}
         image={'/img/admin/create/cards/hashtag-light.png'}
@@ -23,7 +23,7 @@ export default function CardFirstRowForm() {
       />
       <FormInput
         text={'Nom'}
-        error={''}
+        error={cardContext.name.error}
         value={cardContext.name.value}
         type={'text'}
         image={'/img/admin/create/cards/name-light.png'}
@@ -35,7 +35,7 @@ export default function CardFirstRowForm() {
       />
       <FormInput
         text={'Collection'}
-        error={''}
+        error={cardContext.collection.error}
         value={cardContext.collection.value}
         type={'text'}
         image={'/img/admin/create/cards/collection-light.png'}
@@ -47,7 +47,7 @@ export default function CardFirstRowForm() {
       />
       <FormInput
         text={'Nom de l’image'}
-        error={''}
+        error={cardContext.image.error}
         value={cardContext.image.value}
         type={'text'}
         image={'/img/admin/create/cards/picture-light.png'}
