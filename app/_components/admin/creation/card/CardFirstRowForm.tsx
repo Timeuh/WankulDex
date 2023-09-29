@@ -16,7 +16,7 @@ export default function CardFirstRowForm() {
         image={'/img/admin/create/cards/hashtag-light.png'}
         valueType={'number'}
         changeValue={(event) => {
-          updateCard(event, 'id');
+          updateCard(event.target.value, 'id');
         }}
       />
       <FormInput
@@ -27,7 +27,7 @@ export default function CardFirstRowForm() {
         image={'/img/admin/create/cards/name-light.png'}
         valueType={'string'}
         changeValue={(event) => {
-          updateCard(event, 'name');
+          updateCard(event.target.value, 'name');
         }}
       />
       <FormInput
@@ -38,7 +38,7 @@ export default function CardFirstRowForm() {
         image={'/img/admin/create/cards/collection-light.png'}
         valueType={'string'}
         changeValue={(event) => {
-          updateCard(event, 'collection');
+          updateCard(event.target.value, 'collection');
         }}
       />
       <FormInput
@@ -49,7 +49,7 @@ export default function CardFirstRowForm() {
         image={'/img/admin/create/cards/picture-light.png'}
         valueType={'string'}
         changeValue={(event) => {
-          updateCard(event, 'image');
+          updateCard(event.target.value, 'image');
         }}
       />
     </div>

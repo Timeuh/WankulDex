@@ -6,6 +6,7 @@ import useCharacterSelect from '@hooks/admin/create/cards/useCharacterSelect';
 import useRaritySelect from '@hooks/admin/create/cards/useRaritySelect';
 import {useCardDescriptionContext} from '@providers/admin/creation/card/CardDescriptionContextProvider';
 import {useCardContext} from '@providers/admin/creation/card/CardContextProvider';
+import CardTypeSwitch from '@components/admin/creation/card/CardTypeSwitch';
 
 export default function CardSecondRowForm() {
   const {artistSelectOptions} = useArtistSelect();
@@ -22,7 +23,7 @@ export default function CardSecondRowForm() {
         options={artistSelectOptions}
         value={cardContext.artist_id.value as number}
         changeValue={(event) => {
-          updateCard(event, 'artist_id');
+          updateCard(event.target.value, 'artist_id');
         }}
       />
       <FormSelect
@@ -31,7 +32,7 @@ export default function CardSecondRowForm() {
         options={characterSelectOptions}
         value={cardDescription.character_id.value as number}
         changeValue={(event) => {
-          updateDescription(event, 'character_id');
+          updateDescription(event.target.value, 'character_id');
         }}
       />
       <FormSelect
@@ -40,7 +41,7 @@ export default function CardSecondRowForm() {
         options={raritySelectOptions}
         value={cardDescription.rarity_id.value as number}
         changeValue={(event) => {
-          updateDescription(event, 'rarity_id');
+          updateDescription(event.target.value, 'rarity_id');
         }}
       />
     </div>
