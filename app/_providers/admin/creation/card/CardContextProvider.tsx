@@ -44,7 +44,6 @@ export default function CardContextProvider({children}: Props) {
       setCardContext((prevState) => {
         return {...prevState, [field]: {...prevState[field], error: error}};
       });
-      return;
     }
 
     setCardContext((prevState) => {

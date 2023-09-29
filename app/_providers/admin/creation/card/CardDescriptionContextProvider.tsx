@@ -48,7 +48,6 @@ export default function CardDescriptionContextProvider({children}: Props) {
       setCardDescription((prevState) => {
         return {...prevState, [field]: {...prevState[field], error: error}};
       });
-      return;
     }
 
     setCardDescription((prevState) => {
