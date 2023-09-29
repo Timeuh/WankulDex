@@ -2,27 +2,17 @@
 
 import FormSelect from '@components/form/FormSelect';
 import useArtistSelect from '@hooks/admin/create/cards/useArtistSelect';
-import {ChangeEvent, useState} from 'react';
 import useCharacterSelect from '@hooks/admin/create/cards/useCharacterSelect';
 import useRaritySelect from '@hooks/admin/create/cards/useRaritySelect';
 import {useCardDescriptionContext} from '@providers/admin/creation/card/CardDescriptionContextProvider';
+import {useCardContext} from '@providers/admin/creation/card/CardContextProvider';
 
 export default function CardSecondRowForm() {
   const {artistSelectOptions} = useArtistSelect();
   const {characterSelectOptions} = useCharacterSelect();
   const {raritySelectOptions} = useRaritySelect();
   const {cardDescription, updateDescription} = useCardDescriptionContext();
-
-  const [currentArtist, setCurrentArtist] = useState<number>(1);
-  const [currentRarity, setCurrentRarity] = useState<number>(1);
-
-  const changeArtist = (event: ChangeEvent<HTMLSelectElement>) => {
-    setCurrentArtist(parseInt(event.target.value));
-  };
-
-  const changeRarity = (event: ChangeEvent<HTMLSelectElement>) => {
-    setCurrentRarity(parseInt(event.target.value));
-  };
+  const {cardContext, updateCard} = useCardContext();
 
   return (
     <div className={'space-y-6'}>
@@ -30,8 +20,10 @@ export default function CardSecondRowForm() {
         image={'/img/admin/create/cards/pen-light.png'}
         text={'Artiste'}
         options={artistSelectOptions}
-        value={currentArtist}
-        changeValue={changeArtist}
+        value={cardContext.artist_id.value as number}
+        changeValue={(event) => {
+          updateCard(event, 'artist_id');
+        }}
       />
       <FormSelect
         image={'/img/admin/create/cards/wankul-light.png'}
@@ -46,8 +38,10 @@ export default function CardSecondRowForm() {
         image={'/img/admin/create/cards/rarity-light.png'}
         text={'Rareté'}
         options={raritySelectOptions}
-        value={currentRarity}
-        changeValue={changeRarity}
+        value={cardDescription.rarity_id.value as number}
+        changeValue={(event) => {
+          updateDescription(event, 'rarity_id');
+        }}
       />
     </div>
   );
