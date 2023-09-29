@@ -1,4 +1,4 @@
-import {ChangeEvent, Dispatch, SetStateAction} from 'react';
+import {ChangeEvent} from 'react';
 
 export type Card = {
   card: {
@@ -80,8 +80,6 @@ export type InputField = {
   value: string | number;
   error: string;
 };
-
-export type CardFirstRowNames = 'ID' | 'Name' | 'Collection' | 'ImageName';
 
 export type SelectOption = {
   name: string;
