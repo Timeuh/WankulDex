@@ -8,11 +8,13 @@ export default function useRaritySelect() {
 
   useEffect(() => {
     const convertRarityToOptions = () => {
+      const rarities: Array<SelectOption> = [];
+
       data?.forEach((rarity: Rarity) => {
-        setRaritySelectOptions((prevState) => {
-          return [...prevState, {name: rarity.rarity.name, id: rarity.rarity.id}];
-        });
+        rarities.push({name: rarity.rarity.name, id: rarity.rarity.id});
       });
+
+      setRaritySelectOptions(rarities);
     };
 
     convertRarityToOptions();

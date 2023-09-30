@@ -8,11 +8,13 @@ export default function useArtistSelect() {
 
   useEffect(() => {
     const convertArtistToOptions = () => {
+      const artists: Array<SelectOption> = [];
+
       data?.forEach((artist: Artist) => {
-        setArtistSelectOptions((prevState) => {
-          return [...prevState, {name: artist.artist.name, id: artist.artist.id}];
-        });
+        artists.push({name: artist.artist.name, id: artist.artist.id});
       });
+
+      setArtistSelectOptions(artists);
     };
 
     convertArtistToOptions();

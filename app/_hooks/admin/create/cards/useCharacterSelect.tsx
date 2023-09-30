@@ -8,11 +8,13 @@ export default function useCharacterSelect() {
 
   useEffect(() => {
     const convertCharacterToOptions = () => {
+      const characters: Array<SelectOption> = [];
+
       data?.forEach((character: Character) => {
-        setCharacterSelectOptions((prevState) => {
-          return [...prevState, {name: character.character.name, id: character.character.id}];
-        });
+        characters.push({name: character.character.name, id: character.character.id});
       });
+
+      setCharacterSelectOptions(characters);
     };
 
     convertCharacterToOptions();
