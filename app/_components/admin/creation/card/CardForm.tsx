@@ -84,7 +84,7 @@ export default function CardForm() {
     <>
       {isFetching ? (
         <>
-          <div className={'h-[57.4vh]'}></div>
+          <div className={'h-[57.4vh] xl:h-[59.7vh]'}></div>
           <Loading text={'Création en cours'} />
         </>
       ) : (
