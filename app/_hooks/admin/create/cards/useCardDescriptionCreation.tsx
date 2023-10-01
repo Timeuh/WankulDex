@@ -1,6 +1,6 @@
 import {useQuery} from 'react-query';
 import {API_DOMAIN} from '@/app/_utils/appGlobals';
-import {CardDescription} from '@/app/_utils/appTypes';
+import {CardDescription, CardDescriptionForCreation} from '@/app/_utils/appTypes';
 import Cookies from 'universal-cookie/lib';
 
 const recordCardDescription = async (cardDescription: CardDescription) => {
@@ -24,10 +24,23 @@ const recordCardDescription = async (cardDescription: CardDescription) => {
       'Content-type': 'application/json',
       [apiHeaderName]: token,
     },
-    body: JSON.stringify(cardDescription),
+    body: JSON.stringify(convertDataForCreation(cardDescription)),
   }).then((response) => {
     return response.json();
   });
+};
+
+const convertDataForCreation = (cardDescription: CardDescription): CardDescriptionForCreation => {
+  return {
+    character_id: cardDescription.character_id.value as number,
+    citation: cardDescription.citation.value as string,
+    effect: cardDescription.citation.value as string,
+    id: cardDescription.id.value as number,
+    looser_effect: cardDescription.looser_effect.value as string,
+    rarity_id: cardDescription.rarity_id.value as number,
+    special: cardDescription.special.value as string,
+    winner_effect: cardDescription.winner_effect.value as string,
+  };
 };
 
 export default function useCardDescriptionCreation(cardDescription: CardDescription) {
