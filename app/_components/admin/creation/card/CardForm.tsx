@@ -10,9 +10,11 @@ import useCardDescriptionCreation from '@hooks/admin/create/cards/useCardDescrip
 import Loading from '@/app/Loading';
 import {CardCreationResponse, CardDescriptionCreationResponse} from '@/app/_utils/appTypes';
 import useCardCreation from '@hooks/admin/create/cards/useCardCreation';
+import {useRouter} from 'next/navigation';
 
 export default function CardForm() {
   const [displayError, setDisplayError] = useState<boolean>(false);
+  const router = useRouter();
 
   const {cardContext, updateCard} = useCardContext();
   const {cardDescription} = useCardDescriptionContext();
@@ -68,6 +70,8 @@ export default function CardForm() {
           setDisplayError(true);
           return;
         }
+
+        router.push(`/card/${cardResponseData.data?.id}`);
       });
     });
   };
