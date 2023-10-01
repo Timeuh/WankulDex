@@ -20,7 +20,3 @@
                     hsl(10 80% 70%)
             );
 }
-
-.form-input {
-    @apply h-10 w-full bg-transparent ps-2 text-dark outline-none xl:h-12
-}

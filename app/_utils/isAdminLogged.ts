@@ -1,25 +1,22 @@
-'use server';
+import {DecodedToken} from '@/app/_utils/appTypes';
+import jwtDecode from 'jwt-decode';
+import Cookies from 'universal-cookie/lib';
+import {RequestCookies} from 'next/dist/compiled/@edge-runtime/cookies';
 
-import {cookies} from 'next/headers';
-import {AuthMessage} from '@/app/_utils/appTypes';
-import {API_DOMAIN} from '@/app/_utils/appConsts';
+export default function isAdminLogged(requestCookies?: RequestCookies) {
+  const cookieName = process.env.NEXT_PUBLIC_API_COOKIE;
 
-export default async function isAdminLogged() {
-  const authCookie = cookies().get('wankul-admin-token');
-  const authHeader = process.env.API_AUTH_HEADER;
-
-  if (!authCookie || !authHeader) {
+  if (!cookieName) {
     return false;
   }
 
-  const authResponse: AuthMessage = await fetch(`${API_DOMAIN}/auth/verify`, {
-    method: 'GET',
-    headers: {
-      [authHeader]: authCookie.value,
-    },
-  }).then((response) => {
-    return response.json();
-  });
+  const cookies = new Cookies(requestCookies, {path: '/'});
+  const token = requestCookies ? requestCookies.get(cookieName)?.value : cookies.get(cookieName);
 
-  return authResponse.code === 200;
+  if (!token) {
+    return false;
+  }
+
+  const decodedToken: DecodedToken = jwtDecode(token);
+  return decodedToken.exp >= Math.floor(new Date().getTime() / 1000);
 }

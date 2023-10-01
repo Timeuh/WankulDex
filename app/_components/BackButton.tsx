@@ -1,23 +1,24 @@
 import Image from 'next/image';
+import BaseContainer from '@components/BaseContainer';
 import Link from 'next/link';
-import LightContainer from '@components/LightContainer';
 
 export default function BackButton() {
   return (
-    <LightContainer height={'h-12 mt-24'} width={'w-1/3 xl:w-1/5'} hover={true}>
-      <Link href={'/'} className={'flex h-full w-full flex-col items-center justify-center'}>
-        <div className={'flex flex-row items-center justify-center space-x-2'}>
-          <Image
-            src={'/img/back-light.png'}
-            alt={'accueil'}
-            width={0}
-            height={0}
-            sizes={'100vw'}
-            className={'h-4 w-4 xl:h-8 xl:w-8'}
-          />
-          <h2 className={'xl:text-2xl'}>Retour</h2>
-        </div>
+    <BaseContainer interaction={'hover'}>
+      <Link
+        href={'/'}
+        className={'flex h-12 w-[30vw] flex-row items-center justify-center space-x-2 xl:h-16 xl:w-[15vw] xl:space-x-4'}
+      >
+        <Image
+          src={'/img/back-light.png'}
+          alt={'retour'}
+          width={0}
+          height={0}
+          sizes={'100vw'}
+          className={'h-auto w-6 xl:w-8'}
+        />
+        <h2 className={'text-xl xl:text-2xl'}>Retour</h2>
       </Link>
-    </LightContainer>
+    </BaseContainer>
   );
 }

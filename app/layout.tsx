@@ -2,6 +2,7 @@ import './globals.css';
 import type {Metadata} from 'next';
 import {Nunito} from 'next/font/google';
 import {ReactNode} from 'react';
+import Providers from '@components/Providers';
 import Navbar from '@components/navbar/Navbar';
 
 const nunito = Nunito({subsets: ['latin']});
@@ -11,12 +12,18 @@ export const metadata: Metadata = {
   description: 'Un site pour consulter vos cartes Wankul',
 };
 
-export default function RootLayout({children}: {children: ReactNode}) {
+type Props = {
+  children: ReactNode;
+};
+
+export default function RootLayout({children}: Props) {
   return (
     <html lang='fr'>
       <body className={nunito.className}>
         <Navbar />
-        {children}
+        <main>
+          <Providers>{children}</Providers>
+        </main>
       </body>
     </html>
   );

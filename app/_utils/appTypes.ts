@@ -1,3 +1,5 @@
+import {ChangeEvent} from 'react';
+
 export type Card = {
   card: {
     artist: {
@@ -42,10 +44,52 @@ export type Cards = {
   type: string;
 };
 
+export type CardType = 'Terrain' | 'Personnage' | 'None';
+
+export type CardRarity =
+  | 'Ultra Rare Holo 1'
+  | 'Ultra Rare Holo 2'
+  | 'Légendaire Bronze'
+  | 'Légendaire Argent'
+  | 'Légendaire Or'
+  | null
+  | undefined;
+
+export type NavbarLink = {
+  image: string;
+  name: string;
+  link: string;
+};
+
+export type LoginResult = {
+  code: number;
+  error?: string;
+  token?: string;
+};
+
+export type DecodedToken = {
+  time: Date;
+  user: string;
+  name: string;
+  lastname: string;
+  iat: number;
+  exp: number;
+};
+
+export type InputField = {
+  value: string | number;
+  error: string;
+};
+
+export type SelectOption = {
+  name: string;
+  id: number;
+};
+
 export type Artist = {
   artist: {
-    id: number;
     name: string;
+    id: number;
   };
   links: {
     self: string;
@@ -62,8 +106,8 @@ export type Artists = {
 
 export type Character = {
   character: {
-    id: number;
     name: string;
+    id: number;
   };
   links: {
     self: string;
@@ -80,8 +124,8 @@ export type Characters = {
 
 export type Rarity = {
   rarity: {
-    id: number;
     name: string;
+    id: number;
   };
   links: {
     self: string;
@@ -96,108 +140,70 @@ export type Rarities = {
   type: string;
 };
 
-export type Type = {
-  type: {
-    id: number;
-    name: string;
-  };
-  links: {
-    self: string;
-    all: string;
-    cards: string;
-  };
+export type CardDescription = {
+  id: InputField;
+  winner_effect: InputField;
+  looser_effect: InputField;
+  special: InputField;
+  character_id: InputField;
+  effect: InputField;
+  citation: InputField;
+  rarity_id: InputField;
 };
 
-export type Types = {
-  types: Array<Type>;
-  length: number;
-  type: string;
+export type CardDescriptionContextType = {
+  cardDescription: CardDescription;
+  updateDescription: (value: string, field: CardDescriptionKey, error?: string) => void;
 };
 
-export type LoginResponse = {
-  code: number;
-  token?: string;
-  error?: string;
+export type CardDescriptionKey = keyof CardDescription;
+
+export type CardContext = {
+  id: InputField;
+  name: InputField;
+  collection: InputField;
+  description_id: InputField;
+  type_id: InputField;
+  artist_id: InputField;
+  image: InputField;
 };
 
-export type AuthMessage = {
-  code: number;
-  message: string;
+export type CardContextType = {
+  cardContext: CardContext;
+  updateCard: (value: string, field: CardContextKey, error?: string) => void;
 };
 
-export type NavbarLink = {
-  image: string;
-  name: string;
-  link: string;
-};
+export type CardContextKey = keyof CardContext;
 
-export type CardType = 'Terrain' | 'Personnage';
-
-export type TextCardInputs = {
-  [key: string]: string | number | undefined;
+export type CardDescriptionForCreation = {
   id: number;
-  name: string;
-  collection: string;
-  image: string;
-};
-
-export type TextCardInputsKey = 'ID' | 'Name' | 'Collection' | 'Image';
-
-export type SelectCardInputs = {
-  artist_id: number;
-  character_id: number;
-  rarity_id: number;
-};
-
-export type SelectCardInputsKey = 'Artist' | 'Character' | 'Rarity';
-
-export type FieldCardInputs = {
   winner_effect: string;
   looser_effect: string;
   special: string;
-};
-
-export type FieldCardInputsKey = 'Winner' | 'Looser' | 'Special';
-
-export type CharacterCardInputs = {
+  character_id: number;
   effect: string;
   citation: string;
+  rarity_id: number;
 };
 
-export type CharacterCardInputsKey = 'Effect' | 'Citation';
-
-export type DescriptionResponse = {
+export type CardDescriptionCreationResponse = {
   code: number;
   error?: string;
-  data?: {
-    character_id: number;
-    citation: string;
-    effect: string;
-    id: number;
-    looser_effect: string;
-    rarity_id: number;
-    special: string;
-    winner_effect: string;
-  };
+  data?: CardDescriptionForCreation;
 };
 
-export enum FormState {
-  LOADING = 'LOADING',
-  ERROR = 'ERROR',
-  WAITING = 'WAITING',
-  EMPTY = 'EMPTY',
-}
+export type CardContextForCreation = {
+  id: number;
+  name: string;
+  collection: string;
+  description_id: number;
+  type_id: number;
+  artist_id: number;
+  image: string;
+};
 
-export type CardResponse = {
+export type CardCreationResponse = {
   code: number;
   error?: string;
-  data?: {
-    artist_id: number;
-    collection: string;
-    description_id: number;
-    id: number;
-    image: string;
-    name: string;
-    type_id: number;
-  };
+  data?: CardContextForCreation;
 };

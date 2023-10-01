@@ -1,29 +1,12 @@
 {
   "extends": ["next/core-web-vitals", "prettier"],
   "rules": {
-    "indent": [
-      "error",
-      2,
-      {
-        "SwitchCase": 1
-      }
-    ],
     "linebreak-style": ["error", "windows"],
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "arrow-body-style": ["error", "always"],
     "spaced-comment": ["error", "always"],
     "array-bracket-spacing": ["error", "never"],
-    "comma-dangle": [
-      "error",
-      {
-        "arrays": "always-multiline",
-        "objects": "always-multiline",
-        "imports": "never",
-        "exports": "never",
-        "functions": "never"
-      }
-    ],
     "comma-spacing": [
       "error",
       {
