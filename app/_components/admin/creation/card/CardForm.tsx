@@ -8,15 +8,17 @@ import Image from 'next/image';
 import {MouseEvent, useState} from 'react';
 import useCardDescriptionCreation from '@hooks/admin/create/cards/useCardDescriptionCreation';
 import Loading from '@/app/Loading';
-import {CardDescriptionCreationResponse} from '@/app/_utils/appTypes';
+import {CardCreationResponse, CardDescriptionCreationResponse} from '@/app/_utils/appTypes';
+import useCardCreation from '@hooks/admin/create/cards/useCardCreation';
 
 export default function CardForm() {
   const [displayError, setDisplayError] = useState<boolean>(false);
 
   const {cardContext, updateCard} = useCardContext();
-  const {cardDescription, updateDescription} = useCardDescriptionContext();
+  const {cardDescription} = useCardDescriptionContext();
   const {isFetching: cardDescriptionFetching, refetch: refetchCardDescription} =
     useCardDescriptionCreation(cardDescription);
+  const {isFetching: cardFetching, refetch: refetchCardCreation} = useCardCreation(cardContext);
 
   const updateErrors = () => {
     let isError = false;
@@ -56,14 +58,23 @@ export default function CardForm() {
 
       if (responseData.error) {
         setDisplayError(true);
+        return;
       }
-      console.log(responseData);
+
+      refetchCardCreation().then((response) => {
+        const cardResponseData = response.data as CardCreationResponse;
+
+        if (cardResponseData.error) {
+          setDisplayError(true);
+          return;
+        }
+      });
     });
   };
 
   return (
     <>
-      {cardDescriptionFetching ? (
+      {cardDescriptionFetching || cardFetching ? (
         <>
           <div className={'h-[57.4vh]'}></div>
           <Loading text={'Création en cours'} />
