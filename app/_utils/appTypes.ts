@@ -174,3 +174,14 @@ export type CardContextType = {
 };
 
 export type CardContextKey = keyof CardContext;
+
+export type CardDescriptionForCreation = {
+  id: number;
+  winner_effect: string;
+  looser_effect: string;
+  special: string;
+  character_id: number;
+  effect: string;
+  citation: string;
+  rarity_id: number;
+};
