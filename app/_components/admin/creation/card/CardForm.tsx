@@ -14,13 +14,13 @@ import {useRouter} from 'next/navigation';
 
 export default function CardForm() {
   const [displayError, setDisplayError] = useState<boolean>(false);
+  const [isFetching, setIsFetching] = useState<boolean>(false);
   const router = useRouter();
 
   const {cardContext, updateCard} = useCardContext();
   const {cardDescription} = useCardDescriptionContext();
-  const {isFetching: cardDescriptionFetching, refetch: refetchCardDescription} =
-    useCardDescriptionCreation(cardDescription);
-  const {isFetching: cardFetching, refetch: refetchCardCreation} = useCardCreation(cardContext);
+  const {refetch: refetchCardDescription} = useCardDescriptionCreation(cardDescription);
+  const {refetch: refetchCardCreation} = useCardCreation(cardContext);
 
   const updateErrors = () => {
     let isError = false;
@@ -50,8 +50,10 @@ export default function CardForm() {
 
   const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    setIsFetching(true);
 
     if (updateErrors()) {
+      setIsFetching(false);
       return;
     }
 
@@ -60,6 +62,7 @@ export default function CardForm() {
 
       if (responseData.error) {
         setDisplayError(true);
+        setIsFetching(false);
         return;
       }
 
@@ -68,6 +71,7 @@ export default function CardForm() {
 
         if (cardResponseData.error) {
           setDisplayError(true);
+          setIsFetching(false);
           return;
         }
 
@@ -78,7 +82,7 @@ export default function CardForm() {
 
   return (
     <>
-      {cardDescriptionFetching || cardFetching ? (
+      {isFetching ? (
         <>
           <div className={'h-[57.4vh]'}></div>
           <Loading text={'Création en cours'} />
