@@ -8,6 +8,7 @@ import Image from 'next/image';
 import {MouseEvent} from 'react';
 import useCardDescriptionCreation from '@hooks/admin/create/cards/useCardDescriptionCreation';
 import Loading from '@/app/Loading';
+import {CardDescriptionCreationResponse} from '@/app/_utils/appTypes';
 
 export default function CardForm() {
   const {cardContext, updateCard} = useCardContext();
@@ -40,7 +41,8 @@ export default function CardForm() {
     updateErrors();
 
     refetchCardDescription().then((response) => {
-      console.log(response);
+      const responseData = response.data as CardDescriptionCreationResponse;
+      console.log(responseData);
     });
   };
 
