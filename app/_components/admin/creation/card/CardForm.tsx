@@ -49,7 +49,10 @@ export default function CardForm() {
   return (
     <>
       {cardDescriptionFetching ? (
-        <Loading text={'Création en cours'} />
+        <>
+          <div className={'h-[57.4vh]'}></div>
+          <Loading text={'Création en cours'} />
+        </>
       ) : (
         <form action='noredirect' className={'grid-cols-3 gap-6 space-y-6 pb-6 xl:grid xl:w-5/6 xl:space-y-0'}>
           <CardFirstRowForm />
