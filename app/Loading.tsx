@@ -24,7 +24,7 @@ export default function Loading({text}: Props) {
           fill='currentFill'
         />
       </svg>
-      <h1 className={'text-4xl font-bold xl:text-5xl'}>{text}</h1>
+      <h1 className={'text-center text-4xl font-bold xl:text-5xl'}>{text}</h1>
     </div>
   );
 }
