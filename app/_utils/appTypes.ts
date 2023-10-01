@@ -191,3 +191,19 @@ export type CardDescriptionCreationResponse = {
   error?: string;
   data?: CardDescriptionForCreation;
 };
+
+export type CardContextForCreation = {
+  id: number;
+  name: string;
+  collection: string;
+  description_id: number;
+  type_id: number;
+  artist_id: number;
+  image: string;
+};
+
+export type CardCreationResponse = {
+  code: number;
+  error?: string;
+  data?: CardContextForCreation;
+};
