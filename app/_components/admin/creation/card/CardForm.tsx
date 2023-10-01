@@ -5,43 +5,58 @@ import {useCardContext} from '@providers/admin/creation/card/CardContextProvider
 import CardThirdRowForm from '@components/admin/creation/card/CardThirdRowForm';
 import BaseContainer from '@components/BaseContainer';
 import Image from 'next/image';
-import {MouseEvent} from 'react';
+import {MouseEvent, useState} from 'react';
 import useCardDescriptionCreation from '@hooks/admin/create/cards/useCardDescriptionCreation';
 import Loading from '@/app/Loading';
 import {CardDescriptionCreationResponse} from '@/app/_utils/appTypes';
 
 export default function CardForm() {
+  const [displayError, setDisplayError] = useState<boolean>(false);
+
   const {cardContext, updateCard} = useCardContext();
   const {cardDescription, updateDescription} = useCardDescriptionContext();
   const {isFetching: cardDescriptionFetching, refetch: refetchCardDescription} =
     useCardDescriptionCreation(cardDescription);
 
   const updateErrors = () => {
-    updateCard(
-      `${cardContext.name.value === '' ? '' : cardContext.name.value}`,
-      'name',
-      `${cardContext.name.value === '' ? 'Vous devez remplir ce champ' : ''}`,
-    );
+    let isError = false;
 
-    updateCard(
-      `${cardContext.collection.value === '' ? '' : cardContext.collection.value}`,
-      'collection',
-      `${cardContext.collection.value === '' ? 'Vous devez remplir ce champ' : ''}`,
-    );
+    setDisplayError(false);
+    updateCard(cardContext.name.value as string, 'name', '');
+    updateCard(cardContext.collection.value as string, 'collection', '');
+    updateCard(cardContext.image.value as string, 'image', '');
 
-    updateCard(
-      `${cardContext.image.value === '' ? '' : cardContext.image.value}`,
-      'image',
-      `${cardContext.image.value === '' ? 'Vous devez remplir ce champ' : ''}`,
-    );
+    if (cardContext.name.value === '') {
+      updateCard('', 'name', 'Vous devez remplir ce champ');
+      isError = true;
+    }
+
+    if (cardContext.collection.value === '') {
+      updateCard('', 'collection', 'Vous devez remplir ce champ');
+      isError = true;
+    }
+
+    if (cardContext.image.value === '') {
+      updateCard('', 'image', 'Vous devez remplir ce champ');
+      isError = true;
+    }
+
+    return isError;
   };
 
   const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    updateErrors();
+
+    if (updateErrors()) {
+      return;
+    }
 
     refetchCardDescription().then((response) => {
       const responseData = response.data as CardDescriptionCreationResponse;
+
+      if (responseData.error) {
+        setDisplayError(true);
+      }
       console.log(responseData);
     });
   };
@@ -54,29 +69,37 @@ export default function CardForm() {
           <Loading text={'Création en cours'} />
         </>
       ) : (
-        <form action='noredirect' className={'grid-cols-3 gap-6 space-y-6 pb-6 xl:grid xl:w-5/6 xl:space-y-0'}>
-          <CardFirstRowForm />
-          <CardSecondRowForm />
-          <CardThirdRowForm />
-          <div className={'col-span-3 place-self-center py-6'}>
-            <BaseContainer interaction={'hover'}>
-              <button
-                className={'flex h-10 w-[80vw] flex-row items-center justify-center space-x-2 xl:h-14 xl:w-[30vw]'}
-                onClick={handleSubmit}
-              >
-                <Image
-                  src={'/img/admin/create/cards/add-light.png'}
-                  alt={'créer une carte'}
-                  width={0}
-                  height={0}
-                  sizes={'100vw'}
-                  className={'h-auto w-8 xl:w-10'}
-                />
-                <h2 className={'text-xl xl:text-2xl'}>Créer</h2>
-              </button>
-            </BaseContainer>
-          </div>
-        </form>
+        <>
+          <h1 className={`text-center text-2xl text-red-500 xl:text-4xl ${displayError ? 'block' : 'hidden'}`}>
+            Erreur lors de la création de la carte, veuillez réessayer
+          </h1>
+          <form
+            action='noredirect'
+            className={'items flex grid-cols-3 flex-col gap-6 space-y-6 pb-6 xl:grid xl:w-5/6 xl:space-y-0'}
+          >
+            <CardFirstRowForm />
+            <CardSecondRowForm />
+            <CardThirdRowForm />
+            <div className={'col-span-3 place-self-center py-6'}>
+              <BaseContainer interaction={'hover'}>
+                <button
+                  className={'flex h-10 w-[80vw] flex-row items-center justify-center space-x-2 xl:h-14 xl:w-[30vw]'}
+                  onClick={handleSubmit}
+                >
+                  <Image
+                    src={'/img/admin/create/cards/add-light.png'}
+                    alt={'créer une carte'}
+                    width={0}
+                    height={0}
+                    sizes={'100vw'}
+                    className={'h-auto w-8 xl:w-10'}
+                  />
+                  <h2 className={'text-xl xl:text-2xl'}>Créer</h2>
+                </button>
+              </BaseContainer>
+            </div>
+          </form>
+        </>
       )}
     </>
   );
