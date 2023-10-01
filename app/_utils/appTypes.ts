@@ -185,3 +185,9 @@ export type CardDescriptionForCreation = {
   citation: string;
   rarity_id: number;
 };
+
+export type CardDescriptionCreationResponse = {
+  code: number;
+  error?: string;
+  data?: CardDescriptionForCreation;
+};
