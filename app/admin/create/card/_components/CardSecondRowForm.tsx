@@ -1,10 +1,10 @@
 import FormSelect from '@components/form/FormSelect';
-import useArtistSelect from '@/app/admin/create/card/_hooks/useArtistSelect';
-import useCharacterSelect from '@/app/admin/create/card/_hooks/useCharacterSelect';
-import useRaritySelect from '@/app/admin/create/card/_hooks/useRaritySelect';
-import {useCardDescriptionContext} from '@/app/admin/create/card/_providers/CardDescriptionContextProvider';
-import {useCardContext} from '@/app/admin/create/card/_providers/CardContextProvider';
-import CardTypeSwitch from '@/app/admin/create/card/_components/CardTypeSwitch';
+import useArtistSelect from '@hooks/useArtistSelect';
+import useCharacterSelect from '@hooks/useCharacterSelect';
+import useRaritySelect from '@hooks/useRaritySelect';
+import {useCardDescriptionContext} from '@providers/CardDescriptionContextProvider';
+import {useCardContext} from '@providers/CardContextProvider';
+import CardTypeSwitch from '@components/CardTypeSwitch';
 
 export default function CardSecondRowForm() {
   const {artistSelectOptions} = useArtistSelect();

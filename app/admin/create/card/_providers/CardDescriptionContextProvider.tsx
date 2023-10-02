@@ -1,5 +1,5 @@
-import {ReactNode, useContext, createContext, useState, ChangeEvent} from 'react';
-import {CardDescription, CardDescriptionContextType, CardDescriptionKey} from '@/app/_utils/appTypes';
+import {createContext, ReactNode, useContext, useState} from 'react';
+import {CardDescription, CardDescriptionContextType, CardDescriptionKey} from '@utils/appTypes';
 
 type Props = {
   children: ReactNode;

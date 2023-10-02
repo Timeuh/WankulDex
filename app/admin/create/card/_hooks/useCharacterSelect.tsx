@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
-import {Character, SelectOption} from '@/app/_utils/appTypes';
 import useCharacters from '@hooks/useCharacters';
+import {Character, SelectOption} from '@utils/appTypes';
 
 export default function useCharacterSelect() {
   const {data} = useCharacters();

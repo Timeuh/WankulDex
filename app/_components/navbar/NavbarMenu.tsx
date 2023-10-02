@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 import BaseContainer from '@components/BaseContainer';
-import {NavbarLink} from '@/app/_utils/appTypes';
 import NavbarLinkItem from '@components/navbar/NavbarLinkItem';
 import {useEffect, useState} from 'react';
-import isAdminLogged from '@/app/_utils/isAdminLogged';
+import isAdminLogged from '@utils/isAdminLogged';
+import {NavbarLink} from '@utils/appTypes';
 
 export default function NavbarMenu() {
   const [isActive, setActive] = useState<boolean>(false);

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import {NavbarLink} from '@/app/_utils/appTypes';
 import BaseContainer from '@components/BaseContainer';
+import {NavbarLink} from '@utils/appTypes';
 
 type Props = {
   link: NavbarLink;

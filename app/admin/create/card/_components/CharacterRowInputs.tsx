@@ -1,5 +1,5 @@
-import {useCardDescriptionContext} from '@/app/admin/create/card/_providers/CardDescriptionContextProvider';
 import FormTextArea from '@components/form/FormTextArea';
+import {useCardDescriptionContext} from '@providers/CardDescriptionContextProvider';
 
 export default function CharacterRowInputs() {
   const {cardDescription, updateDescription} = useCardDescriptionContext();

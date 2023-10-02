@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import {Card, CardRarity} from '@/app/_utils/appTypes';
 import {cva, VariantProps} from 'class-variance-authority';
+import {Card, CardRarity} from '@utils/appTypes';
 
 type Props = {
   card: Card;

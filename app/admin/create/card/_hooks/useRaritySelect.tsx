@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
-import {Rarity, SelectOption} from '@/app/_utils/appTypes';
 import useRarities from '@hooks/useRarities';
+import {Rarity, SelectOption} from '@utils/appTypes';
 
 export default function useRaritySelect() {
   const {data} = useRarities();

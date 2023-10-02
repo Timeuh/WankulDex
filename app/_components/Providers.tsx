@@ -2,7 +2,7 @@
 
 import {ReactNode} from 'react';
 import {QueryClient, QueryClientProvider} from 'react-query';
-import {QUERY_STALE_TIME} from '@/app/_utils/appGlobals';
+import {QUERY_STALE_TIME} from '@utils/appGlobals';
 
 type Props = {
   children: ReactNode;

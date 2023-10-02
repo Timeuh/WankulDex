@@ -1,6 +1,6 @@
 import useArtists from '@hooks/useArtists';
 import {useEffect, useState} from 'react';
-import {Artist, SelectOption} from '@/app/_utils/appTypes';
+import {Artist, SelectOption} from '@utils/appTypes';
 
 export default function useArtistSelect() {
   const {data} = useArtists();

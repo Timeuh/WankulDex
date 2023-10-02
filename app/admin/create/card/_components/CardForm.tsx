@@ -1,16 +1,16 @@
-import CardFirstRowForm from '@/app/admin/create/card/_components/CardFirstRowForm';
-import CardSecondRowForm from '@/app/admin/create/card/_components/CardSecondRowForm';
-import {useCardDescriptionContext} from '@/app/admin/create/card/_providers/CardDescriptionContextProvider';
-import {useCardContext} from '@/app/admin/create/card/_providers/CardContextProvider';
-import CardThirdRowForm from '@/app/admin/create/card/_components/CardThirdRowForm';
 import BaseContainer from '@components/BaseContainer';
 import Image from 'next/image';
 import {MouseEvent, useState} from 'react';
-import useCardDescriptionCreation from '@/app/admin/create/card/_hooks/useCardDescriptionCreation';
 import Loading from '@components/Loading';
-import {CardCreationResponse, CardDescriptionCreationResponse} from '@/app/_utils/appTypes';
-import useCardCreation from '@/app/admin/create/card/_hooks/useCardCreation';
 import {useRouter} from 'next/navigation';
+import CardFirstRowForm from '@components/CardFirstRowForm';
+import CardSecondRowForm from '@components/CardSecondRowForm';
+import CardThirdRowForm from '@components/CardThirdRowForm';
+import {useCardContext} from '@providers/CardContextProvider';
+import {useCardDescriptionContext} from '@providers/CardDescriptionContextProvider';
+import useCardDescriptionCreation from '@hooks/useCardDescriptionCreation';
+import useCardCreation from '@hooks/useCardCreation';
+import {CardCreationResponse, CardDescriptionCreationResponse} from '@utils/appTypes';
 
 export default function CardForm() {
   const [displayError, setDisplayError] = useState<boolean>(false);
