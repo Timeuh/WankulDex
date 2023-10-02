@@ -3,7 +3,7 @@
 import {ChangeEvent, MouseEvent, useState} from 'react';
 import BaseContainer from '@components/BaseContainer';
 import FormInput from '@components/form/FormInput';
-import Loading from '@/app/Loading';
+import Loading from '@components/Loading';
 import {LoginResult} from '@/app/_utils/appTypes';
 import {useRouter} from 'next/navigation';
 import setAuthCookie from '@/app/_utils/setAuthCookie';
