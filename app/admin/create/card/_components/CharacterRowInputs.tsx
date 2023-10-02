@@ -1,4 +1,4 @@
-import {useCardDescriptionContext} from '@providers/admin/creation/card/CardDescriptionContextProvider';
+import {useCardDescriptionContext} from '@/app/admin/create/card/_providers/CardDescriptionContextProvider';
 import FormTextArea from '@components/form/FormTextArea';
 
 export default function CharacterRowInputs() {

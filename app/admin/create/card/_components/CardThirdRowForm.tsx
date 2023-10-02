@@ -1,4 +1,4 @@
-import {useCardContext} from '@providers/admin/creation/card/CardContextProvider';
+import {useCardContext} from '@/app/admin/create/card/_providers/CardContextProvider';
 import {useEffect, useState} from 'react';
 import FieldRowInputs from '@/app/admin/create/card/_components/FieldRowInputs';
 import CharacterRowInputs from '@/app/admin/create/card/_components/CharacterRowInputs';
