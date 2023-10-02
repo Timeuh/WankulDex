@@ -6,10 +6,10 @@ import CardThirdRowForm from '@/app/admin/create/card/_components/CardThirdRowFo
 import BaseContainer from '@components/BaseContainer';
 import Image from 'next/image';
 import {MouseEvent, useState} from 'react';
-import useCardDescriptionCreation from '@hooks/admin/create/cards/useCardDescriptionCreation';
+import useCardDescriptionCreation from '@/app/admin/create/card/_hooks/useCardDescriptionCreation';
 import Loading from '@/app/Loading';
 import {CardCreationResponse, CardDescriptionCreationResponse} from '@/app/_utils/appTypes';
-import useCardCreation from '@hooks/admin/create/cards/useCardCreation';
+import useCardCreation from '@/app/admin/create/card/_hooks/useCardCreation';
 import {useRouter} from 'next/navigation';
 
 export default function CardForm() {
