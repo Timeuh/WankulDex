@@ -1,5 +1,6 @@
 import BackButton from '@components/BackButton';
 import Image from 'next/image';
+import ArtistForm from '@/app/admin/create/artist/_components/ArtistForm';
 
 export default function CreateArtist() {
   return (
@@ -17,6 +18,7 @@ export default function CreateArtist() {
           />
           <h1 className={'pt-1 text-5xl'}>Nouvel Artiste</h1>
         </div>
+        <ArtistForm />
       </div>
     </section>
   );
