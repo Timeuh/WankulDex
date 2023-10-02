@@ -1,7 +1,7 @@
 'use client';
 
 import CardContextProvider from '@providers/admin/creation/card/CardContextProvider';
-import CardForm from '@components/admin/creation/card/CardForm';
+import CardForm from '@/app/admin/create/card/_components/CardForm';
 import CardDescriptionContextProvider from '@providers/admin/creation/card/CardDescriptionContextProvider';
 
 export default function CardFormProviders() {

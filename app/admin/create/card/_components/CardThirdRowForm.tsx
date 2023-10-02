@@ -1,7 +1,7 @@
 import {useCardContext} from '@providers/admin/creation/card/CardContextProvider';
 import {useEffect, useState} from 'react';
-import FieldRowInputs from '@components/admin/creation/card/FieldRowInputs';
-import CharacterRowInputs from '@components/admin/creation/card/CharacterRowInputs';
+import FieldRowInputs from '@/app/admin/create/card/_components/FieldRowInputs';
+import CharacterRowInputs from '@/app/admin/create/card/_components/CharacterRowInputs';
 
 export default function CardThirdRowForm() {
   const {cardContext} = useCardContext();

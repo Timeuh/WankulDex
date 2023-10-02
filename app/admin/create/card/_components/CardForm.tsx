@@ -1,8 +1,8 @@
-import CardFirstRowForm from '@components/admin/creation/card/CardFirstRowForm';
-import CardSecondRowForm from '@components/admin/creation/card/CardSecondRowForm';
+import CardFirstRowForm from '@/app/admin/create/card/_components/CardFirstRowForm';
+import CardSecondRowForm from '@/app/admin/create/card/_components/CardSecondRowForm';
 import {useCardDescriptionContext} from '@providers/admin/creation/card/CardDescriptionContextProvider';
 import {useCardContext} from '@providers/admin/creation/card/CardContextProvider';
-import CardThirdRowForm from '@components/admin/creation/card/CardThirdRowForm';
+import CardThirdRowForm from '@/app/admin/create/card/_components/CardThirdRowForm';
 import BaseContainer from '@components/BaseContainer';
 import Image from 'next/image';
 import {MouseEvent, useState} from 'react';

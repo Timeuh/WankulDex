@@ -4,7 +4,7 @@ import useCharacterSelect from '@hooks/admin/create/cards/useCharacterSelect';
 import useRaritySelect from '@hooks/admin/create/cards/useRaritySelect';
 import {useCardDescriptionContext} from '@providers/admin/creation/card/CardDescriptionContextProvider';
 import {useCardContext} from '@providers/admin/creation/card/CardContextProvider';
-import CardTypeSwitch from '@components/admin/creation/card/CardTypeSwitch';
+import CardTypeSwitch from '@/app/admin/create/card/_components/CardTypeSwitch';
 
 export default function CardSecondRowForm() {
   const {artistSelectOptions} = useArtistSelect();
