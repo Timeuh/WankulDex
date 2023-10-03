@@ -18,6 +18,7 @@ export default function ArtistForm() {
       error: '',
     },
   });
+  const [isError, setError] = useState<boolean>(false);
 
   const {refetch} = useArtistCreation(artistData);
 
@@ -52,6 +53,7 @@ export default function ArtistForm() {
 
   const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    setError(false);
     const submitError = updateErrors();
 
     if (submitError) {
@@ -60,52 +62,62 @@ export default function ArtistForm() {
 
     refetch().then((response) => {
       const responseData = response.data as ArtistCreationResponse;
+
+      if (responseData.error) {
+        setError(true);
+        return;
+      }
       console.log(responseData);
     });
   };
 
   return (
-    <form action='noredirect' className={'space-y-6'}>
-      <FormInput
-        value={artistData.id.value}
-        changeValue={(event) => {
-          updateArtist(event.target.value, 'id');
-        }}
-        error={artistData.id.error}
-        valueType={'number'}
-        type={'number'}
-        image={'/img/admin/create/artists/hashtag-light.png'}
-        text={'ID'}
-      />
-      <FormInput
-        value={artistData.name.value}
-        changeValue={(event) => {
-          updateArtist(event.target.value, 'name');
-        }}
-        error={artistData.name.error}
-        valueType={'string'}
-        type={'text'}
-        image={'/img/admin/create/artists/name-light.png'}
-        text={'Nom'}
-      />
-      <div className={'absolute bottom-20'}>
-        <BaseContainer interaction={'hover'}>
-          <button
-            className={'flex h-10 w-[80vw] flex-row items-center justify-center space-x-2 xl:h-14 xl:w-[30vw]'}
-            onClick={handleSubmit}
-          >
-            <Image
-              src={'/img/admin/create/cards/add-light.png'}
-              alt={'créer une carte'}
-              width={0}
-              height={0}
-              sizes={'100vw'}
-              className={'h-auto w-8 xl:w-10'}
-            />
-            <h2 className={'text-xl xl:text-2xl'}>Créer</h2>
-          </button>
-        </BaseContainer>
-      </div>
-    </form>
+    <>
+      <h1 className={`text-center text-2xl text-red-500 ${isError ? 'block' : 'hidden'}`}>
+        Erreur pendant la création de l&apos;artiste, veuillez réessayer
+      </h1>
+      <form action='noredirect' className={'space-y-6'}>
+        <FormInput
+          value={artistData.id.value}
+          changeValue={(event) => {
+            updateArtist(event.target.value, 'id');
+          }}
+          error={artistData.id.error}
+          valueType={'number'}
+          type={'number'}
+          image={'/img/admin/create/artists/hashtag-light.png'}
+          text={'ID'}
+        />
+        <FormInput
+          value={artistData.name.value}
+          changeValue={(event) => {
+            updateArtist(event.target.value, 'name');
+          }}
+          error={artistData.name.error}
+          valueType={'string'}
+          type={'text'}
+          image={'/img/admin/create/artists/name-light.png'}
+          text={'Nom'}
+        />
+        <div className={'absolute bottom-20'}>
+          <BaseContainer interaction={'hover'}>
+            <button
+              className={'flex h-10 w-[80vw] flex-row items-center justify-center space-x-2 xl:h-14 xl:w-[30vw]'}
+              onClick={handleSubmit}
+            >
+              <Image
+                src={'/img/admin/create/cards/add-light.png'}
+                alt={'créer une carte'}
+                width={0}
+                height={0}
+                sizes={'100vw'}
+                className={'h-auto w-8 xl:w-10'}
+              />
+              <h2 className={'text-xl xl:text-2xl'}>Créer</h2>
+            </button>
+          </BaseContainer>
+        </div>
+      </form>
+    </>
   );
 }
