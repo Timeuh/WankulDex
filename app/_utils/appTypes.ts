@@ -212,3 +212,14 @@ export type ArtistForm = {
   id: InputField;
   name: InputField;
 };
+
+export type ArtistDataForCreation = {
+  id: number;
+  name: string;
+};
+
+export type ArtistCreationResponse = {
+  code: number;
+  error?: string;
+  data?: ArtistDataForCreation;
+};
