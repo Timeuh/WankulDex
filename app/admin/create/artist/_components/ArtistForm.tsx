@@ -87,7 +87,7 @@ export default function ArtistForm() {
         </>
       ) : (
         <>
-          <h1 className={`text-center text-2xl text-red-500 ${isError ? 'block' : 'hidden'}`}>
+          <h1 className={`text-center text-2xl text-red-500 xl:text-4xl ${isError ? 'block' : 'hidden'}`}>
             Erreur pendant la création de l&apos;artiste, veuillez réessayer
           </h1>
           <form action='noredirect' className={'space-y-6'}>
