@@ -207,3 +207,8 @@ export type CardCreationResponse = {
   error?: string;
   data?: CardContextForCreation;
 };
+
+export type ArtistForm = {
+  id: InputField;
+  name: InputField;
+};
