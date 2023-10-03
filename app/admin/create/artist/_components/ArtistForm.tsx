@@ -1,7 +1,7 @@
 'use client';
 
 import FormInput from '@components/form/FormInput';
-import {ChangeEvent, MouseEvent, useState} from 'react';
+import {MouseEvent, useState} from 'react';
 import {ArtistForm} from '@utils/appTypes';
 import BaseContainer from '@components/BaseContainer';
 import Image from 'next/image';
@@ -18,24 +18,42 @@ export default function ArtistForm() {
     },
   });
 
-  const updateArtist = (event: ChangeEvent<HTMLInputElement>, type: keyof ArtistForm) => {
+  const updateArtist = (value: string, type: keyof ArtistForm, error: string = '') => {
     setArtistData((prevState) => {
       if (type === 'id') {
-        const newValue = parseInt(event.target.value);
+        const newValue = parseInt(value);
         if (isNaN(newValue) || newValue <= 0) {
           return prevState;
         }
 
-        return {...prevState, [type]: {...prevState[type], value: newValue}};
+        return {...prevState, [type]: {...prevState[type], value: newValue, error: error}};
       }
 
-      return {...prevState, [type]: {...prevState[type], value: event.target.value}};
+      return {...prevState, [type]: {...prevState[type], value: value, error: error}};
     });
+  };
+
+  const updateErrors = () => {
+    let isError = false;
+
+    updateArtist(artistData.id.value as string, 'id', '');
+    updateArtist(artistData.name.value as string, 'name', '');
+
+    if (artistData.name.value === '') {
+      updateArtist('', 'name', 'Vous devez remplir ce champ');
+      isError = true;
+    }
+
+    return isError;
   };
 
   const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log(artistData);
+    const submitError = updateErrors();
+
+    if (submitError) {
+      return;
+    }
   };
 
   return (
@@ -43,7 +61,7 @@ export default function ArtistForm() {
       <FormInput
         value={artistData.id.value}
         changeValue={(event) => {
-          updateArtist(event, 'id');
+          updateArtist(event.target.value, 'id');
         }}
         error={artistData.id.error}
         valueType={'number'}
@@ -54,7 +72,7 @@ export default function ArtistForm() {
       <FormInput
         value={artistData.name.value}
         changeValue={(event) => {
-          updateArtist(event, 'name');
+          updateArtist(event.target.value, 'name');
         }}
         error={artistData.name.error}
         valueType={'string'}
