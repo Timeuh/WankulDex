@@ -2,9 +2,10 @@
 
 import FormInput from '@components/form/FormInput';
 import {MouseEvent, useState} from 'react';
-import {ArtistForm} from '@utils/appTypes';
+import {ArtistCreationResponse, ArtistForm} from '@utils/appTypes';
 import BaseContainer from '@components/BaseContainer';
 import Image from 'next/image';
+import useArtistCreation from '@hooks/useArtistCreation';
 
 export default function ArtistForm() {
   const [artistData, setArtistData] = useState<ArtistForm>({
@@ -17,6 +18,8 @@ export default function ArtistForm() {
       error: '',
     },
   });
+
+  const {refetch} = useArtistCreation(artistData);
 
   const updateArtist = (value: string, type: keyof ArtistForm, error: string = '') => {
     setArtistData((prevState) => {
@@ -54,6 +57,11 @@ export default function ArtistForm() {
     if (submitError) {
       return;
     }
+
+    refetch().then((response) => {
+      const responseData = response.data as ArtistCreationResponse;
+      console.log(responseData);
+    });
   };
 
   return (
