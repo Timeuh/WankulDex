@@ -1,12 +1,12 @@
 'use client';
 
-import {Card} from '@/app/_utils/appTypes';
 import FieldCard from '@components/cards/field/FieldCard';
 import FieldCardLoading from '@components/cards/field/FieldCardLoading';
 import useCards from '@hooks/useCards';
+import {Card} from '@utils/appTypes';
 
 export default function DisplayFieldCards() {
-  const {data, error, isFetching} = useCards('Terrain');
+  const {data, isFetching} = useCards('Terrain');
   const loadingCards: Array<number> = [];
   const placeholderCardsNumber = 3;
 

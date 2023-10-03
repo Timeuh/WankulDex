@@ -1,7 +1,7 @@
 import {useQuery} from 'react-query';
-import {API_DOMAIN} from '@/app/_utils/appGlobals';
-import {CardContext, CardContextForCreation} from '@/app/_utils/appTypes';
 import Cookies from 'universal-cookie/lib';
+import {CardContext, CardContextForCreation} from '@utils/appTypes';
+import {API_DOMAIN} from '@utils/appGlobals';
 
 const recordCard = async (cardContext: CardContext) => {
   const cookieName = process.env.NEXT_PUBLIC_API_COOKIE;

@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import BaseContainer from '@components/BaseContainer';
-import {SelectOption} from '@/app/_utils/appTypes';
 import {ChangeEvent} from 'react';
 import {cva, VariantProps} from 'class-variance-authority';
+import {SelectOption} from '@utils/appTypes';
 
 type Props = {
   image: string;

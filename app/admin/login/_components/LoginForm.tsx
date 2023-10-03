@@ -4,10 +4,10 @@ import {ChangeEvent, MouseEvent, useState} from 'react';
 import BaseContainer from '@components/BaseContainer';
 import FormInput from '@components/form/FormInput';
 import Loading from '@components/Loading';
-import {LoginResult} from '@/app/_utils/appTypes';
 import {useRouter} from 'next/navigation';
-import setAuthCookie from '@/app/_utils/setAuthCookie';
-import login from '@/app/_utils/login';
+import {LoginResult} from '@utils/appTypes';
+import setAuthCookie from '@utils/setAuthCookie';
+import login from '@utils/login';
 
 export default function LoginForm() {
   const [email, setEmail] = useState<string>('');

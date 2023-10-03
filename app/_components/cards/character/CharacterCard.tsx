@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import {Card, CardRarity} from '@/app/_utils/appTypes';
-import {API_DOMAIN} from '@/app/_utils/appGlobals';
 import CardInfos from '@components/cards/CardInfos';
+import {Card, CardRarity} from '@utils/appTypes';
+import {API_DOMAIN} from '@utils/appGlobals';
 
 type Props = {
   card: Card;

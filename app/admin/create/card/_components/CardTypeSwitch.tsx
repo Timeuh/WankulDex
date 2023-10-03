@@ -1,7 +1,7 @@
 import BaseContainer from '@components/BaseContainer';
 import Image from 'next/image';
-import {useCardContext} from '@/app/admin/create/card/_providers/CardContextProvider';
 import {useEffect, useState} from 'react';
+import {useCardContext} from '@providers/CardContextProvider';
 
 export default function CardTypeSwitch() {
   const {cardContext, updateCard} = useCardContext();
