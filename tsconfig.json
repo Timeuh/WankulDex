@@ -22,10 +22,13 @@
       "@/*": ["./*"],
       "@components/*": [
         "./app/_components/*", "./app/admin/login/_components/*", "./app/admin/create/card/_components/*",
-        "./app/admin/create/artist/_components/*"
+        "./app/admin/create/artist/_components/*", "./app/card/[id]/_components/*"
       ],
-      "@hooks/*": ["./app/_hooks/*", "./app/admin/create/card/_hooks/*", "./app/admin/create/artist/_hooks/*"],
-      "@providers/*": ["./app/_providers/*", "./app/admin/create/card/_providers/*"],
+      "@hooks/*": [
+        "./app/_hooks/*", "./app/admin/create/card/_hooks/*", "./app/admin/create/artist/_hooks/*",
+        "./app/card/[id]/_hooks/*"
+      ],
+      "@providers/*": ["./app/_providers/*", "./app/admin/create/card/_providers/*", "./app/card/[id]/_providers/*"],
       "@app/*": ["./app/*"],
       "@utils/*": ["./app/_utils/*"]
     }
