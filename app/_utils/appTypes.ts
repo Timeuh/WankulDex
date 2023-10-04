@@ -221,3 +221,8 @@ export type ArtistCreationResponse = {
   error?: string;
   data?: ArtistDataForCreation;
 };
+
+export type CardDisplayContext = {
+  card: Card;
+  isFetching: boolean;
+};
