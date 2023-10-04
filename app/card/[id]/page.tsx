@@ -1,4 +1,5 @@
 import BackButton from '@components/BackButton';
+import CardDisplay from '@components/CardDisplay';
 
 type Props = {
   params: {
@@ -11,6 +12,7 @@ export default function DisplayCard({params}: Props) {
     <section id={`card-${params.id}`} className={'to-light-pink  h-screen w-full  bg-gradient-to-b from-light-blue'}>
       <div className={'flex flex-col items-center pt-24'}>
         <BackButton />
+        <CardDisplay id={params.id} />
       </div>
     </section>
   );
