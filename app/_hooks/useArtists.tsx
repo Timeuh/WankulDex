@@ -1,7 +1,7 @@
-import {useQuery} from 'react-query';
 import {API_BASE_URL} from '@/app/_utils/appGlobals';
 import {Artist, Artists} from '@/app/_utils/appTypes';
 import artistSchema from '@/app/_zod/ArtistSchema';
+import {useQuery} from '@tanstack/react-query';
 
 const getArtists = async () => {
   return await fetch(`${API_BASE_URL}/artist`)

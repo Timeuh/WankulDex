@@ -1,7 +1,7 @@
-import {useQuery} from 'react-query';
 import {Card} from '@utils/appTypes';
 import cardSchema from '@app/_zod/CardSchema';
 import {API_BASE_URL} from '@utils/appGlobals';
+import {useQuery} from '@tanstack/react-query';
 
 const fetchCardById = async (id: string) => {
   return await fetch(`${API_BASE_URL}/card/${id}`)
@@ -12,13 +12,11 @@ const fetchCardById = async (id: string) => {
       if (cardSchema.safeParse(card).success) {
         return card;
       }
-
-      return false;
     });
 };
 
 export default function useCard(id: string) {
-  return useQuery(['card', id], () => {
+  return useQuery<Card | undefined>(['card', id], () => {
     return fetchCardById(id);
   });
 }

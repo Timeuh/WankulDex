@@ -1,7 +1,7 @@
-import {useQuery} from 'react-query';
 import Cookies from 'universal-cookie/lib';
 import {API_DOMAIN} from '@utils/appGlobals';
 import {CardDescription, CardDescriptionForCreation} from '@utils/appTypes';
+import {useQuery} from '@tanstack/react-query';
 
 const recordCardDescription = async (cardDescription: CardDescription) => {
   const cookieName = process.env.NEXT_PUBLIC_API_COOKIE;

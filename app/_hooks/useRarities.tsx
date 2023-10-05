@@ -1,7 +1,7 @@
-import {useQuery} from 'react-query';
 import {API_BASE_URL} from '@/app/_utils/appGlobals';
 import {Rarities, Rarity} from '@/app/_utils/appTypes';
 import raritySchema from '@/app/_zod/RaritySchema';
+import {useQuery} from '@tanstack/react-query';
 
 const getRarities = async () => {
   return await fetch(`${API_BASE_URL}/rarity`)

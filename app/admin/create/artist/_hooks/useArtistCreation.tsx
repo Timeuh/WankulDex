@@ -1,7 +1,7 @@
-import {useQuery} from 'react-query';
 import Cookies from 'universal-cookie/lib';
 import {ArtistDataForCreation, ArtistForm} from '@utils/appTypes';
 import {API_DOMAIN} from '@utils/appGlobals';
+import {useQuery} from '@tanstack/react-query';
 
 const recordArtist = async (artistData: ArtistForm) => {
   const cookieName = process.env.NEXT_PUBLIC_API_COOKIE;
