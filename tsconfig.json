@@ -30,7 +30,7 @@
       ],
       "@providers/*": ["./app/_providers/*", "./app/admin/create/card/_providers/*", "./app/card/[id]/_providers/*"],
       "@app/*": ["./app/*"],
-      "@utils/*": ["./app/_utils/*"]
+      "@utils/*": ["./app/_utils/*", "./app/card/[id]/_utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
