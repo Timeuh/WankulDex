@@ -222,7 +222,4 @@ export type ArtistCreationResponse = {
   data?: ArtistDataForCreation;
 };
 
-export type CardDisplayContext = {
-  card: Card;
-  isFetching: boolean;
-};
+export type DescriptionRowType = 'Big' | 'Small';
