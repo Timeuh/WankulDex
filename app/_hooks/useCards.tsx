@@ -24,7 +24,10 @@ const getCards = async (type: CardType) => {
 };
 
 export default function useCards(type: CardType = 'None') {
-  return useQuery(['cards', type], () => {
-    return getCards(type);
+  return useQuery({
+    queryKey: ['cards', type],
+    queryFn: () => {
+      return getCards(type);
+    },
   });
 }

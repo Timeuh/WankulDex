@@ -22,7 +22,10 @@ const getCharacters = async () => {
 };
 
 export default function useCharacters() {
-  return useQuery(['characters'], () => {
-    return getCharacters();
+  return useQuery({
+    queryKey: ['characters'],
+    queryFn: () => {
+      return getCharacters();
+    },
   });
 }

@@ -22,7 +22,10 @@ const getArtists = async () => {
 };
 
 export default function useArtists() {
-  return useQuery(['artists'], () => {
-    return getArtists();
+  return useQuery({
+    queryKey: ['artists'],
+    queryFn: () => {
+      return getArtists();
+    },
   });
 }
