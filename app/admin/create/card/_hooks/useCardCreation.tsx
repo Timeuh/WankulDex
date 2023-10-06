@@ -43,13 +43,11 @@ const convertDataForCreation = (cardContext: CardContext): CardContextForCreatio
 };
 
 export default function useCardCreation(cardContext: CardContext) {
-  return useQuery(
-    ['cardCreation'],
-    () => {
+  return useQuery({
+    queryKey: ['cardCreation'],
+    queryFn: () => {
       return recordCard(cardContext);
     },
-    {
-      enabled: false,
-    },
-  );
+    enabled: false,
+  });
 }

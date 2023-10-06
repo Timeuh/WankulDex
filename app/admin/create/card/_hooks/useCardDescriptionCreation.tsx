@@ -44,13 +44,11 @@ const convertDataForCreation = (cardDescription: CardDescription): CardDescripti
 };
 
 export default function useCardDescriptionCreation(cardDescription: CardDescription) {
-  return useQuery(
-    ['cardDescription', cardDescription],
-    () => {
+  return useQuery({
+    queryKey: ['cardDescription', cardDescription],
+    queryFn: () => {
       return recordCardDescription(cardDescription);
     },
-    {
-      enabled: false,
-    },
-  );
+    enabled: false,
+  });
 }

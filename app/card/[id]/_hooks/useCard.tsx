@@ -16,7 +16,10 @@ const fetchCardById = async (id: string) => {
 };
 
 export default function useCard(id: string) {
-  return useQuery<Card | undefined>(['card', id], () => {
-    return fetchCardById(id);
+  return useQuery<Card | undefined>({
+    queryKey: ['card', id],
+    queryFn: () => {
+      return fetchCardById(id);
+    },
   });
 }

@@ -38,13 +38,11 @@ const convertDataForCreation = (artistData: ArtistForm): ArtistDataForCreation =
 };
 
 export default function useArtistCreation(artistData: ArtistForm) {
-  return useQuery(
-    ['artistCreation', artistData],
-    () => {
+  return useQuery({
+    queryKey: ['artistCreation', artistData],
+    queryFn: () => {
       return recordArtist(artistData);
     },
-    {
-      enabled: false,
-    },
-  );
+    enabled: false,
+  });
 }
