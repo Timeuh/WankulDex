@@ -3,17 +3,11 @@ import {dehydrate, QueryClient} from '@tanstack/query-core';
 import {QUERY_STALE_TIME} from '@utils/appGlobals';
 import {fetchCardById} from '@app/card/[id]/_utils/fetchCardById';
 import {HydrationBoundary} from '@tanstack/react-query';
-import {Metadata} from 'next';
 
 type Props = {
   params: {
     id: string;
   };
-};
-
-export const metadata: Metadata = {
-  title: 'Wankuldex - Carte',
-  description: 'Page pour voir une carte en détails',
 };
 
 export default async function CardById({params}: Props) {
