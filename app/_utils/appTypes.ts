@@ -221,5 +221,3 @@ export type ArtistCreationResponse = {
   error?: string;
   data?: ArtistDataForCreation;
 };
-
-export type DescriptionRowType = 'Big' | 'Small';

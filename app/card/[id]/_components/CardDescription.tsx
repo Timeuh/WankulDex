@@ -42,14 +42,14 @@ export default function CardDescription({cardType = 'Personnage', ...props}: Pro
           <DescriptionRow image={props.artistImage} text={props.artistText} />
           {cardType === 'Terrain' ? (
             <>
-              <DescriptionRow image={props.winnerImage} text={props.winnerText} type={'Big'} />
-              <DescriptionRow image={props.looserImage} text={props.looserText} type={'Big'} />
-              <DescriptionRow image={props.specialImage} text={props.specialText} type={'Big'} />
+              <DescriptionRow image={props.winnerImage} text={props.winnerText} />
+              <DescriptionRow image={props.looserImage} text={props.looserText} />
+              <DescriptionRow image={props.specialImage} text={props.specialText} />
             </>
           ) : (
             <>
-              <DescriptionRow image={props.effectImage} text={props.effectText} type={'Big'} />
-              <DescriptionRow image={props.citationImage} text={props.citationText} type={'Big'} />
+              <DescriptionRow image={props.effectImage} text={props.effectText} />
+              <DescriptionRow image={props.citationImage} text={props.citationText} />
             </>
           )}
           <DescriptionRow image={props.characterImage} text={props.characterText} />
