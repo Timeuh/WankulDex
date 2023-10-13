@@ -15,6 +15,7 @@ export default function LoginForm() {
   const [emailError, setEmailError] = useState<string>('');
   const [passwordError, setPasswordError] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
 
   const router = useRouter();
 
@@ -49,6 +50,7 @@ export default function LoginForm() {
   const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setIsLoading(true);
+    setError('');
 
     login(email, password).then((loginResult: LoginResult) => {
       const error = handleError(loginResult);
@@ -58,8 +60,12 @@ export default function LoginForm() {
         return;
       }
 
-      setAuthCookie(loginResult.token);
-      router.push('/admin/create/card');
+      if (setAuthCookie(loginResult.token)) {
+        router.push('/admin/create/card');
+      } else {
+        setIsLoading(false);
+        setError('Erreur de création de cookie, veuillez réessayer');
+      }
     });
   };
 
@@ -69,6 +75,9 @@ export default function LoginForm() {
         <Loading text={'Connexion'} />
       ) : (
         <form action='noredirect' className={'flex w-full flex-col items-center px-8'}>
+          <h1 className={`py-4 text-center text-2xl text-red-500 xl:text-4xl ${error === '' ? 'hidden' : 'block'}`}>
+            {error}
+          </h1>
           <div className={'flex w-[80vw] flex-col space-y-12 xl:w-[30vw]'}>
             <FormInput
               image={'/img/admin/login/mail-light.png'}
