@@ -2,6 +2,7 @@ import Image from 'next/image';
 import CardInfos from '@components/cards/CardInfos';
 import {Card, CardRarity} from '@utils/appTypes';
 import {API_DOMAIN} from '@utils/appGlobals';
+import Link from 'next/link';
 
 type Props = {
   card: Card;
@@ -9,7 +10,7 @@ type Props = {
 
 export default function CharacterCard({card}: Props) {
   return (
-    <div id={`card-${card.card.id}`} className={'flex flex-col items-center'}>
+    <Link href={`/card/${card.card.id}`} id={`card-${card.card.id}`} className={'flex flex-col items-center'}>
       <Image
         src={API_DOMAIN + card.links.image}
         alt={card.card.name}
@@ -26,6 +27,6 @@ export default function CharacterCard({card}: Props) {
         borderColor={card.card.description.rarity.name as CardRarity}
         image={card.card.description.rarity.name as CardRarity}
       />
-    </div>
+    </Link>
   );
 }
