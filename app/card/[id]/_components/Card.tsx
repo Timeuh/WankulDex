@@ -5,6 +5,8 @@ import Image from 'next/image';
 import {API_DOMAIN} from '@utils/appGlobals';
 import CardDescription from '@components/CardDescription';
 import {CardType} from '@utils/appTypes';
+import BackButton from '@components/BackButton';
+import EditButton from '@components/EditButton';
 
 type Props = {
   id: string;
@@ -15,13 +17,17 @@ export default function Card({id}: Props) {
 
   return (
     <div className={'flex h-full w-full flex-col items-center space-y-6'}>
+      <div className={'mt-20 flex w-[80vw] flex-row justify-between'}>
+        <BackButton />
+        <EditButton link={`/admin/edit/card/${id}`} />
+      </div>
       <Image
         src={`${API_DOMAIN}/${data!.links.image}`}
         alt={data!.card.name}
         width={0}
         height={0}
         sizes={'100vw'}
-        className={'mt-24 h-auto w-[80vw] rounded-lg border-2 border-dark'}
+        className={'h-auto w-[80vw] rounded-lg border-2 border-dark'}
       />
       <CardDescription
         idImage={
