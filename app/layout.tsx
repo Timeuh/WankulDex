@@ -23,9 +23,11 @@ export default function RootLayout({children, modal}: Props) {
       <body className={nunito.className}>
         <Navbar />
         <main>
-          <Providers>{children}</Providers>
+          <Providers>
+            {children}
+            {modal}
+          </Providers>
         </main>
-        {modal}
       </body>
     </html>
   );
