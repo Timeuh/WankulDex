@@ -7,19 +7,36 @@ import CardDescription from '@components/CardDescription';
 import {CardType} from '@utils/appTypes';
 import BackButton from '@components/BackButton';
 import EditButton from '@components/EditButton';
+import {useEffect, useState} from 'react';
+import isAdminLogged from '@utils/isAdminLogged';
 
 type Props = {
   id: string;
 };
 
 export default function Card({id}: Props) {
+  const [isAdmin, setAdmin] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkAdminStatus = () => {
+      setAdmin(isAdminLogged());
+    };
+
+    checkAdminStatus();
+
+    const intervalId = setInterval(checkAdminStatus, 1000);
+    return () => {
+      return clearInterval(intervalId);
+    };
+  }, []);
+
   const {data} = useCard(id);
 
   return (
     <div className={'flex h-full w-full flex-col items-center space-y-6'}>
       <div className={'mt-20 flex w-[80vw] flex-row justify-between'}>
         <BackButton />
-        <EditButton link={`/admin/edit/card/${id}`} />
+        {isAdmin ? <EditButton link={`/admin/edit/card/${id}`} /> : <></>}
       </div>
       <Image
         src={`${API_DOMAIN}/${data!.links.image}`}
