@@ -1,7 +1,7 @@
 import './globals.css';
 import type {Metadata} from 'next';
 import {Nunito} from 'next/font/google';
-import {ReactNode} from 'react';
+import React, {ReactNode} from 'react';
 import Providers from '@components/Providers';
 import Navbar from '@components/navbar/Navbar';
 
@@ -14,9 +14,10 @@ export const metadata: Metadata = {
 
 type Props = {
   children: ReactNode;
+  modal: ReactNode;
 };
 
-export default function RootLayout({children}: Props) {
+export default function RootLayout({children, modal}: Props) {
   return (
     <html lang='fr'>
       <body className={nunito.className}>
@@ -24,6 +25,7 @@ export default function RootLayout({children}: Props) {
         <main>
           <Providers>{children}</Providers>
         </main>
+        {modal}
       </body>
     </html>
   );
