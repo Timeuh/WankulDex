@@ -1,7 +1,7 @@
-import {useQuery} from 'react-query';
 import Cookies from 'universal-cookie/lib';
 import {API_DOMAIN} from '@utils/appGlobals';
 import {CardDescription, CardDescriptionForCreation} from '@utils/appTypes';
+import {useQuery} from '@tanstack/react-query';
 
 const recordCardDescription = async (cardDescription: CardDescription) => {
   const cookieName = process.env.NEXT_PUBLIC_API_COOKIE;
@@ -44,13 +44,11 @@ const convertDataForCreation = (cardDescription: CardDescription): CardDescripti
 };
 
 export default function useCardDescriptionCreation(cardDescription: CardDescription) {
-  return useQuery(
-    ['cardDescription', cardDescription],
-    () => {
+  return useQuery({
+    queryKey: ['cardDescription', cardDescription],
+    queryFn: () => {
       return recordCardDescription(cardDescription);
     },
-    {
-      enabled: false,
-    },
-  );
+    enabled: false,
+  });
 }

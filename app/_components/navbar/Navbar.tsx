@@ -15,6 +15,7 @@ export default function Navbar() {
               height={0}
               sizes={'100vw'}
               className={'h-full w-full'}
+              priority
             />
           </button>
         </BaseContainer>

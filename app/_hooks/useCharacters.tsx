@@ -1,7 +1,7 @@
-import {useQuery} from 'react-query';
 import {API_BASE_URL} from '@/app/_utils/appGlobals';
 import {Character, Characters} from '@/app/_utils/appTypes';
 import characterSchema from '@/app/_zod/CharacterSchema';
+import {useQuery} from '@tanstack/react-query';
 
 const getCharacters = async () => {
   return await fetch(`${API_BASE_URL}/character`)
@@ -22,7 +22,10 @@ const getCharacters = async () => {
 };
 
 export default function useCharacters() {
-  return useQuery(['characters'], () => {
-    return getCharacters();
+  return useQuery({
+    queryKey: ['characters'],
+    queryFn: () => {
+      return getCharacters();
+    },
   });
 }

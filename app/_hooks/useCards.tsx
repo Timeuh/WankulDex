@@ -1,7 +1,7 @@
-import {useQuery} from 'react-query';
 import {API_BASE_URL} from '@/app/_utils/appGlobals';
 import cardSchema from '@/app/_zod/CardSchema';
 import {Card, Cards, CardType} from '@/app/_utils/appTypes';
+import {useQuery} from '@tanstack/react-query';
 
 const getCards = async (type: CardType) => {
   return await fetch(`${API_BASE_URL}/card`)
@@ -24,7 +24,10 @@ const getCards = async (type: CardType) => {
 };
 
 export default function useCards(type: CardType = 'None') {
-  return useQuery(['cards', type], () => {
-    return getCards(type);
+  return useQuery({
+    queryKey: ['cards', type],
+    queryFn: () => {
+      return getCards(type);
+    },
   });
 }
