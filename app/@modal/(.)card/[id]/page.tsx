@@ -1,7 +1,6 @@
 'use client';
 
 import Modal from '@components/Modal';
-import {useRouter} from 'next/navigation';
 
 type Props = {
   params: {
@@ -10,8 +9,6 @@ type Props = {
 };
 
 export default function Page({params}: Props) {
-  const router = useRouter();
-
   return (
     <Modal>
       <h1 className={'w-[80vw] bg-light'}>{params.id}</h1>
