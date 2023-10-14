@@ -45,6 +45,7 @@ export default function Card({id}: Props) {
         height={0}
         sizes={'100vw'}
         className={'h-auto w-[80vw] rounded-lg border-2 border-dark'}
+        priority
       />
       <CardDescription
         idImage={
