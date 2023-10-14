@@ -35,7 +35,7 @@ export default function CardDescription({cardType = 'Personnage', ...props}: Pro
   return (
     <div className={'pb-10'}>
       <BaseContainer>
-        <div className={'h-full w-[80vw] rounded-lg'}>
+        <div className={'h-full w-[80vw] rounded-lg xl:w-[30vw]'}>
           <DescriptionRow image={props.idImage} text={props.idText} />
           <DescriptionRow image={props.nameImage} text={props.nameText} />
           <DescriptionRow image={props.collectionImage} text={props.collectionText} />

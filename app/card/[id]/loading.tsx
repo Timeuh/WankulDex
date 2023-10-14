@@ -5,7 +5,9 @@ import LoadingText from '@components/loading/LoadingText';
 
 export default function CardLoading() {
   return (
-    <div className={'flex h-full flex-col items-center space-y-6'}>
+    <div
+      className={'flex h-full flex-col items-center space-y-6 xl:h-screen xl:w-[80vw] xl:flex-row xl:justify-around'}
+    >
       <LoadingCard />
       <CardDescription
         idImage={<LoadingImage />}
