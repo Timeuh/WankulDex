@@ -10,7 +10,12 @@ type Props = {
 
 export default function CharacterCard({card}: Props) {
   return (
-    <Link href={`/card/${card.card.id}`} id={`card-${card.card.id}`} className={'flex flex-col items-center'}>
+    <Link
+      scroll={false}
+      href={`/card/${card.card.id}`}
+      id={`card-${card.card.id}`}
+      className={'flex flex-col items-center'}
+    >
       <Image
         src={API_DOMAIN + card.links.image}
         alt={card.card.name}
