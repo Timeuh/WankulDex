@@ -6,7 +6,9 @@ import Image from 'next/image';
 export default function DetailsButton() {
   return (
     <BaseContainer interaction={'hover'}>
-      <button className={'flex h-16 w-[80vw] flex-row items-center justify-center space-x-4 bg-light text-2xl'}>
+      <button
+        className={'flex h-16 w-[80vw] flex-row items-center justify-center space-x-4 bg-light text-2xl xl:w-[30vw]'}
+      >
         <Image
           src={'/img/card/details-light.png'}
           alt={'voir les détails'}

@@ -16,9 +16,9 @@ export default function FieldCardPreview({card}: Props) {
         width={0}
         height={0}
         sizes={'100vw'}
-        className={'h-auto w-5/6 rounded-t-lg border-2 border-dark xl:w-1/3'}
+        className={'h-auto w-5/6 rounded-t-lg border-2 border-dark xl:w-[35vw]'}
       />
-      <CardInfos card={card} image={undefined} />
+      <CardInfos card={card} image={undefined} size={'fieldPreview'} />
     </div>
   );
 }

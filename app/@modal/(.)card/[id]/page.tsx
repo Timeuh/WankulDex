@@ -12,7 +12,7 @@ type Props = {
 export default function Page({params}: Props) {
   return (
     <Modal>
-      <div className={'flex flex-col items-center space-y-12'}>
+      <div className={'relative flex flex-col items-center space-y-8'}>
         <CloseButton />
         <CardPreview id={params.id} />
         <DetailsButton />

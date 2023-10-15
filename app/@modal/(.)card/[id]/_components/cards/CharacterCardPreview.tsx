@@ -16,11 +16,11 @@ export default function CharacterCardPreview({card}: Props) {
         width={0}
         height={0}
         sizes={'100vw'}
-        className={'h-auto w-5/6 rounded-t-lg border-2 border-dark xl:w-1/3'}
+        className={'h-auto w-5/6 rounded-t-lg border-2 border-dark xl:w-[20vw]'}
       />
       <CardInfos
         card={card}
-        size={'character'}
+        size={'characterPreview'}
         cardName={'character'}
         textColor={card.card.description.rarity.name as CardRarity}
         borderColor={card.card.description.rarity.name as CardRarity}
