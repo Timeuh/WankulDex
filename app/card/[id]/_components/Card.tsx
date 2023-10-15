@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import {API_DOMAIN} from '@utils/appGlobals';
 import CardDescription from '@components/CardDescription';
 import {Card, CardType} from '@utils/appTypes';
 import BackButton from '@components/BackButton';
@@ -9,6 +8,7 @@ import EditButton from '@components/EditButton';
 import isAdminLogged from '@utils/isAdminLogged';
 import {useCardsContext} from '@providers/CardProvider';
 import LoadingPage from '@components/loading/LoadingPage';
+import CardImage from '@components/CardImage';
 
 type Props = {
   id: string;
@@ -33,17 +33,7 @@ export default function Card({id}: Props) {
         {isAdmin ? <EditButton link={`/admin/edit/card/${id}`} /> : <></>}
       </div>
       <div className={'flex w-[80vw] flex-col items-center space-y-6 xl:flex-row xl:justify-around'}>
-        <Image
-          src={`${API_DOMAIN}/${card.links.image}`}
-          alt={card.card.name}
-          width={0}
-          height={0}
-          sizes={'100vw'}
-          className={`h-auto w-[80vw] rounded-lg border-2 border-dark ${
-            card.card.type.name === 'Terrain' ? 'xl:w-[35vw]' : 'xl:w-[22vw]'
-          }`}
-          priority
-        />
+        <CardImage image={card.links.image} name={card.card.name} type={card.card.type.name as CardType} />
         <CardDescription
           idImage={
             <Image
