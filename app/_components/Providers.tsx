@@ -4,6 +4,7 @@ import {ReactNode, useState} from 'react';
 import {QUERY_STALE_TIME} from '@utils/appGlobals';
 import {QueryClient} from '@tanstack/query-core';
 import {QueryClientProvider} from '@tanstack/react-query';
+import CardProvider from '@providers/CardProvider';
 
 type Props = {
   children: ReactNode;
@@ -21,5 +22,9 @@ export default function Providers({children}: Props) {
     }),
   );
 
-  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <CardProvider>{children}</CardProvider>
+    </QueryClientProvider>
+  );
 }
