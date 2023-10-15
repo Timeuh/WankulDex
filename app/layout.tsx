@@ -14,19 +14,15 @@ export const metadata: Metadata = {
 
 type Props = {
   children: ReactNode;
-  modal: ReactNode;
 };
 
-export default function RootLayout({children, modal}: Props) {
+export default function RootLayout({children}: Props) {
   return (
     <html lang='fr'>
       <body className={nunito.className}>
         <Navbar />
         <main>
-          <Providers>
-            {children}
-            {modal}
-          </Providers>
+          <Providers>{children}</Providers>
         </main>
       </body>
     </html>
