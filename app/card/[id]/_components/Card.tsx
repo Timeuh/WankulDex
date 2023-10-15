@@ -20,7 +20,7 @@ export default function Card({id}: Props) {
   return (
     <div className={'flex h-full w-full flex-col items-center space-y-6 xl:h-screen'}>
       <div className={'mt-20 flex w-[80vw] flex-row justify-between'}>
-        <BackButton />
+        <BackButton link={`/#card-${id}`} />
         {isAdmin ? <EditButton link={`/admin/edit/card/${id}`} /> : <></>}
       </div>
       <div className={'flex w-[80vw] flex-col items-center space-y-6 xl:flex-row xl:justify-around'}>
