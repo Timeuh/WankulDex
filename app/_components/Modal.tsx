@@ -1,8 +1,13 @@
 'use client';
-import {useCallback, useRef, useEffect, MouseEventHandler} from 'react';
+
+import {MouseEventHandler, ReactNode, useCallback, useEffect, useRef} from 'react';
 import {useRouter} from 'next/navigation';
 
-export default function Modal({children}: {children: React.ReactNode}) {
+type Props = {
+  children: ReactNode;
+};
+
+export default function Modal({children}: Props) {
   const overlay = useRef(null);
   const wrapper = useRef(null);
   const router = useRouter();
@@ -40,8 +45,8 @@ export default function Modal({children}: {children: React.ReactNode}) {
       className='fixed bottom-0 left-0 right-0 top-0 z-10 bg-light/30 backdrop-blur-sm'
       onClick={onClick}
     >
-      <div ref={wrapper} className='absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2'>
-        <div className={'flex h-full w-full flex-col items-center'}>{children}</div>
+      <div ref={wrapper} className='absolute left-1/2 top-1/2 w-fit -translate-x-1/2 -translate-y-1/2'>
+        <div className={'flex h-fit w-fit flex-col items-center'}>{children}</div>
       </div>
     </div>
   );

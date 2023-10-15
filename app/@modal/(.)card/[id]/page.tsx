@@ -1,6 +1,7 @@
-'use client';
-
 import Modal from '@components/Modal';
+import DetailsButton from '@app/@modal/(.)card/[id]/_components/DetailsButton';
+import CardPreview from '@app/@modal/(.)card/[id]/_components/CardPreview';
+import CloseButton from '@app/@modal/(.)card/[id]/_components/CloseButton';
 
 type Props = {
   params: {
@@ -11,15 +12,11 @@ type Props = {
 export default function Page({params}: Props) {
   return (
     <Modal>
-      <h1 className={'w-[80vw] bg-light'}>{params.id}</h1>
-      <h1
-        className={'h-14 w-14 bg-light'}
-        onClick={() => {
-          window.location.reload();
-        }}
-      >
-        voir
-      </h1>
+      <div className={'relative flex flex-col items-center space-y-8'}>
+        <CloseButton />
+        <CardPreview id={params.id} />
+        <DetailsButton />
+      </div>
     </Modal>
   );
 }

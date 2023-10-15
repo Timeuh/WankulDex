@@ -15,6 +15,8 @@ const variants = cva('', {
     size: {
       field: 'w-5/6',
       character: 'w-5/6',
+      fieldPreview: 'w-5/6 xl:w-[35vw]',
+      characterPreview: 'w-5/6 xl:w-[20vw]',
     },
     cardName: {
       field: 'text-xl xl:text-2xl',

@@ -20,3 +20,7 @@
                     hsl(10 80% 70%)
             );
 }
+
+.image-container {
+    transform-style: preserve-3d;
+}
