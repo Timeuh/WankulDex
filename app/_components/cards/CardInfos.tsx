@@ -13,8 +13,8 @@ const variants = cva('', {
       light: 'border-dark bg-light',
     },
     size: {
-      field: 'w-5/6',
-      character: 'w-5/6',
+      field: 'w-full',
+      character: 'w-full',
     },
     cardName: {
       field: 'text-xl xl:text-2xl',
