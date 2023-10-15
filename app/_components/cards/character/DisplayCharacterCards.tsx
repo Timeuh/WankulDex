@@ -25,7 +25,7 @@ export default function DisplayCharacterCards() {
         ? loadingCards.map((id: number) => {
             return <CharacterCardLoading key={id} />;
           })
-        : cards.map((card: Card) => {
+        : cards!.map((card: Card) => {
             if (card.card.type.name === 'Personnage') {
               return <CharacterCard key={card.card.id} card={card} />;
             }

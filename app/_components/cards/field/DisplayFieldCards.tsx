@@ -23,7 +23,7 @@ export default function DisplayFieldCards() {
         ? loadingCards.map((id: number) => {
             return <FieldCardLoading key={id} />;
           })
-        : cards.map((card: Card) => {
+        : cards!.map((card: Card) => {
             if (card.card.type.name === 'Terrain') {
               return <FieldCard key={card.card.id} card={card} />;
             }
