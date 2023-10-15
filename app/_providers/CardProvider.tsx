@@ -1,5 +1,5 @@
-import {createContext, ReactNode, useContext, useEffect, useState} from 'react';
-import {Card, CardsContext} from '@utils/appTypes';
+import {createContext, ReactNode, useContext} from 'react';
+import {CardsContext} from '@utils/appTypes';
 import useCards from '@hooks/useCards';
 
 type Props = {
@@ -10,15 +10,8 @@ const CardContext = createContext<CardsContext | null>(null);
 
 export default function CardProvider({children}: Props) {
   const {data, isFetching} = useCards();
-  const [cards, setCards] = useState<Array<Card>>([]);
 
-  useEffect(() => {
-    if (!isFetching && data) {
-      setCards(data);
-    }
-  }, [isFetching]);
-
-  return <CardContext.Provider value={{cards, isFetching}}>{children}</CardContext.Provider>;
+  return <CardContext.Provider value={{cards: data, isFetching}}>{children}</CardContext.Provider>;
 }
 
 export function useCardsContext() {
