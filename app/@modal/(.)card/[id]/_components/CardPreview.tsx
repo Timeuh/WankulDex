@@ -3,8 +3,8 @@
 import {useCardsContext} from '@providers/CardProvider';
 import {Card} from '@utils/appTypes';
 import LoadingPage from '@components/loading/LoadingPage';
-import FieldCard from '@components/cards/field/FieldCard';
-import CharacterCard from '@components/cards/character/CharacterCard';
+import FieldCardPreview from '@app/@modal/(.)card/[id]/_components/cards/FieldCardPreview';
+import CharacterCardPreview from '@app/@modal/(.)card/[id]/_components/cards/CharacterCardPreview';
 
 type Props = {
   id: string;
@@ -22,8 +22,8 @@ export default function CardPreview({id}: Props) {
   }
 
   if (card.card.type.name === 'Terrain') {
-    return <FieldCard card={card} />;
+    return <FieldCardPreview card={card} />;
   }
 
-  return <CharacterCard card={card} />;
+  return <CharacterCardPreview card={card} />;
 }
