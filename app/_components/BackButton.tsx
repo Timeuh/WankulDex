@@ -2,11 +2,15 @@ import Image from 'next/image';
 import BaseContainer from '@components/BaseContainer';
 import Link from 'next/link';
 
-export default function BackButton() {
+type Props = {
+  link?: string;
+};
+
+export default function BackButton({link = '/'}: Props) {
   return (
     <BaseContainer interaction={'hover'}>
       <Link
-        href={'/'}
+        href={link}
         className={'flex h-12 w-[30vw] flex-row items-center justify-center space-x-2 xl:h-16 xl:w-[15vw] xl:space-x-4'}
       >
         <Image
