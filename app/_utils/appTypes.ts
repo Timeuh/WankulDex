@@ -223,6 +223,6 @@ export type ArtistCreationResponse = {
 };
 
 export type CardsContext = {
-  cards: Array<Card>;
+  cards: Array<Card> | undefined;
   isFetching: boolean;
 };
