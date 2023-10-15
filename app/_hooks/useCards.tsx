@@ -1,9 +1,9 @@
 import {API_BASE_URL} from '@/app/_utils/appGlobals';
 import cardSchema from '@/app/_zod/CardSchema';
-import {Card, Cards, CardType} from '@/app/_utils/appTypes';
+import {Card, Cards} from '@/app/_utils/appTypes';
 import {useQuery} from '@tanstack/react-query';
 
-const getCards = async (type: CardType) => {
+const getCards = async () => {
   return await fetch(`${API_BASE_URL}/card`)
     .then((response) => {
       return response.json();
@@ -13,9 +13,7 @@ const getCards = async (type: CardType) => {
 
       cards.cards.forEach((card: Card) => {
         if (cardSchema.safeParse(card).success) {
-          if (type === 'None' || card.card.type.name === type) {
-            allCards.push(card);
-          }
+          allCards.push(card);
         }
       });
 
@@ -23,11 +21,11 @@ const getCards = async (type: CardType) => {
     });
 };
 
-export default function useCards(type: CardType = 'None') {
+export default function useCards() {
   return useQuery({
-    queryKey: ['cards', type],
+    queryKey: ['cards'],
     queryFn: () => {
-      return getCards(type);
+      return getCards();
     },
   });
 }
