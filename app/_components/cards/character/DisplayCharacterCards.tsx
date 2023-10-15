@@ -2,11 +2,11 @@
 
 import CharacterCard from '@components/cards/character/CharacterCard';
 import CharacterCardLoading from '@components/cards/character/CharacterCardLoading';
-import useCards from '@hooks/useCards';
 import {Card} from '@utils/appTypes';
+import {useCardsContext} from '@providers/CardProvider';
 
 export default function DisplayCharacterCards() {
-  const {data, error, isFetching} = useCards('Personnage');
+  const {cards, isFetching} = useCardsContext();
   const loadingCards: Array<number> = [];
   const placeholderCardsNumber = 8;
 
@@ -25,8 +25,10 @@ export default function DisplayCharacterCards() {
         ? loadingCards.map((id: number) => {
             return <CharacterCardLoading key={id} />;
           })
-        : data?.map((card: Card) => {
-            return <CharacterCard key={card.card.id} card={card} />;
+        : cards.map((card: Card) => {
+            if (card.card.type.name === 'Personnage') {
+              return <CharacterCard key={card.card.id} card={card} />;
+            }
           })}
     </section>
   );
