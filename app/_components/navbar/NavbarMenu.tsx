@@ -3,27 +3,14 @@
 import Image from 'next/image';
 import BaseContainer from '@components/BaseContainer';
 import NavbarLinkItem from '@components/navbar/NavbarLinkItem';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import isAdminLogged from '@utils/isAdminLogged';
 import {NavbarLink} from '@utils/appTypes';
 
 export default function NavbarMenu() {
   const [isActive, setActive] = useState<boolean>(false);
-  const [isAdmin, setAdmin] = useState<boolean>(false);
 
-  useEffect(() => {
-    const checkAdminStatus = () => {
-      setAdmin(isAdminLogged());
-    };
-
-    checkAdminStatus();
-
-    const intervalId = setInterval(checkAdminStatus, 1000);
-    return () => {
-      return clearInterval(intervalId);
-    };
-  }, []);
-
+  const isAdmin = isAdminLogged();
   const links: Array<NavbarLink> = [
     {
       name: 'Accueil',

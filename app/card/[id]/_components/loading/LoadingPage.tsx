@@ -3,7 +3,7 @@ import CardDescription from '@components/CardDescription';
 import LoadingImage from '@components/loading/LoadingImage';
 import LoadingText from '@components/loading/LoadingText';
 
-export default function CardLoading() {
+export default function LoadingPage() {
   return (
     <div
       className={'flex h-full flex-col items-center space-y-6 xl:h-screen xl:w-[80vw] xl:flex-row xl:justify-around'}
