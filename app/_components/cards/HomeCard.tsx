@@ -8,7 +8,7 @@ type Props = {
   card: Card;
 };
 
-export default function CharacterCard({card}: Props) {
+export default function HomeCard({card}: Props) {
   return (
     <Link
       scroll={false}
@@ -24,14 +24,18 @@ export default function CharacterCard({card}: Props) {
         sizes={'100vw'}
         className={'h-auto w-auto rounded-t-lg border-2 border-dark'}
       />
-      <CardInfos
-        card={card}
-        size={'character'}
-        cardName={'character'}
-        textColor={card.card.description.rarity.name as CardRarity}
-        borderColor={card.card.description.rarity.name as CardRarity}
-        image={card.card.description.rarity.name as CardRarity}
-      />
+      {card.card.type.name === 'Personnage' ? (
+        <CardInfos
+          card={card}
+          size={'character'}
+          cardName={'character'}
+          textColor={card.card.description.rarity.name as CardRarity}
+          borderColor={card.card.description.rarity.name as CardRarity}
+          image={card.card.description.rarity.name as CardRarity}
+        />
+      ) : (
+        <CardInfos card={card} image={undefined} />
+      )}
     </Link>
   );
 }
