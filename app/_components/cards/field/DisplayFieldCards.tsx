@@ -1,9 +1,9 @@
 'use client';
 
-import FieldCard from '@components/cards/field/FieldCard';
 import FieldCardLoading from '@components/cards/field/FieldCardLoading';
 import {Card} from '@utils/appTypes';
 import {useCardsContext} from '@providers/CardProvider';
+import HomeCard from '@components/cards/HomeCard';
 
 export default function DisplayFieldCards() {
   const {cards, isFetching} = useCardsContext();
@@ -25,7 +25,7 @@ export default function DisplayFieldCards() {
           })
         : cards!.map((card: Card) => {
             if (card.card.type.name === 'Terrain') {
-              return <FieldCard key={card.card.id} card={card} />;
+              return <HomeCard key={card.card.id} card={card} />;
             }
           })}
     </section>

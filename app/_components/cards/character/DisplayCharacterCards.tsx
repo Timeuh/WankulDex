@@ -1,9 +1,9 @@
 'use client';
 
-import CharacterCard from '@components/cards/character/CharacterCard';
 import CharacterCardLoading from '@components/cards/character/CharacterCardLoading';
 import {Card} from '@utils/appTypes';
 import {useCardsContext} from '@providers/CardProvider';
+import HomeCard from '@components/cards/HomeCard';
 
 export default function DisplayCharacterCards() {
   const {cards, isFetching} = useCardsContext();
@@ -27,7 +27,7 @@ export default function DisplayCharacterCards() {
           })
         : cards!.map((card: Card) => {
             if (card.card.type.name === 'Personnage') {
-              return <CharacterCard key={card.card.id} card={card} />;
+              return <HomeCard key={card.card.id} card={card} />;
             }
           })}
     </section>
