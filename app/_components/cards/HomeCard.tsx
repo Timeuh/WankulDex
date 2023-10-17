@@ -14,7 +14,7 @@ export default function HomeCard({card}: Props) {
       scroll={false}
       href={`/card/${card.card.id}`}
       id={`card-${card.card.id}`}
-      className={'flex flex-col items-center'}
+      className={'card-shadow flex flex-col items-center rounded-lg transition duration-100 ease-in hover:scale-90'}
     >
       <Image
         src={API_DOMAIN + card.links.image}
