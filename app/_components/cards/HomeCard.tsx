@@ -5,7 +5,7 @@ import CardInfos from '@components/cards/CardInfos';
 import {Card, CardRarity} from '@utils/appTypes';
 import {API_DOMAIN} from '@utils/appGlobals';
 import {useState} from 'react';
-import CardPreview from '@components/cards/CardPreview';
+import CardPreview from '@components/cards/preview/CardPreview';
 
 type Props = {
   card: Card;
