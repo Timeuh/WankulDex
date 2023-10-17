@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer components {
+    .card-shadow {
+        @apply hover:shadow-[0_10px_20px_rgba(81,_51,_123,_1)]
+    }
 }
 
 .container-background {
