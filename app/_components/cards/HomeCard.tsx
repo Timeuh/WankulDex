@@ -21,8 +21,6 @@ export default function HomeCard({card}: Props) {
   return (
     <>
       <div
-        // scroll={false}
-        // href={`/card/${card.card.id}`}
         id={`card-${card.card.id}`}
         className={'card-shadow flex flex-col items-center rounded-lg transition duration-100 ease-in hover:scale-90'}
         onClick={togglePreview}
