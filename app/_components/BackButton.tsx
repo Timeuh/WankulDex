@@ -6,7 +6,7 @@ type Props = {
   link?: string;
 };
 
-export default function BackButton({link = '/'}: Props) {
+export default function BackButton({link = '/#filter'}: Props) {
   return (
     <BaseContainer interaction={'hover'}>
       <Link
