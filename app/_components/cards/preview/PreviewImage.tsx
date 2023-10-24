@@ -16,8 +16,8 @@ export default function PreviewImage({src, alt, cardType}: Props) {
       return;
     }
 
-    const xAxis = (window.innerWidth / 2 - event.pageX) / 25;
-    const yAxis = (window.innerHeight / 2 - event.pageY) / 25;
+    const xAxis = (window.innerWidth / 2 - event.clientX) / 10;
+    const yAxis = (window.innerHeight / 2 - event.clientY) / 10;
 
     imageContainer.current.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
   };
