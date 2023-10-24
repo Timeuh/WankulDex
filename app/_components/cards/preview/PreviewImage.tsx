@@ -42,7 +42,7 @@ export default function PreviewImage({src, alt, cardType}: Props) {
   return (
     <div
       className={`image-container w-[80vw] rounded-lg border-2 border-dark ${
-        cardType === 'Personnage' ? 'xl:w-[30vw]' : 'xl:w-[40vw]'
+        cardType === 'Personnage' ? 'xl:w-[25vw]' : 'xl:w-[40vw]'
       }`}
       ref={imageContainer}
       onMouseMove={handleMove}
