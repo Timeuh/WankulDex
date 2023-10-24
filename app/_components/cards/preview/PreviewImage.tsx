@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default function PreviewImage({src, alt, cardType}: Props) {
-  const imageContainer = useRef<HTMLDivElement>(null);
+  const imageContainer = useRef<HTMLImageElement>(null);
 
   const handleMove = (event: MouseEvent<HTMLDivElement>) => {
     if (!imageContainer.current) {
@@ -41,15 +41,22 @@ export default function PreviewImage({src, alt, cardType}: Props) {
 
   return (
     <div
-      className={`image-container w-[80vw] rounded-lg border-2 border-dark ${
-        cardType === 'Personnage' ? 'xl:w-[25vw]' : 'xl:w-[40vw]'
-      }`}
-      ref={imageContainer}
+      className={'flex flex-row items-center justify-center px-10 py-4'}
       onMouseMove={handleMove}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
     >
-      <Image src={src} alt={alt} width={0} height={0} sizes={'100vw'} className={'h-auto w-full'} />
+      <Image
+        src={src}
+        alt={alt}
+        width={0}
+        height={0}
+        sizes={'100vw'}
+        className={`image-container h-auto w-full rounded-lg border-2 border-dark ${
+          cardType === 'Personnage' ? 'xl:w-[25vw]' : 'xl:w-[40vw]'
+        }`}
+        ref={imageContainer}
+      />
     </div>
   );
 }
