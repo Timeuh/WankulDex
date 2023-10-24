@@ -22,7 +22,9 @@ export default function HomeCard({card}: Props) {
     <>
       <div
         id={`card-${card.card.id}`}
-        className={'card-shadow flex flex-col items-center rounded-lg transition duration-100 ease-in hover:scale-90'}
+        className={
+          'card-shadow flex cursor-pointer flex-col items-center rounded-lg transition duration-100 ease-in hover:scale-90'
+        }
         onClick={togglePreview}
       >
         <Image
