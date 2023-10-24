@@ -31,7 +31,18 @@ export default function CardPreview({card, hide}: Props) {
       return;
     }
 
-    if (detailsRef.current !== event.target) {
+    let node = event.target as Node | ParentNode | null;
+    let isOutside = true;
+
+    while (node !== null) {
+      if (node === detailsRef.current) {
+        isOutside = false;
+        break;
+      }
+      node = node.parentNode;
+    }
+
+    if (isOutside) {
       hide();
     }
   };
@@ -54,25 +65,24 @@ export default function CardPreview({card, hide}: Props) {
           alt={card.card.name}
           cardType={card.card.type.name as CardType}
         />
-        <div ref={detailsRef}>
-          <BaseContainer interaction={'hover'}>
-            <Link
-              scroll={false}
-              href={`/card/${card.card.id}`}
-              className={'flex h-16 w-[80vw] flex-row items-center justify-center space-x-4 xl:w-[30vw]'}
-            >
-              <Image
-                src={'/img/card/details-light.png'}
-                alt={'détails'}
-                width={0}
-                height={0}
-                sizes={'100vw'}
-                className={'h-auto w-10'}
-              />
-              <h1 className={'text-center text-2xl'}>Voir les détails</h1>
-            </Link>
-          </BaseContainer>
-        </div>
+        <BaseContainer interaction={'hover'}>
+          <Link
+            scroll={false}
+            href={`/card/${card.card.id}`}
+            className={'flex h-16 w-[80vw] flex-row items-center justify-center space-x-4 xl:w-[30vw]'}
+            ref={detailsRef}
+          >
+            <Image
+              src={'/img/card/details-light.png'}
+              alt={'détails'}
+              width={0}
+              height={0}
+              sizes={'100vw'}
+              className={'h-auto w-10'}
+            />
+            <h1 className={'text-center text-2xl'}>Voir les détails</h1>
+          </Link>
+        </BaseContainer>
       </div>
     </div>
   );
