@@ -1,6 +1,6 @@
 'use client';
 
-import {Card, CardType} from '@utils/appTypes';
+import {Card, CardRarity, CardType} from '@utils/appTypes';
 import {useEffect, useRef} from 'react';
 import Link from 'next/link';
 import BaseContainer from '@components/BaseContainer';
@@ -64,6 +64,7 @@ export default function CardPreview({card, hide}: Props) {
           src={API_DOMAIN + card.links.image}
           alt={card.card.name}
           cardType={card.card.type.name as CardType}
+          cardRarity={card.card.description.rarity.name as CardRarity}
         />
         <div className={'xl:pt-20'}>
           <BaseContainer interaction={'hover'}>
