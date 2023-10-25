@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import BaseContainer from '@components/BaseContainer';
-import DisplayCharacterCards from '@components/cards/character/DisplayCharacterCards';
+import DisplayCards from '@components/cards/DisplayCards';
 
 export default function CharacterCards() {
   return (
@@ -18,7 +18,7 @@ export default function CharacterCards() {
           <h1 className={'text-3xl text-dark'}>Personnages</h1>
         </div>
       </BaseContainer>
-      <DisplayCharacterCards />
+      <DisplayCards loadingCardsNumber={8} cardType={'Personnage'} />
     </section>
   );
 }
