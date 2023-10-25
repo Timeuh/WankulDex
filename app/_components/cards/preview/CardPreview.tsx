@@ -65,7 +65,7 @@ export default function CardPreview({card, hide}: Props) {
           alt={card.card.name}
           cardType={card.card.type.name as CardType}
         />
-        <div className={'pt-20'}>
+        <div className={'xl:pt-20'}>
           <BaseContainer interaction={'hover'}>
             <Link
               scroll={false}
