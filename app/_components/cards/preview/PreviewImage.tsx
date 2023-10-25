@@ -1,17 +1,38 @@
 import Image from 'next/image';
 import {MouseEvent, useRef} from 'react';
-import {CardType} from '@utils/appTypes';
+import {CardRarity, CardType} from '@utils/appTypes';
 
 type Props = {
   src: string;
   alt: string;
   cardType: CardType;
+  cardRarity: CardRarity;
 };
 
-export default function PreviewImage({src, alt, cardType}: Props) {
+export default function PreviewImage({src, alt, cardType, cardRarity}: Props) {
   const imageShine = useRef<HTMLDivElement>(null);
   const image3d = useRef<HTMLDivElement>(null);
   const shineClasses = 'xl:shine-classes';
+
+  const getGradient = () => {
+    switch (cardRarity) {
+      case 'Ultra Rare Holo 1':
+      case 'Ultra Rare Holo 2':
+        return 'shine-classic';
+
+      case 'Légendaire Bronze':
+        return 'shine-bronze';
+
+      case 'Légendaire Argent':
+        return 'shine-silver';
+
+      case 'Légendaire Or':
+        return 'shine-gold';
+
+      default:
+        return 'no-shine';
+    }
+  };
 
   const handleMove = (event: MouseEvent<HTMLDivElement>) => {
     if (!image3d.current) {
@@ -36,6 +57,7 @@ export default function PreviewImage({src, alt, cardType}: Props) {
 
     imageShine.current.style.setProperty('--bg-x', `${bgX}%`);
     imageShine.current.style.setProperty('--bg-y', `${bgY}%`);
+    imageShine.current.style.setProperty('--gradient', `var(--${getGradient()})`);
   };
 
   const handleEnter = () => {
