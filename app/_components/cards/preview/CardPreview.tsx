@@ -65,24 +65,26 @@ export default function CardPreview({card, hide}: Props) {
           alt={card.card.name}
           cardType={card.card.type.name as CardType}
         />
-        <BaseContainer interaction={'hover'}>
-          <Link
-            scroll={false}
-            href={`/card/${card.card.id}`}
-            className={'flex h-16 w-[80vw] flex-row items-center justify-center space-x-4 xl:w-[30vw]'}
-            ref={detailsRef}
-          >
-            <Image
-              src={'/img/card/details-light.png'}
-              alt={'détails'}
-              width={0}
-              height={0}
-              sizes={'100vw'}
-              className={'h-auto w-10'}
-            />
-            <h1 className={'text-center text-2xl'}>Voir les détails</h1>
-          </Link>
-        </BaseContainer>
+        <div className={'pt-20'}>
+          <BaseContainer interaction={'hover'}>
+            <Link
+              scroll={false}
+              href={`/card/${card.card.id}`}
+              className={'flex h-16 w-[80vw] flex-row items-center justify-center space-x-4 xl:w-[30vw]'}
+              ref={detailsRef}
+            >
+              <Image
+                src={'/img/card/details-light.png'}
+                alt={'détails'}
+                width={0}
+                height={0}
+                sizes={'100vw'}
+                className={'h-auto w-10'}
+              />
+              <h1 className={'text-center text-2xl'}>Voir les détails</h1>
+            </Link>
+          </BaseContainer>
+        </div>
       </div>
     </div>
   );
