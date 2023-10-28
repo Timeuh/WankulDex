@@ -1,62 +1,84 @@
 import BaseContainer from '@components/BaseContainer';
+import DescriptionComposition from '@components/DescriptionComposition';
 import {ReactNode} from 'react';
-import {CardType} from '@utils/appTypes';
-import DescriptionRow from '@components/DescriptionRow';
+import {
+  DescriptionCompositionCharacterProps,
+  DescriptionCompositionFieldProps,
+  DescriptionCompositionProps,
+} from '@utils/appTypes';
 
 type Props = {
-  idImage: ReactNode;
-  nameImage: ReactNode;
-  collectionImage: ReactNode;
-  artistImage: ReactNode;
-  effectImage: ReactNode;
-  citationImage: ReactNode;
-  winnerImage: ReactNode;
-  looserImage: ReactNode;
-  specialImage: ReactNode;
-  characterImage: ReactNode;
-  rarityImage: ReactNode;
-  typeImage: ReactNode;
-  idText: ReactNode;
-  nameText: ReactNode;
-  collectionText: ReactNode;
-  artistText: ReactNode;
-  effectText: ReactNode;
-  citationText: ReactNode;
-  winnerText: ReactNode;
-  looserText: ReactNode;
-  specialText: ReactNode;
-  characterText: ReactNode;
-  rarityText: ReactNode;
-  typeText: ReactNode;
-  cardType?: CardType;
+  children: ReactNode;
 };
 
-export default function CardDescription({cardType = 'Personnage', ...props}: Props) {
+export default function CardDescription({children}: Props) {
   return (
     <div className={'pb-10'}>
       <BaseContainer>
-        <div className={'h-full w-[80vw] rounded-lg xl:w-[30vw]'}>
-          <DescriptionRow image={props.idImage} text={props.idText} />
-          <DescriptionRow image={props.nameImage} text={props.nameText} />
-          <DescriptionRow image={props.collectionImage} text={props.collectionText} />
-          <DescriptionRow image={props.artistImage} text={props.artistText} />
-          {cardType === 'Terrain' ? (
-            <>
-              <DescriptionRow image={props.winnerImage} text={props.winnerText} />
-              <DescriptionRow image={props.looserImage} text={props.looserText} />
-              <DescriptionRow image={props.specialImage} text={props.specialText} />
-            </>
-          ) : (
-            <>
-              <DescriptionRow image={props.effectImage} text={props.effectText} />
-              <DescriptionRow image={props.citationImage} text={props.citationText} />
-            </>
-          )}
-          <DescriptionRow image={props.characterImage} text={props.characterText} />
-          <DescriptionRow image={props.rarityImage} text={props.rarityText} />
-          <DescriptionRow image={props.typeImage} text={props.typeText} />
-        </div>
+        <div className={'h-full w-[80vw] rounded-lg xl:w-[30vw]'}>{children}</div>
       </BaseContainer>
     </div>
   );
 }
+
+CardDescription.Id = function CardDescriptionId({image, text, isForLoading}: DescriptionCompositionProps) {
+  return <DescriptionComposition image={image} text={text} isForLoading={isForLoading} />;
+};
+
+CardDescription.Name = function CardDescriptionName({image, text, isForLoading}: DescriptionCompositionProps) {
+  return <DescriptionComposition image={image} text={text} isForLoading={isForLoading} />;
+};
+
+CardDescription.Collection = function CardDescriptionCollection({
+  image,
+  text,
+  isForLoading,
+}: DescriptionCompositionProps) {
+  return <DescriptionComposition image={image} text={text} isForLoading={isForLoading} />;
+};
+
+CardDescription.Artist = function CardDescriptionArtist({image, text, isForLoading}: DescriptionCompositionProps) {
+  return <DescriptionComposition image={image} text={text} isForLoading={isForLoading} />;
+};
+
+CardDescription.CharacterFields = function CardDescriptionCharacterFields({
+  effect,
+  citation,
+}: DescriptionCompositionCharacterProps) {
+  return (
+    <>
+      <DescriptionComposition image={effect.image} text={effect.text} isForLoading={effect.isForLoading} />
+      <DescriptionComposition image={citation.image} text={citation.text} isForLoading={citation.isForLoading} />
+    </>
+  );
+};
+
+CardDescription.FieldFields = function CardDescriptionFieldFields({
+  winner_effect,
+  looser_effect,
+  special,
+}: DescriptionCompositionFieldProps) {
+  return (
+    <>
+      <DescriptionComposition image={winner_effect.image} text={winner_effect.text} />
+      <DescriptionComposition image={looser_effect.image} text={looser_effect.text} />
+      <DescriptionComposition image={special.image} text={special.text} />
+    </>
+  );
+};
+
+CardDescription.Character = function CardDescriptionCharacter({
+  image,
+  text,
+  isForLoading,
+}: DescriptionCompositionProps) {
+  return <DescriptionComposition image={image} text={text} isForLoading={isForLoading} />;
+};
+
+CardDescription.Rarity = function CardDescriptionRarity({image, text, isForLoading}: DescriptionCompositionProps) {
+  return <DescriptionComposition image={image} text={text} isForLoading={isForLoading} />;
+};
+
+CardDescription.Type = function CardDescriptionType({image, text, isForLoading}: DescriptionCompositionProps) {
+  return <DescriptionComposition image={image} text={text} isForLoading={isForLoading} />;
+};
