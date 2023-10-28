@@ -232,3 +232,14 @@ export type DescriptionCompositionProps = {
   text?: string;
   isForLoading?: boolean;
 };
+
+export type DescriptionCompositionCharacterProps = {
+  effect: DescriptionCompositionProps;
+  citation: DescriptionCompositionProps;
+};
+
+export type DescriptionCompositionFieldProps = {
+  winner_effect: DescriptionCompositionProps;
+  looser_effect: DescriptionCompositionProps;
+  special: DescriptionCompositionProps;
+};
