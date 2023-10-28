@@ -226,3 +226,9 @@ export type CardsContext = {
   cards: Array<Card> | undefined;
   isFetching: boolean;
 };
+
+export type DescriptionCompositionProps = {
+  image?: string;
+  text?: string;
+  isForLoading?: boolean;
+};
