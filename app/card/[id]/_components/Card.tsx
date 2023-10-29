@@ -5,22 +5,18 @@ import Image from 'next/image';
 import {API_DOMAIN} from '@utils/appGlobals';
 import CardDescription from '@components/CardDescription';
 import BackButton from '@components/BackButton';
-import EditButton from '@components/EditButton';
-import isAdminLogged from '@utils/isAdminLogged';
 
 type Props = {
   id: string;
 };
 
 export default function Card({id}: Props) {
-  const isAdmin = isAdminLogged();
   const {data} = useCard(id);
 
   return (
     <div className={'flex h-full w-full flex-col items-center space-y-6 xl:h-screen'}>
       <div className={'mt-20 flex w-[80vw] flex-row justify-between'}>
         <BackButton link={`/#card-${id}`} />
-        {isAdmin ? <EditButton link={`/admin/edit/card/${id}`} /> : <></>}
       </div>
       <div className={'flex w-[80vw] flex-col items-center space-y-6 xl:flex-row xl:justify-around'}>
         <Image
