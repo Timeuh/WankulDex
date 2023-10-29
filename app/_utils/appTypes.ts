@@ -243,3 +243,11 @@ export type DescriptionCompositionFieldProps = {
   looser_effect: DescriptionCompositionProps;
   special: DescriptionCompositionProps;
 };
+
+export type ArtistCards = Artist & {
+  cards: {
+    type: string;
+    length: number;
+    cards: Array<Card>;
+  };
+};
