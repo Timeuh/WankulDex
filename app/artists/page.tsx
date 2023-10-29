@@ -23,12 +23,7 @@ export default async function GetAllArtists() {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <section
-        id={'artists'}
-        className={'flex h-full w-full flex-col items-center bg-gradient-to-b from-light-blue to-light-purple'}
-      >
-        <DisplayArtists />
-      </section>
+      <DisplayArtists />
     </HydrationBoundary>
   );
 }
