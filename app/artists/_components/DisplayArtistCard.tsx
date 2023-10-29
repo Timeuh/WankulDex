@@ -2,6 +2,9 @@
 
 import useArtistCards from '@app/artists/_hooks/useArtistCards';
 import LoadingArtist from '@components/LoadingArtist';
+import Image from 'next/image';
+import {API_DOMAIN} from '@utils/appGlobals';
+import {Card} from '@utils/appTypes';
 
 type Props = {
   artistId: number;
@@ -14,9 +17,21 @@ export default function DisplayArtistCard({artistId}: Props) {
     return <LoadingArtist />;
   }
 
+  const firstCharacterCard = data.cards.cards.find((card: Card) => {
+    return card.card.type.name === 'Personnage';
+  });
+
   return (
-    <div>
-      <h1>{data.cards.length}</h1>
+    <div className={'flex flex-col items-center space-y-6 rounded-lg border-2 border-dark bg-light p-4'}>
+      <Image
+        src={`${API_DOMAIN}${firstCharacterCard!.links.image}`}
+        alt={data.artist.name}
+        width={0}
+        height={0}
+        sizes={'100vw'}
+        className={'h-auto w-full rounded-lg'}
+      />
+      <h1 className={'text-center text-2xl'}>{data.artist.name}</h1>
     </div>
   );
 }
