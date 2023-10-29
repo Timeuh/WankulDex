@@ -226,3 +226,20 @@ export type CardsContext = {
   cards: Array<Card> | undefined;
   isFetching: boolean;
 };
+
+export type DescriptionCompositionProps = {
+  image?: string;
+  text?: string;
+  isForLoading?: boolean;
+};
+
+export type DescriptionCompositionCharacterProps = {
+  effect: DescriptionCompositionProps;
+  citation: DescriptionCompositionProps;
+};
+
+export type DescriptionCompositionFieldProps = {
+  winner_effect: DescriptionCompositionProps;
+  looser_effect: DescriptionCompositionProps;
+  special: DescriptionCompositionProps;
+};
