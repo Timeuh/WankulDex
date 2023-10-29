@@ -3,7 +3,7 @@ import {useQuery} from '@tanstack/react-query';
 import {ArtistCards} from '@utils/appTypes';
 
 const getArtistCards = async (id: number) => {
-  return await fetch(`${API_BASE_URL}/artist/${id}`).then((response) => {
+  return await fetch(`${API_BASE_URL}/artist/${id}/cards`).then((response) => {
     return response.json();
   });
 };
