@@ -1,7 +1,7 @@
 'use client';
 
 import useArtistCards from '@app/artists/_hooks/useArtistCards';
-import LoadingArtist from '@components/LoadingArtist';
+import LoadingListItem from '@components/LoadingListItem';
 import Image from 'next/image';
 import {API_DOMAIN} from '@utils/appGlobals';
 import {Card} from '@utils/appTypes';
@@ -15,7 +15,7 @@ export default function DisplayArtistCard({artistId}: Props) {
   const {data} = useArtistCards(artistId);
 
   if (!data) {
-    return <LoadingArtist />;
+    return <LoadingListItem />;
   }
 
   const firstCharacterCard = data.cards.cards.find((card: Card) => {

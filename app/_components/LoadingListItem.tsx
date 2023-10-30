@@ -1,4 +1,4 @@
-export default function LoadingArtist() {
+export default function LoadingListItem() {
   return (
     <div
       className={
