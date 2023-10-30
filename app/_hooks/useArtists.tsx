@@ -3,7 +3,7 @@ import {Artist, Artists} from '@/app/_utils/appTypes';
 import artistSchema from '@/app/_zod/ArtistSchema';
 import {useQuery} from '@tanstack/react-query';
 
-const getArtists = async () => {
+export const getArtists = async () => {
   return await fetch(`${API_BASE_URL}/artist`)
     .then((response) => {
       return response.json();

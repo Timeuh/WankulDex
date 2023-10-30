@@ -26,7 +26,7 @@
       ],
       "@hooks/*": [
         "./app/_hooks/*", "./app/admin/create/card/_hooks/*", "./app/admin/create/artist/_hooks/*",
-        "./app/card/[id]/_hooks/*"
+        "./app/card/[id]/_hooks/*", "./app/artists/_hooks/*"
       ],
       "@providers/*": ["./app/_providers/*", "./app/admin/create/card/_providers/*", "./app/card/[id]/_providers/*"],
       "@app/*": ["./app/*"],
