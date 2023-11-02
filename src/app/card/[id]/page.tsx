@@ -1,8 +1,8 @@
-import Card from '@components/Card';
 import {dehydrate, QueryClient} from '@tanstack/query-core';
 import {QUERY_STALE_TIME} from '@utils/appGlobals';
-import {fetchCardById} from '@app/card/[id]/_utils/fetchCardById';
 import {HydrationBoundary} from '@tanstack/react-query';
+import {fetchCardById} from '@utils/card/[id]/fetchCardById';
+import Card from '@components/card/[id]/Card';
 
 type Props = {
   params: {

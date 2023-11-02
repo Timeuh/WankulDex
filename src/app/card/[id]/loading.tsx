@@ -1,5 +1,5 @@
-import LoadingCard from '@components/loading/LoadingCard';
-import CardDescription from '@components/CardDescription';
+import LoadingCard from '@components/card/[id]/loading/LoadingCard';
+import CardDescription from '@components/card/[id]/CardDescription';
 
 export default function CardLoading() {
   return (

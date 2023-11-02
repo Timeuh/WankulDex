@@ -1,10 +1,10 @@
 'use client';
 
-import useCard from '@hooks/useCard';
 import Image from 'next/image';
 import {API_DOMAIN} from '@utils/appGlobals';
-import CardDescription from '@components/CardDescription';
 import BackButton from '@components/BackButton';
+import useCard from '@hooks/card/[id]/useCard';
+import CardDescription from '@components/card/[id]/CardDescription';
 
 type Props = {
   id: string;

@@ -1,11 +1,11 @@
 import BaseContainer from '@components/BaseContainer';
-import DescriptionComposition from '@components/DescriptionComposition';
 import {ReactNode} from 'react';
 import {
   DescriptionCompositionCharacterProps,
   DescriptionCompositionFieldProps,
   DescriptionCompositionProps,
 } from '@utils/appTypes';
+import DescriptionComposition from '@components/card/[id]/DescriptionComposition';
 
 type Props = {
   children: ReactNode;

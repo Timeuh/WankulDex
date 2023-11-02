@@ -1,7 +1,7 @@
-import {API_BASE_URL} from '@/app/_utils/appGlobals';
-import cardSchema from '@/app/_zod/CardSchema';
-import {Card, Cards} from '@/app/_utils/appTypes';
 import {useQuery} from '@tanstack/react-query';
+import {API_BASE_URL} from '@utils/appGlobals';
+import {Card, Cards} from '@utils/appTypes';
+import cardSchema from '@/zod/CardSchema';
 
 const getCards = async () => {
   return await fetch(`${API_BASE_URL}/card`)

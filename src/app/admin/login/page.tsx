@@ -1,6 +1,6 @@
 import BackButton from '@components/BackButton';
 import Image from 'next/image';
-import LoginForm from '@components/LoginForm';
+import LoginForm from '@components/admin/login/LoginForm';
 
 export default function Login() {
   return (

@@ -2,8 +2,8 @@
 
 import {Artist, Card} from '@utils/appTypes';
 import useArtists from '@hooks/useArtists';
-import DisplayArtistCard from '@components/DisplayArtistCard';
 import {useCardsContext} from '@providers/CardProvider';
+import DisplayArtistCard from '@components/artists/DisplayArtistCard';
 
 export default function DisplayArtists() {
   const {data} = useArtists();

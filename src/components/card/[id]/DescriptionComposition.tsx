@@ -1,8 +1,8 @@
-import DescriptionRow from '@components/DescriptionRow';
-import LoadingImage from '@components/loading/LoadingImage';
-import LoadingText from '@components/loading/LoadingText';
 import Image from 'next/image';
 import {DescriptionCompositionProps} from '@utils/appTypes';
+import DescriptionRow from '@components/card/[id]/DescriptionRow';
+import LoadingImage from '@components/card/[id]/loading/LoadingImage';
+import LoadingText from '@components/card/[id]/loading/LoadingText';
 
 export default function DescriptionComposition({image, text, isForLoading}: DescriptionCompositionProps) {
   if (isForLoading) {

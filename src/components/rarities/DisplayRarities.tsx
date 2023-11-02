@@ -3,7 +3,7 @@
 import {useCardsContext} from '@providers/CardProvider';
 import useRarities from '@hooks/useRarities';
 import {Card, Rarity} from '@utils/appTypes';
-import DisplayRarityCard from '@components/DisplayRarityCard';
+import DisplayRarityCard from '@components/rarities/DisplayRarityCard';
 
 export default function DisplayRarities() {
   const {cards} = useCardsContext();

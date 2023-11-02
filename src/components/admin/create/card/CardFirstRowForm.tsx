@@ -1,6 +1,6 @@
 import FormInput from '@components/form/FormInput';
-import {useCardContext} from '@providers/CardContextProvider';
-import {useCardDescriptionContext} from '@providers/CardDescriptionContextProvider';
+import {useCardContext} from '@providers/admin/create/card/CardContextProvider';
+import {useCardDescriptionContext} from '@providers/admin/create/card/CardDescriptionContextProvider';
 
 export default function CardFirstRowForm() {
   const {cardContext, updateCard} = useCardContext();

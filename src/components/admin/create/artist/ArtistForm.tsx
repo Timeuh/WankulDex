@@ -5,9 +5,9 @@ import {MouseEvent, useState} from 'react';
 import {ArtistCreationResponse, ArtistForm} from '@utils/appTypes';
 import BaseContainer from '@components/BaseContainer';
 import Image from 'next/image';
-import useArtistCreation from '@hooks/useArtistCreation';
 import Loading from '@components/Loading';
 import {useRouter} from 'next/navigation';
+import useArtistCreation from '@hooks/admin/create/artist/useArtistCreation';
 
 export default function ArtistForm() {
   const [artistData, setArtistData] = useState<ArtistForm>({

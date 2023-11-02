@@ -1,5 +1,5 @@
 import {useQuery} from '@tanstack/react-query';
-import {fetchCardById} from '@utils/fetchCardById';
+import {fetchCardById} from '@utils/card/[id]/fetchCardById';
 
 export default function useCard(id: string) {
   return useQuery({

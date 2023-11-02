@@ -1,8 +1,8 @@
-import DisplayArtists from '@components/DisplayArtists';
 import {dehydrate, QueryClient} from '@tanstack/query-core';
 import {QUERY_STALE_TIME} from '@utils/appGlobals';
 import {getArtists} from '@hooks/useArtists';
 import {HydrationBoundary} from '@tanstack/react-query';
+import DisplayArtists from '@components/artists/DisplayArtists';
 
 export default async function GetAllArtists() {
   const queryClient = new QueryClient({

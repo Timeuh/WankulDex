@@ -1,6 +1,6 @@
 import BackButton from '@components/BackButton';
 import Image from 'next/image';
-import ArtistForm from '@components/ArtistForm';
+import ArtistForm from '@components/admin/create/artist/ArtistForm';
 
 export default function CreateArtist() {
   return (

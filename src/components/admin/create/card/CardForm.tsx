@@ -3,14 +3,14 @@ import Image from 'next/image';
 import {MouseEvent, useState} from 'react';
 import Loading from '@components/Loading';
 import {useRouter} from 'next/navigation';
-import CardFirstRowForm from '@components/CardFirstRowForm';
-import CardSecondRowForm from '@components/CardSecondRowForm';
-import CardThirdRowForm from '@components/CardThirdRowForm';
-import {useCardContext} from '@providers/CardContextProvider';
-import {useCardDescriptionContext} from '@providers/CardDescriptionContextProvider';
-import useCardDescriptionCreation from '@hooks/useCardDescriptionCreation';
-import useCardCreation from '@hooks/useCardCreation';
 import {CardCreationResponse, CardDescriptionCreationResponse} from '@utils/appTypes';
+import {useCardContext} from '@providers/admin/create/card/CardContextProvider';
+import {useCardDescriptionContext} from '@providers/admin/create/card/CardDescriptionContextProvider';
+import useCardDescriptionCreation from '@hooks/admin/create/card/useCardDescriptionCreation';
+import useCardCreation from '@hooks/admin/create/card/useCardCreation';
+import CardFirstRowForm from '@components/admin/create/card/CardFirstRowForm';
+import CardSecondRowForm from '@components/admin/create/card/CardSecondRowForm';
+import CardThirdRowForm from '@components/admin/create/card/CardThirdRowForm';
 
 export default function CardForm() {
   const [displayError, setDisplayError] = useState<boolean>(false);

@@ -1,6 +1,6 @@
 import BackButton from '@components/BackButton';
 import Image from 'next/image';
-import CardFormProviders from '@components/CardFormProviders';
+import CardFormProviders from '@components/admin/create/card/CardFormProviders';
 
 export default function CreateCard() {
   return (

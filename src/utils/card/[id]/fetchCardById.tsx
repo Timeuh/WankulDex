@@ -1,6 +1,6 @@
 import {Card} from '@utils/appTypes';
-import cardSchema from '@app/_zod/CardSchema';
 import {API_BASE_URL} from '@utils/appGlobals';
+import cardSchema from '@/zod/CardSchema';
 
 export const fetchCardById = async (id: string) => {
   return await fetch(`${API_BASE_URL}/card/${id}`)
