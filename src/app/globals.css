@@ -8,7 +8,7 @@
     }
 
     .shine-classes {
-        @apply image-shine absolute inset-0 z-30 rounded-lg bg-blend-color mix-blend-color-dodge transition-opacity xl:h-[58vh] xl:w-[20vw]
+        @apply image-shine absolute inset-0 z-30 rounded-lg bg-blend-color mix-blend-color-dodge transition-opacity xl:h-[56vh] xl:w-[20vw]
     }
 }
 
