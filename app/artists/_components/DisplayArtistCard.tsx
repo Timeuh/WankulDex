@@ -1,31 +1,24 @@
 'use client';
 
-import useArtistCards from '@app/artists/_hooks/useArtistCards';
 import LoadingListItem from '@components/LoadingListItem';
 import {Card} from '@utils/appTypes';
 import ListItem from '@components/ListItem';
 
 type Props = {
-  artistId: number;
+  card: Card | undefined;
 };
 
-export default function DisplayArtistCard({artistId}: Props) {
-  const {data} = useArtistCards(artistId);
-
-  if (!data) {
+export default function DisplayArtistCard({card}: Props) {
+  if (!card) {
     return <LoadingListItem />;
   }
 
-  const firstCharacterCard = data.cards.cards.find((card: Card) => {
-    return card.card.type.name === 'Personnage';
-  });
-
   return (
     <ListItem
-      alt={data.artist.name}
-      image={firstCharacterCard!.links.image}
-      text={data.artist.name}
-      seeLink={`/artists/${data.artist.id}`}
+      alt={card.card.artist.name}
+      image={card.links.image}
+      text={card.card.artist.name}
+      seeLink={`/artists/${card.card.artist.id}`}
     />
   );
 }
