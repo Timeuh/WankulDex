@@ -22,7 +22,8 @@
       "@/*": ["./*"],
       "@components/*": [
         "./app/_components/*", "./app/admin/login/_components/*", "./app/admin/create/card/_components/*",
-        "./app/admin/create/artist/_components/*", "./app/card/[id]/_components/*", "./app/artists/_components/*"
+        "./app/admin/create/artist/_components/*", "./app/card/[id]/_components/*", "./app/artists/_components/*",
+        "./app/rarities/_components/*"
       ],
       "@hooks/*": [
         "./app/_hooks/*", "./app/admin/create/card/_hooks/*", "./app/admin/create/artist/_hooks/*",

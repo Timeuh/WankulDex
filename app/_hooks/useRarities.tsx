@@ -3,7 +3,7 @@ import {Rarities, Rarity} from '@/app/_utils/appTypes';
 import raritySchema from '@/app/_zod/RaritySchema';
 import {useQuery} from '@tanstack/react-query';
 
-const getRarities = async () => {
+export const getRarities = async () => {
   return await fetch(`${API_BASE_URL}/rarity`)
     .then((response) => {
       return response.json();
