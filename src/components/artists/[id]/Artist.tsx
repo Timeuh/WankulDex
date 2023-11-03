@@ -6,6 +6,7 @@ import ArtistSummary from '@components/artists/[id]/ArtistSummary';
 import {ArtistCards, Card} from '@utils/appTypes';
 import CharacterCardsTitle from '@components/CharacterCardsTitle';
 import FieldCardsTitle from '@components/FieldCardsTitle';
+import HomeCard from '@components/cards/HomeCard';
 
 interface Props {
   id: string;
@@ -39,7 +40,21 @@ export default function Artist({id}: Props) {
         characterCards={<h2 className={'w-3/4 text-center text-2xl'}>{characterNumber}</h2>}
       />
       <FieldCardsTitle />
+      <div className={'w-[80vw] grid-cols-3 gap-12 space-y-6 xl:grid xl:w-5/6 xl:space-y-0'}>
+        {data.cards.cards.map((card: Card) => {
+          if (card.card.type.name === 'Terrain') {
+            return <HomeCard key={card.card.id} card={card} />;
+          }
+        })}
+      </div>
       <CharacterCardsTitle />
+      <div className={'w-[80vw] grid-cols-4 gap-12 space-y-6 pb-6 xl:grid xl:w-5/6 xl:space-y-0'}>
+        {data.cards.cards.map((card: Card) => {
+          if (card.card.type.name === 'Personnage') {
+            return <HomeCard key={card.card.id} card={card} />;
+          }
+        })}
+      </div>
     </section>
   );
 }
