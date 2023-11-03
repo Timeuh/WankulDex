@@ -246,4 +246,5 @@ export type DescriptionCompositionFieldProps = {
 
 export interface ArtistSummaryLogo {
   logo: string;
+  name: string;
 }
