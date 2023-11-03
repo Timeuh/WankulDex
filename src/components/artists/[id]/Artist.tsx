@@ -4,6 +4,8 @@ import {useQuery} from '@tanstack/react-query';
 import {fetchArtistById} from '@utils/artists/[id]/fetchArtistById';
 import ArtistSummary from '@components/artists/[id]/ArtistSummary';
 import {ArtistCards, Card} from '@utils/appTypes';
+import CharacterCardsTitle from '@components/CharacterCardsTitle';
+import FieldCardsTitle from '@components/FieldCardsTitle';
 
 interface Props {
   id: string;
@@ -29,13 +31,15 @@ export default function Artist({id}: Props) {
   });
 
   return (
-    <section id={`artist-${id}`}>
+    <section id={`artist-${id}`} className={'flex h-full w-full flex-col items-center space-y-6'}>
       <ArtistSummary
         artistName={<h2 className={'w-3/4 text-center text-2xl'}>{data.artist.name}</h2>}
         totalCards={<h2 className={'w-3/4 text-center text-2xl'}>{data.cards.length}</h2>}
         fieldCards={<h2 className={'w-3/4 text-center text-2xl'}>{fieldNumber}</h2>}
         characterCards={<h2 className={'w-3/4 text-center text-2xl'}>{characterNumber}</h2>}
       />
+      <FieldCardsTitle />
+      <CharacterCardsTitle />
     </section>
   );
 }
