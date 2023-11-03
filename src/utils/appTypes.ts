@@ -1,3 +1,5 @@
+import {ReactNode} from 'react';
+
 export type Card = {
   card: {
     artist: {
@@ -247,4 +249,5 @@ export type DescriptionCompositionFieldProps = {
 export interface ArtistSummaryLogo {
   logo: string;
   name: string;
+  text: ReactNode;
 }
