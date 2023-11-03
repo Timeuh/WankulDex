@@ -1,14 +1,13 @@
 import {dehydrate, QueryClient} from '@tanstack/query-core';
-import {API_BASE_URL, QUERY_STALE_TIME} from '@utils/appGlobals';
+import {QUERY_STALE_TIME} from '@utils/appGlobals';
 import {HydrationBoundary} from '@tanstack/react-query';
-import {Card} from '@utils/appTypes';
-import cardSchema from '@/zod/CardSchema';
+import {fetchArtistById} from '@utils/artists/[id]/fetchArtistById';
 
-type Props = {
+interface Props {
   params: {
     id: string;
   };
-};
+}
 
 export default async function ArtistById({params}: Props) {
   const queryClient = new QueryClient({
@@ -19,18 +18,6 @@ export default async function ArtistById({params}: Props) {
       },
     },
   });
-
-  const fetchArtistById = async (id: string) => {
-    return await fetch(`${API_BASE_URL}/artist/${id}/cards`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((card: Card) => {
-        if (cardSchema.safeParse(card).success) {
-          return card;
-        }
-      });
-  };
 
   await queryClient.prefetchQuery({
     queryKey: ['artist', params.id],
