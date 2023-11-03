@@ -3,7 +3,7 @@ import {API_BASE_URL} from '@utils/appGlobals';
 import {Character, Characters} from '@utils/appTypes';
 import characterSchema from '@/zod/CharacterSchema';
 
-const getCharacters = async () => {
+export const getCharacters = async () => {
   return await fetch(`${API_BASE_URL}/character`)
     .then((response) => {
       return response.json();

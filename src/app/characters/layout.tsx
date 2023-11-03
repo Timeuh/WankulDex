@@ -5,15 +5,15 @@ import Image from 'next/image';
 import {Metadata} from 'next';
 
 export const metadata: Metadata = {
-  title: 'WankulDex - Raretés',
-  description: 'Voir toutes les raretés de carte Wankul',
+  title: 'WankulDex - Personnages',
+  description: 'Voir tous les personnages Wankul',
 };
 
 type Props = {
   children: ReactNode;
 };
 
-export default function ArtistsLayout({children}: Props) {
+export default function CharactersLayout({children}: Props) {
   return (
     <section
       id={'artists'}
@@ -25,14 +25,14 @@ export default function ArtistsLayout({children}: Props) {
       <BaseContainer>
         <div className={'flex h-14 w-[80vw] flex-row items-center justify-center space-x-4 xl:h-16 xl:w-[30vw]'}>
           <Image
-            src={'/img/rarity-light.png'}
+            src={'/img/wankul-light.png'}
             alt={'artistes'}
             width={0}
             height={0}
             sizes={'100vw'}
             className={'h-auto w-10 xl:w-12'}
           />
-          <h1 className={'text-2xl xl:text-3xl'}>Raretés</h1>
+          <h1 className={'text-2xl xl:text-3xl'}>Personnages</h1>
         </div>
       </BaseContainer>
       {children}
