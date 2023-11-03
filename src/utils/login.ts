@@ -1,4 +1,4 @@
-import {API_DOMAIN} from '@/app/_utils/appGlobals';
+import {API_DOMAIN} from '@utils/appGlobals';
 
 export default async function login(email: string, password: string) {
   return await fetch(`${API_DOMAIN}/auth/authenticate`, {
