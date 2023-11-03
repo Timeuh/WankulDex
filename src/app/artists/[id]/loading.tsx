@@ -3,11 +3,13 @@ import ArtistSummary from '@components/artists/[id]/ArtistSummary';
 
 export default function Loading() {
   return (
-    <ArtistSummary
-      artistName={<LoadingSummaryText />}
-      totalCards={<LoadingSummaryText />}
-      fieldCards={<LoadingSummaryText />}
-      characterCards={<LoadingSummaryText />}
-    />
+    <div className={'h-[80.3vh]'}>
+      <ArtistSummary
+        artistName={<LoadingSummaryText />}
+        totalCards={<LoadingSummaryText />}
+        fieldCards={<LoadingSummaryText />}
+        characterCards={<LoadingSummaryText />}
+      />
+    </div>
   );
 }
