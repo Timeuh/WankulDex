@@ -2,6 +2,12 @@ import {ReactNode} from 'react';
 import BackButton from '@components/BackButton';
 import BaseContainer from '@components/BaseContainer';
 import Image from 'next/image';
+import {Metadata} from 'next';
+
+export const metadata: Metadata = {
+  title: 'WankulDex - Personnages',
+  description: 'Voir tous les personnages Wankul',
+};
 
 type Props = {
   children: ReactNode;
