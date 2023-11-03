@@ -21,7 +21,7 @@ export default async function ArtistById({params}: Props) {
   });
 
   const fetchArtistById = async (id: string) => {
-    return await fetch(`${API_BASE_URL}/artist/${id}`)
+    return await fetch(`${API_BASE_URL}/artist/${id}/cards`)
       .then((response) => {
         return response.json();
       })
