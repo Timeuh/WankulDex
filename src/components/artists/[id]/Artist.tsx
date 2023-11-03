@@ -42,7 +42,7 @@ export default function Artist({id}: Props) {
           <h2 className={'w-3/4 text-center text-2xl xl:w-full xl:text-3xl'}>{fieldNumber} Cartes Terrain</h2>
         }
         characterCards={
-          <h2 className={'w-3/4 text-center text-2xl xl:w-full xl:text-3xl'}>{characterNumber} Cartes Personnage</h2>
+          <h2 className={'w-5/6 text-center text-2xl xl:w-full xl:text-3xl'}>{characterNumber} Cartes Personnage</h2>
         }
       />
       <FieldCardsTitle />
