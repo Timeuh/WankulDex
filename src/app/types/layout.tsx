@@ -21,7 +21,7 @@ export default function ArtistsLayout({children}: Props) {
       <BaseContainer>
         <div className={'flex h-14 w-[80vw] flex-row items-center justify-center space-x-4 xl:h-16 xl:w-[30vw]'}>
           <Image
-            src={'/img/rarity-light.png'}
+            src={'/img/type-light.png'}
             alt={'artistes'}
             width={0}
             height={0}
