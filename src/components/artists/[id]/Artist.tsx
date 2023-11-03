@@ -3,14 +3,14 @@
 import {useQuery} from '@tanstack/react-query';
 import {fetchArtistById} from '@utils/artists/[id]/fetchArtistById';
 import ArtistSummary from '@components/artists/[id]/ArtistSummary';
-import {Card} from '@utils/appTypes';
+import {ArtistCards, Card} from '@utils/appTypes';
 
 interface Props {
   id: string;
 }
 
 export default function Artist({id}: Props) {
-  const {data} = useQuery({
+  const {data} = useQuery<ArtistCards>({
     queryKey: ['artist', id],
     queryFn: () => {
       return fetchArtistById(id);

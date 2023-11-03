@@ -251,3 +251,20 @@ export interface ArtistSummaryLogo {
   name: string;
   text: ReactNode;
 }
+
+export interface ArtistCards {
+  artist: {
+    id: number;
+    name: string;
+  };
+  links: {
+    self: string;
+    all: string;
+    cards: string;
+  };
+  cards: {
+    type: string;
+    length: number;
+    cards: Array<Card>;
+  };
+}
