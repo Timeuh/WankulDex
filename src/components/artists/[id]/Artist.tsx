@@ -34,10 +34,10 @@ export default function Artist({id}: Props) {
   return (
     <section id={`artist-${id}`} className={'flex h-full w-full flex-col items-center space-y-6'}>
       <ArtistSummary
-        artistName={<h2 className={'w-3/4 text-center text-2xl'}>{data.artist.name}</h2>}
-        totalCards={<h2 className={'w-3/4 text-center text-2xl'}>{data.cards.length}</h2>}
-        fieldCards={<h2 className={'w-3/4 text-center text-2xl'}>{fieldNumber}</h2>}
-        characterCards={<h2 className={'w-3/4 text-center text-2xl'}>{characterNumber}</h2>}
+        artistName={<h2 className={'w-3/4 text-center text-2xl xl:w-full xl:text-3xl'}>{data.artist.name}</h2>}
+        totalCards={<h2 className={'w-3/4 text-center text-2xl xl:w-full xl:text-3xl'}>{data.cards.length}</h2>}
+        fieldCards={<h2 className={'w-3/4 text-center text-2xl xl:w-full xl:text-3xl'}>{fieldNumber}</h2>}
+        characterCards={<h2 className={'w-3/4 text-center text-2xl xl:w-full xl:text-3xl'}>{characterNumber}</h2>}
       />
       <FieldCardsTitle />
       <div className={'w-[80vw] grid-cols-3 gap-12 space-y-6 xl:grid xl:w-5/6 xl:space-y-0'}>
