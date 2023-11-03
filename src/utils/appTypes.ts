@@ -244,10 +244,6 @@ export type DescriptionCompositionFieldProps = {
   special: DescriptionCompositionProps;
 };
 
-export type ArtistCards = Artist & {
-  cards: {
-    type: string;
-    length: number;
-    cards: Array<Card>;
-  };
-};
+export interface ArtistSummaryLogo {
+  logo: string;
+}
