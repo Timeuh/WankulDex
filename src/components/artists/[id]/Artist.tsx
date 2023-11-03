@@ -31,10 +31,10 @@ export default function Artist({id}: Props) {
   return (
     <section id={`artist-${id}`}>
       <ArtistSummary
-        artistName={<h2 className={'text-2xl'}>{data.artist.name}</h2>}
-        totalCards={<h2 className={'text-2xl'}>{data.cards.length}</h2>}
-        fieldCards={<h2 className={'text-2xl'}>{fieldNumber}</h2>}
-        characterCards={<h2 className={'text-2xl'}>{characterNumber}</h2>}
+        artistName={<h2 className={'w-3/4 text-center text-2xl'}>{data.artist.name}</h2>}
+        totalCards={<h2 className={'w-3/4 text-center text-2xl'}>{data.cards.length}</h2>}
+        fieldCards={<h2 className={'w-3/4 text-center text-2xl'}>{fieldNumber}</h2>}
+        characterCards={<h2 className={'w-3/4 text-center text-2xl'}>{characterNumber}</h2>}
       />
     </section>
   );
