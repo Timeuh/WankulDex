@@ -20,7 +20,7 @@ export default function NavbarMenu() {
     {
       name: 'Artistes',
       image: '/img/navbar/pen-light.png',
-      link: '/artists/',
+      link: '/artists/all',
     },
     {
       name: 'Personnages',

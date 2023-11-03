@@ -1,3 +1,5 @@
+import {ReactNode} from 'react';
+
 export type Card = {
   card: {
     artist: {
@@ -244,10 +246,25 @@ export type DescriptionCompositionFieldProps = {
   special: DescriptionCompositionProps;
 };
 
-export type ArtistCards = Artist & {
+export interface ArtistSummaryLogo {
+  logo: string;
+  name: string;
+  text: ReactNode;
+}
+
+export interface ArtistCards {
+  artist: {
+    id: number;
+    name: string;
+  };
+  links: {
+    self: string;
+    all: string;
+    cards: string;
+  };
   cards: {
     type: string;
     length: number;
     cards: Array<Card>;
   };
-};
+}
