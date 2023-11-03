@@ -2,6 +2,7 @@ import {dehydrate, QueryClient} from '@tanstack/query-core';
 import {QUERY_STALE_TIME} from '@utils/appGlobals';
 import {HydrationBoundary} from '@tanstack/react-query';
 import {fetchArtistById} from '@utils/artists/[id]/fetchArtistById';
+import Artist from '@components/artists/[id]/Artist';
 
 interface Props {
   params: {
@@ -28,7 +29,7 @@ export default async function ArtistById({params}: Props) {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <h1>Artiste</h1>
+      <Artist id={params.id} />
     </HydrationBoundary>
   );
 }
