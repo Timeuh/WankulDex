@@ -303,3 +303,8 @@ export interface RarityCards {
     cards: Array<Card>;
   };
 }
+
+export interface GenericFilter {
+  name: string;
+  id: number;
+}
