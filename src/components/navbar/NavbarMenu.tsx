@@ -30,7 +30,7 @@ export default function NavbarMenu() {
     {
       name: 'Raretés',
       image: '/img/navbar/rarity-navbar-light.png',
-      link: '/rarities/',
+      link: '/rarities/all',
     },
     {
       name: 'Types',
