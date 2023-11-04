@@ -1,136 +1,60 @@
-import Image from 'next/image';
-import {Artist, Character, Rarity} from '@utils/appTypes';
+import {Artist, Character, GenericFilter, Rarity} from '@utils/appTypes';
 import BaseContainer from '@components/BaseContainer';
 import useArtists from '@hooks/useArtists';
 import useCharacters from '@hooks/useCharacters';
 import useRarities from '@hooks/useRarities';
+import FilterMenuCategory from '@components/home/filter/FilterMenuCategory';
 
 export default function FilterMenu() {
-  const types = [
+  const types: Array<GenericFilter> = [
     {name: 'Terrain', id: 1},
     {name: 'Personnage', id: 2},
   ];
-
   const {data: artists} = useArtists();
   const {data: characters} = useCharacters();
   const {data: rarities} = useRarities();
 
+  if (!artists || !characters || !rarities) {
+    return;
+  }
+
+  const convertedCharacters: Array<GenericFilter> = characters.map((character: Character) => {
+    return character.character;
+  });
+  const convertedArtists: Array<GenericFilter> = artists.map((artist: Artist) => {
+    return artist.artist;
+  });
+  const convertedRarities: Array<GenericFilter> = rarities.map((rarity: Rarity) => {
+    return rarity.rarity;
+  });
+
   return (
     <BaseContainer>
       <div className={'grid h-full w-[80vw] grid-cols-2'}>
-        <div className={'m-2 flex h-fit w-5/6 flex-col overflow-hidden border-b-2 border-[#CCCCCCFF] p-2'}>
-          <div className={'flex flex-row items-center space-x-4 pb-2'}>
-            <Image
-              src={'/img/home/types-filter-light.png'}
-              alt={'type'}
-              height={0}
-              width={0}
-              sizes={'100vw'}
-              className={'h-auto w-8 xl:w-10'}
-            />
-            <h1 className={'text-xl text-wankil-purple xl:text-3xl'}>Types</h1>
-          </div>
-          {types.map((type: {name: string; id: number}) => {
-            return (
-              <div key={type.id} className={'flex flex-row-reverse items-center justify-between py-1'}>
-                <label htmlFor={type.name} className={'xl:text-xl'}>
-                  {type.name}
-                </label>
-                <input type='checkbox' value={type.name} className={'h-4 w-4 rounded-md accent-dark xl:h-6 xl:w-6'} />
-              </div>
-            );
-          })}
-        </div>
-        <div className={'m-2 flex h-fit w-5/6 flex-col border-b-2 border-[#CCCCCCFF] py-2'}>
-          <div className={'flex w-full flex-row items-center pb-2'}>
-            <Image
-              src={'/img/home/wankul-filter-light.png'}
-              alt={'personnage'}
-              height={0}
-              width={0}
-              sizes={'100vw'}
-              className={'h-auto w-8 xl:w-10'}
-            />
-            <h1 className={'text-xl text-wankil-blue xl:text-3xl'}>Personnages</h1>
-          </div>
-          {characters !== undefined
-            ? characters.map((character: Character) => {
-                return (
-                  <div
-                    key={character.character.id}
-                    className={'flex flex-row-reverse items-center justify-between py-1'}
-                  >
-                    <label htmlFor={character.character.name} className={'xl:text-xl'}>
-                      {character.character.name}
-                    </label>
-                    <input
-                      type='checkbox'
-                      value={character.character.name}
-                      className={'h-4 w-4 rounded-md accent-dark xl:h-6 xl:w-6'}
-                    />
-                  </div>
-                );
-              })
-            : null}
-        </div>
-        <div className={'m-2 flex h-fit w-5/6 flex-col overflow-hidden border-b-2 border-[#CCCCCCFF] p-2'}>
-          <div className={'flex flex-row items-center space-x-4 pb-2'}>
-            <Image
-              src={'/img/home/pen-filter-light.png'}
-              alt={'artiste'}
-              height={0}
-              width={0}
-              sizes={'100vw'}
-              className={'h-auto w-8 xl:w-10'}
-            />
-            <h1 className={'text-xl text-wankil-purple xl:text-3xl'}>Artistes</h1>
-          </div>
-          {artists !== undefined
-            ? artists.map((artist: Artist) => {
-                return (
-                  <div key={artist.artist.id} className={'flex flex-row-reverse items-center justify-between py-1'}>
-                    <label htmlFor={artist.artist.name} className={'xl:text-xl'}>
-                      {artist.artist.name}
-                    </label>
-                    <input
-                      type='checkbox'
-                      value={artist.artist.name}
-                      className={'h-4 w-4 rounded-md accent-dark xl:h-6 xl:w-6'}
-                    />
-                  </div>
-                );
-              })
-            : null}
-        </div>
-        <div className={'m-2 flex h-fit w-5/6 flex-col border-b-2 border-[#CCCCCCFF] p-2'}>
-          <div className={'flex flex-row items-center space-x-4 pb-2'}>
-            <Image
-              src={'/img/home/rarity-light.png'}
-              alt={'rarete'}
-              height={0}
-              width={0}
-              sizes={'100vw'}
-              className={'h-auto w-8 xl:w-10'}
-            />
-            <h1 className={'text-xl text-wankil-blue xl:text-3xl'}>Raretés</h1>
-          </div>
-          {rarities !== undefined
-            ? rarities.map((rarity: Rarity) => {
-                return (
-                  <div key={rarity.rarity.id} className={'flex flex-row-reverse items-center justify-between py-1'}>
-                    <label htmlFor={rarity.rarity.name} className={'xl:text-xl'}>
-                      {rarity.rarity.name}
-                    </label>
-                    <input
-                      type='checkbox'
-                      value={rarity.rarity.name}
-                      className={'h-4 w-4 rounded-md accent-dark xl:h-6 xl:w-6'}
-                    />
-                  </div>
-                );
-              })
-            : null}
-        </div>
+        <FilterMenuCategory
+          categories={types}
+          image={'/img/home/types-filter-light.png'}
+          titleColor={'text-wankil-purple'}
+          title={'Types'}
+        />
+        <FilterMenuCategory
+          categories={convertedCharacters}
+          image={'/img/home/wankul-filter-light.png'}
+          titleColor={'text-wankil-blue'}
+          title={'Personnages'}
+        />
+        <FilterMenuCategory
+          categories={convertedArtists}
+          image={'/img/home/pen-filter-light.png'}
+          titleColor={'text-wankil-purple'}
+          title={'Artistes'}
+        />
+        <FilterMenuCategory
+          categories={convertedRarities}
+          image={'/img/home/rarity-light.png'}
+          titleColor={'text-wankil-blue'}
+          title={'Raretés'}
+        />
       </div>
     </BaseContainer>
   );
