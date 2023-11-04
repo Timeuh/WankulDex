@@ -1,5 +1,5 @@
-import {createContext, ReactNode, useContext} from 'react';
-import {CardsContext} from '@utils/appTypes';
+import {createContext, ReactNode, useContext, useEffect, useState} from 'react';
+import {Card, CardsContext} from '@utils/appTypes';
 import useCards from '@hooks/useCards';
 
 type Props = {
@@ -10,8 +10,23 @@ const CardContext = createContext<CardsContext | null>(null);
 
 export default function CardProvider({children}: Props) {
   const {data, isFetching} = useCards();
+  const [cards, setCards] = useState<Array<Card>>();
 
-  return <CardContext.Provider value={{cards: data, isFetching}}>{children}</CardContext.Provider>;
+  useEffect(() => {
+    if (data) {
+      setCards(data);
+    }
+  }, [data]);
+
+  const searchCards = (search: string) => {
+    setCards(
+      data?.filter((card: Card) => {
+        return card.card.name.toLowerCase().includes(search.toLowerCase());
+      }),
+    );
+  };
+
+  return <CardContext.Provider value={{cards, isFetching, searchCards}}>{children}</CardContext.Provider>;
 }
 
 export function useCardsContext() {
