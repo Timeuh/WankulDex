@@ -1,4 +1,4 @@
-import {Artist, Character, GenericFilter, Rarity, Type} from '@utils/appTypes';
+import {Artist, Character, FilterTitle, GenericFilter, Rarity, Type} from '@utils/appTypes';
 import BaseContainer from '@components/BaseContainer';
 import useArtists from '@hooks/useArtists';
 import useCharacters from '@hooks/useCharacters';
@@ -36,25 +36,25 @@ export default function FilterMenu() {
           categories={convertedTypes}
           image={'/img/home/types-filter-light.png'}
           titleColor={'text-wankil-purple'}
-          title={'Types'}
+          title={FilterTitle.TYPES}
         />
         <FilterMenuCategory
           categories={convertedCharacters}
           image={'/img/home/wankul-filter-light.png'}
           titleColor={'text-wankil-blue'}
-          title={'Personnages'}
+          title={FilterTitle.CHARACTERS}
         />
         <FilterMenuCategory
           categories={convertedArtists}
           image={'/img/home/pen-filter-light.png'}
           titleColor={'text-wankil-purple'}
-          title={'Artistes'}
+          title={FilterTitle.ARTISTS}
         />
         <FilterMenuCategory
           categories={convertedRarities}
           image={'/img/home/rarity-light.png'}
           titleColor={'text-wankil-blue'}
-          title={'Raretés'}
+          title={FilterTitle.RARITIES}
         />
       </div>
     </BaseContainer>
