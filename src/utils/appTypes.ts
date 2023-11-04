@@ -324,3 +324,10 @@ export enum FilterTitle {
   ARTISTS = 'Artistes',
   RARITIES = 'Raretés',
 }
+
+export interface FilterMenuContext {
+  convertedTypes: GenericFilter[];
+  convertedCharacters: GenericFilter[];
+  convertedArtists: GenericFilter[];
+  convertedRarities: GenericFilter[];
+}

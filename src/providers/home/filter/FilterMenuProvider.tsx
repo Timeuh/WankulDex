@@ -3,18 +3,13 @@ import useTypes from '@hooks/useTypes';
 import useArtists from '@hooks/useArtists';
 import useCharacters from '@hooks/useCharacters';
 import useRarities from '@hooks/useRarities';
-import {Artist, Character, GenericFilter, Rarity, Type} from '@utils/appTypes';
+import {Artist, Character, FilterMenuContext, GenericFilter, Rarity, Type} from '@utils/appTypes';
 
 interface Props {
   children: ReactNode;
 }
 
-const FilterMenuContext = createContext<{
-  convertedTypes: GenericFilter[];
-  convertedCharacters: GenericFilter[];
-  convertedArtists: GenericFilter[];
-  convertedRarities: GenericFilter[];
-} | null>(null);
+const FilterMenuContext = createContext<FilterMenuContext | null>(null);
 
 export default function FilterMenuProvider({children}: Props) {
   const {data: types} = useTypes();
