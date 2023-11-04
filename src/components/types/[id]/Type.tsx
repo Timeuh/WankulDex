@@ -6,6 +6,7 @@ import FieldCardsTitle from '@components/FieldCardsTitle';
 import HomeCard from '@components/cards/HomeCard';
 import {useCardsContext} from '@providers/CardProvider';
 import TypeSummary from '@components/types/[id]/TypeSummary';
+import LoadingTypes from '@components/types/[id]/LoadingTypes';
 
 interface Props {
   id: string;
@@ -15,7 +16,7 @@ export default function Type({id}: Props) {
   const {cards} = useCardsContext();
 
   if (!cards) {
-    return;
+    return <LoadingTypes />;
   }
 
   let fieldNumber = 0;
