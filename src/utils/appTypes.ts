@@ -334,8 +334,8 @@ export interface FilterMenuContext {
 }
 
 export interface FilterMenuFilters {
-  types: {};
-  artists: {};
-  characters: {};
-  rarities: {};
+  types: Record<string, boolean>;
+  artists: Record<string, boolean>;
+  characters: Record<string, boolean>;
+  rarities: Record<string, boolean>;
 }
