@@ -4,6 +4,7 @@ import Image from 'next/image';
 import {useState} from 'react';
 import BaseContainer from '@components/BaseContainer';
 import FilterMenu from '@components/home/filter/FilterMenu';
+import FilterMenuProvider from '@providers/home/filter/FilterMenuProvider';
 
 export default function Filter() {
   const [isActive, setActive] = useState<boolean>(false);
@@ -30,7 +31,9 @@ export default function Filter() {
           isActive ? 'h-auto opacity-100' : 'pointer-events-none opacity-0'
         }`}
       >
-        <FilterMenu />
+        <FilterMenuProvider>
+          <FilterMenu />
+        </FilterMenuProvider>
       </div>
     </div>
   );
