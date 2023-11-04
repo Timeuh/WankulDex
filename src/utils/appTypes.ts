@@ -285,3 +285,20 @@ export interface CharacterCards {
     cards: Array<Card>;
   };
 }
+
+export interface RarityCards {
+  rarity: {
+    id: number;
+    name: string;
+  };
+  links: {
+    self: string;
+    all: string;
+    cards: string;
+  };
+  cards: {
+    type: string;
+    length: number;
+    cards: Array<Card>;
+  };
+}
