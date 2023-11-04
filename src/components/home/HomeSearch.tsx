@@ -1,4 +1,4 @@
-import Filter from '@components/home/Filter';
+import Filter from '@components/home/filter/Filter';
 import SearchBar from '@components/home/SearchBar';
 
 export default function HomeSearch() {
