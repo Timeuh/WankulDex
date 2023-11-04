@@ -21,7 +21,7 @@ export default function Filter() {
           width={0}
           height={0}
           sizes={'100vw'}
-          className={'h-auto w-8'}
+          className={'m-2 h-auto w-8'}
           onClick={toggleActive}
         />
       </BaseContainer>
