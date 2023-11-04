@@ -67,15 +67,6 @@ export type LoginResult = {
   token?: string;
 };
 
-export type DecodedToken = {
-  time: Date;
-  user: string;
-  name: string;
-  lastname: string;
-  iat: number;
-  exp: number;
-};
-
 export type InputField = {
   value: string | number;
   error: string;
@@ -136,6 +127,24 @@ export type Rarity = {
 
 export type Rarities = {
   rarities: Array<Rarity>;
+  length: number;
+  type: string;
+};
+
+export type Type = {
+  type: {
+    name: string;
+    id: number;
+  };
+  links: {
+    self: string;
+    all: string;
+    cards: string;
+  };
+};
+
+export type Types = {
+  types: Array<Type>;
   length: number;
   type: string;
 };
@@ -227,6 +236,7 @@ export type ArtistCreationResponse = {
 export type CardsContext = {
   cards: Array<Card> | undefined;
   isFetching: boolean;
+  searchCards: (search: string) => void;
 };
 
 export type DescriptionCompositionProps = {
@@ -301,4 +311,31 @@ export interface RarityCards {
     length: number;
     cards: Array<Card>;
   };
+}
+
+export interface GenericFilter {
+  name: string;
+  id: number;
+}
+
+export enum FilterTitle {
+  TYPES = 'Type',
+  CHARACTERS = 'Personnages',
+  ARTISTS = 'Artistes',
+  RARITIES = 'Raretés',
+}
+
+export interface FilterMenuContext {
+  convertedTypes: GenericFilter[];
+  convertedCharacters: GenericFilter[];
+  convertedArtists: GenericFilter[];
+  convertedRarities: GenericFilter[];
+  filterMenuFilters: FilterMenuFilters;
+}
+
+export interface FilterMenuFilters {
+  types: Record<string, boolean>;
+  artists: Record<string, boolean>;
+  characters: Record<string, boolean>;
+  rarities: Record<string, boolean>;
 }

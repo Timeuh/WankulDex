@@ -12,7 +12,7 @@ type Props = {
 };
 
 export default function DisplayCards({loadingCardsNumber, cardType}: Props) {
-  const {cards, isFetching} = useCardsContext();
+  const {cards} = useCardsContext();
   const loadingCards: Array<number> = [];
 
   for (let i = 0; i < loadingCardsNumber; i++) {
@@ -26,11 +26,11 @@ export default function DisplayCards({loadingCardsNumber, cardType}: Props) {
         cardType === 'Terrain' ? 'xl:grid-cols-3' : 'xl:grid-cols-4'
       }`}
     >
-      {isFetching
+      {cards === undefined
         ? loadingCards.map((id: number) => {
             return cardType === 'Terrain' ? <FieldCardLoading key={id} /> : <CharacterCardLoading key={id} />;
           })
-        : cards!.map((card: Card) => {
+        : cards.map((card: Card) => {
             if (card.card.type.name === cardType) {
               return <HomeCard key={card.card.id} card={card} />;
             }
