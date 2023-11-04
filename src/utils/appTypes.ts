@@ -67,15 +67,6 @@ export type LoginResult = {
   token?: string;
 };
 
-export type DecodedToken = {
-  time: Date;
-  user: string;
-  name: string;
-  lastname: string;
-  iat: number;
-  exp: number;
-};
-
 export type InputField = {
   value: string | number;
   error: string;
@@ -136,6 +127,24 @@ export type Rarity = {
 
 export type Rarities = {
   rarities: Array<Rarity>;
+  length: number;
+  type: string;
+};
+
+export type Type = {
+  type: {
+    name: string;
+    id: number;
+  };
+  links: {
+    self: string;
+    all: string;
+    cards: string;
+  };
+};
+
+export type Types = {
+  types: Array<Type>;
   length: number;
   type: string;
 };
