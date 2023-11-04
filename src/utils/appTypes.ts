@@ -246,7 +246,7 @@ export type DescriptionCompositionFieldProps = {
   special: DescriptionCompositionProps;
 };
 
-export interface ArtistSummaryLogo {
+export interface SummaryLogo {
   logo: string;
   name: string;
   text: ReactNode;

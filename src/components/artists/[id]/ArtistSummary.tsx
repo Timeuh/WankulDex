@@ -1,5 +1,5 @@
 import BaseContainer from '@components/BaseContainer';
-import {ArtistSummaryLogo} from '@utils/appTypes';
+import {SummaryLogo} from '@utils/appTypes';
 import Image from 'next/image';
 import {ReactNode} from 'react';
 
@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function ArtistSummary({artistName, totalCards, fieldCards, characterCards}: Props) {
-  const infos: Array<ArtistSummaryLogo> = [
+  const infos: Array<SummaryLogo> = [
     {
       logo: '/img/artists/details/pen-light.png',
       name: 'artiste',
@@ -37,7 +37,7 @@ export default function ArtistSummary({artistName, totalCards, fieldCards, chara
   return (
     <BaseContainer>
       <div className={'h-full w-[80vw] xl:w-[30vw]'}>
-        {infos.map((logo: ArtistSummaryLogo, index: number) => {
+        {infos.map((logo: SummaryLogo, index: number) => {
           return (
             <div
               key={index}
