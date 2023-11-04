@@ -1,7 +1,7 @@
-import {DecodedToken} from '@/app/_utils/appTypes';
 import jwtDecode from 'jwt-decode';
 import Cookies from 'universal-cookie/lib';
 import {RequestCookies} from 'next/dist/compiled/@edge-runtime/cookies';
+import {DecodedToken} from '@utils/appTypes';
 
 export default function isAdminLogged(requestCookies?: RequestCookies) {
   const cookieName = process.env.NEXT_PUBLIC_API_COOKIE;
