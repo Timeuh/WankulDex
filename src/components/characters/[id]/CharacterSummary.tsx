@@ -4,33 +4,21 @@ import Image from 'next/image';
 import {ReactNode} from 'react';
 
 interface Props {
-  artistName: ReactNode;
+  characterName: ReactNode;
   totalCards: ReactNode;
-  fieldCards: ReactNode;
-  characterCards: ReactNode;
 }
 
-export default function ArtistSummary({artistName, totalCards, fieldCards, characterCards}: Props) {
+export default function CharacterSummary({characterName, totalCards}: Props) {
   const infos: Array<SummaryLogo> = [
     {
-      logo: '/img/artists/details/pen-light.png',
-      name: 'artiste',
-      text: artistName,
+      logo: '/img/characters/details/wankul-light.png',
+      name: 'personnage',
+      text: characterName,
     },
     {
-      logo: '/img/artists/details/collection-light.png',
+      logo: '/img/characters/details/collection-light.png',
       name: 'nombre de cartes',
       text: totalCards,
-    },
-    {
-      logo: '/img/artists/details/type-light.png',
-      name: 'nombre de terrains',
-      text: fieldCards,
-    },
-    {
-      logo: '/img/artists/details/wankul-light.png',
-      name: 'nombre de personnages',
-      text: characterCards,
     },
   ];
 

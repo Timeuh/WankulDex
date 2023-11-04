@@ -246,7 +246,7 @@ export type DescriptionCompositionFieldProps = {
   special: DescriptionCompositionProps;
 };
 
-export interface ArtistSummaryLogo {
+export interface SummaryLogo {
   logo: string;
   name: string;
   text: ReactNode;
@@ -254,6 +254,23 @@ export interface ArtistSummaryLogo {
 
 export interface ArtistCards {
   artist: {
+    id: number;
+    name: string;
+  };
+  links: {
+    self: string;
+    all: string;
+    cards: string;
+  };
+  cards: {
+    type: string;
+    length: number;
+    cards: Array<Card>;
+  };
+}
+
+export interface CharacterCards {
+  character: {
     id: number;
     name: string;
   };
