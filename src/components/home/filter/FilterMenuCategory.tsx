@@ -18,7 +18,7 @@ export default function FilterMenuCategory({categories, image, title, titleColor
       {categories.map((category: GenericFilter) => {
         return (
           <div key={category.id} className={'flex flex-row-reverse items-center justify-between py-2'}>
-            <label htmlFor={category.name} className={'ps-2 text-end text-[1em] xl:text-xl'}>
+            <label htmlFor={category.name} className={'ps-2 text-end text-[1em] xl:text-2xl'}>
               {category.name}
             </label>
             <input type='checkbox' value={category.name} className={'h-6 w-6 rounded-md accent-dark xl:h-8 xl:w-8'} />

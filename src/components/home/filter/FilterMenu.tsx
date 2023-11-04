@@ -31,7 +31,7 @@ export default function FilterMenu() {
 
   return (
     <BaseContainer>
-      <div className={'grid h-full w-[83vw] grid-cols-2'}>
+      <div className={'grid h-full w-[83vw] grid-cols-2 xl:w-[34vw]'}>
         <FilterMenuCategory
           categories={convertedTypes}
           image={'/img/home/types-filter-light.png'}
