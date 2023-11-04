@@ -35,7 +35,7 @@ export default function NavbarMenu() {
     {
       name: 'Types',
       image: '/img/navbar/types-light.png',
-      link: '/types/',
+      link: '/types/all',
     },
     {
       name: 'Admin',
