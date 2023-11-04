@@ -25,7 +25,7 @@ export default function NavbarMenu() {
     {
       name: 'Personnages',
       image: '/img/navbar/wankul-light.png',
-      link: '/characters/',
+      link: '/characters/all',
     },
     {
       name: 'Raretés',
