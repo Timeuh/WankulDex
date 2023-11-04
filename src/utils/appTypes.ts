@@ -317,3 +317,10 @@ export interface GenericFilter {
   name: string;
   id: number;
 }
+
+export enum FilterTitle {
+  TYPES = 'Type',
+  CHARACTERS = 'Personnages',
+  ARTISTS = 'Artistes',
+  RARITIES = 'Raretés',
+}
