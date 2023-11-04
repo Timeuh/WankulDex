@@ -1,9 +1,15 @@
 import {ReactNode} from 'react';
 import BackButton from '@components/BackButton';
+import {Metadata} from 'next';
 
 interface Props {
   children: ReactNode;
 }
+
+export const metadata: Metadata = {
+  title: 'WankulDex - Détails rareté',
+  description: 'Voir les détails de la rareté de carte Wankul',
+};
 
 export default function Layout({children}: Props) {
   return (
