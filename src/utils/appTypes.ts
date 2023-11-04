@@ -330,4 +330,12 @@ export interface FilterMenuContext {
   convertedCharacters: GenericFilter[];
   convertedArtists: GenericFilter[];
   convertedRarities: GenericFilter[];
+  filterMenuFilters: FilterMenuFilters;
+}
+
+export interface FilterMenuFilters {
+  types: {};
+  artists: {};
+  characters: {};
+  rarities: {};
 }
