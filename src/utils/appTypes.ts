@@ -313,29 +313,11 @@ export interface RarityCards {
   };
 }
 
-export interface GenericFilter {
+export type DecodedToken = {
+  time: Date;
+  user: string;
   name: string;
-  id: number;
-}
-
-export enum FilterTitle {
-  TYPES = 'Type',
-  CHARACTERS = 'Personnages',
-  ARTISTS = 'Artistes',
-  RARITIES = 'Raretés',
-}
-
-export interface FilterMenuContext {
-  convertedTypes: GenericFilter[];
-  convertedCharacters: GenericFilter[];
-  convertedArtists: GenericFilter[];
-  convertedRarities: GenericFilter[];
-  filterMenuFilters: FilterMenuFilters;
-}
-
-export interface FilterMenuFilters {
-  types: Record<string, boolean>;
-  artists: Record<string, boolean>;
-  characters: Record<string, boolean>;
-  rarities: Record<string, boolean>;
-}
+  lastname: string;
+  iat: number;
+  exp: number;
+};
