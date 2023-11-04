@@ -227,6 +227,7 @@ export type ArtistCreationResponse = {
 export type CardsContext = {
   cards: Array<Card> | undefined;
   isFetching: boolean;
+  searchCards: (search: string) => void;
 };
 
 export type DescriptionCompositionProps = {
