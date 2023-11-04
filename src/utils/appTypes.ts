@@ -268,3 +268,20 @@ export interface ArtistCards {
     cards: Array<Card>;
   };
 }
+
+export interface CharacterCards {
+  character: {
+    id: number;
+    name: string;
+  };
+  links: {
+    self: string;
+    all: string;
+    cards: string;
+  };
+  cards: {
+    type: string;
+    length: number;
+    cards: Array<Card>;
+  };
+}
