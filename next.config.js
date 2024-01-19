@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'wankul-api.vercel.app',
+        hostname: 'wankuldex-api.timeuh.fr',
       },
     ],
   },
