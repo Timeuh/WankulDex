@@ -20,7 +20,7 @@ export default function Card({id}: Props) {
       </div>
       <div className={'flex w-[80vw] flex-col items-center space-y-6 xl:flex-row xl:justify-around'}>
         <Image
-          src={`${API_DOMAIN}/${data!.links.image}`}
+          src={`${API_DOMAIN}${data!.links.image}`}
           alt={data!.card.name}
           width={0}
           height={0}
