@@ -12,19 +12,5 @@ services:
       - .:/app
     ports:
       - "54111:3000"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.wankuldex.rule=Host(`wankuldex.timeuh.fr`)"
-      - "traefik.http.routers.wankuldex.entrypoints=websecure"
-      - "traefik.http.routers.wankuldex.tls.certresolver=myresolver"
-      - "traefik.http.services.wankuldex.loadbalancer.server.port=3000"
-    networks:
-      - traefik_web
     working_dir: /app
 
-
-networks:
-  traefik_web:
-    external: true
-  default:
-    driver: bridge
